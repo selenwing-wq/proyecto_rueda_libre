@@ -58,3 +58,42 @@ Repositorio: [URL REAL DE GITHUB]
 Commit inicial: Crear estructura inicial de Rueda Libre
 Fecha: [FECHA DE REALIZACION]
 Resultado del envio: [CONFIRMAR QUE SE SUBIO A GITHUB]
+
+
+MINIRETO: SITIO NAVEGABLE RUEDA LIBRE v0.1
+
+Objetivo:
+Integrar las páginas de inicio, tarifas y reservas mediante
+un menú común y un pie de página compartido.
+
+TABLA DE RUTAS RELATIVAS
+
+Archivo de origen | Destino | Ruta escrita
+index.html | Inicio | index.html
+index.html | Tarifas y rutas | paginas/tarifas.html
+index.html | Reservas | paginas/reservas.html
+paginas/tarifas.html | Inicio | ../index.html
+paginas/tarifas.html | Tarifas y rutas | tarifas.html
+paginas/tarifas.html | Reservas | reservas.html
+paginas/reservas.html | Inicio | ../index.html
+paginas/reservas.html | Tarifas y rutas | tarifas.html
+paginas/reservas.html | Reservas | reservas.html
+
+ENLACES ADICIONALES
+
+Desde index.html:
+Reservar ahora -> paginas/reservas.html
+
+Desde paginas/tarifas.html:
+Reservar ahora -> reservas.html
+
+HORARIO DE ATENCION
+
+Lunes a viernes: 7:00 a. m. a 7:00 p. m.
+Sábados, domingos y festivos: 6:00 a. m. a 2:00 p. m.
+
+VERIFICACION
+
+Navegación comprobada: [PENDIENTE DE VERIFICAR]
+Errores 404: [REGISTRAR RESULTADO REAL]
+Commit v0.1: [REGISTRAR RESULTADO REAL]
