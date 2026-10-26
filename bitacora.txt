@@ -875,3 +875,102 @@ Comandos previstos:
 `git push`
 
 El commit y el push se consideran completados solo cuando Git confirma que la operación se realizó correctamente.
+
+## Reto: Validación nativa del formulario de reservas
+
+### Objetivo
+
+Aplicar las reglas de negocio definidas por el cliente al formulario de reservas de Rueda Libre utilizando atributos de validación nativa de HTML. También se busca garantizar que el formulario pueda recorrerse y completarse mediante el teclado.
+
+### Archivo modificado
+
+- `paginas/reservas.html`
+
+### Validaciones implementadas
+
+Se añadieron atributos HTML para comprobar los datos antes de permitir el envío normal del formulario:
+
+- **Nombre completo:** `required` y `minlength="3"`.
+- **Documento:** `required`, `pattern="[0-9]{6,10}"`, `minlength="6"`, `maxlength="10"` y `title`.
+- **Correo electrónico:** `required` y `type="email"`.
+- **Celular:** `required`, `pattern="3[0-9]{9}"`, `minlength="10"`, `maxlength="10"` y `title`.
+- **Fecha del alquiler:** `required`, `min="2026-11-01"` y `max="2026-12-31"`.
+- **Tipo de bicicleta:** botones `radio` obligatorios, agrupados mediante el mismo atributo `name`.
+- **Plan de alquiler:** lista desplegable obligatoria con una opción inicial vacía.
+- **Cantidad de bicicletas:** `required`, `min="1"`, `max="6"` y `step="1"`.
+- **Recorrido guiado:** lista desplegable con las opciones definidas por el cliente.
+- **Comentarios:** campo opcional con `maxlength="300"`.
+- **Políticas de alquiler:** casilla obligatoria con `required`.
+
+### Patrones de validación
+
+**Documento**
+
+El patrón `[0-9]{6,10}` permite únicamente dígitos del 0 al 9, con una longitud de entre 6 y 10 caracteres. El atributo `title` explica que no deben incluirse puntos, espacios ni guiones.
+
+**Celular**
+
+El patrón `3[0-9]{9}` exige que el primer dígito sea 3 y que después existan exactamente nueve dígitos adicionales. Por ejemplo, `3001234567` debe aceptarse, mientras que `1234567890` y `300123` deben rechazarse.
+
+### Uso del teclado
+
+Se conservó un orden de lectura y navegación lógico:
+
+1. Enlaces de navegación.
+2. Campos de la sección «Tus datos».
+3. Campos de la sección «Tu alquiler».
+4. Casilla de aceptación de políticas.
+5. Botón de envío.
+6. Elementos posteriores del documento.
+
+Para comprobar la accesibilidad mediante teclado:
+
+- `Tab`: avanzar al siguiente elemento interactivo.
+- `Shift + Tab`: regresar al elemento anterior.
+- Flechas: cambiar la selección entre opciones de un grupo de botones `radio` cuando el navegador les da el foco.
+- Barra espaciadora: marcar o desmarcar la casilla de aceptación cuando tiene el foco.
+- `Enter`: activar enlaces o intentar enviar el formulario desde el botón de envío.
+
+Las etiquetas están asociadas con sus controles mediante `for` e `id`. Esto permite activar el control al pulsar la etiqueta y facilita su identificación.
+
+### Tabla de pruebas
+
+**Instrucción:** ejecutar cada prueba en el navegador y registrar el resultado real en la última columna. Las pruebas de datos inválidos deben realizarse completando los demás campos obligatorios con valores válidos para comprobar específicamente la regla indicada.
+
+| Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
+|---|---|---|---|
+| Nombre completo | `Al` | Rechazado: tiene menos de 3 caracteres. | Pendiente de probar |
+| Nombre completo | `Ana` | Aceptado por la validación de longitud. | Pendiente de probar |
+| Documento | `12345` | Rechazado: tiene menos de 6 dígitos. | Pendiente de probar |
+| Documento | `12345A` | Rechazado: contiene una letra. | Pendiente de probar |
+| Documento | `123456` | Aceptado por el patrón y la longitud. | Pendiente de probar |
+| Correo | `correo-invalido` | Rechazado por el formato de correo. | Pendiente de probar |
+| Celular | `3001234567` | Aceptado por el patrón. | Pendiente de probar |
+| Celular | `1234567890` | Rechazado: no comienza por 3. | Pendiente de probar |
+| Celular | `300123` | Rechazado: no tiene 10 dígitos. | Pendiente de probar |
+| Fecha | `2026-10-31` | Rechazada: es anterior a la fecha mínima. | Pendiente de probar |
+| Fecha | `2027-01-01` | Rechazada: es posterior a la fecha máxima. | Pendiente de probar |
+| Cantidad | `7` | Rechazada: supera el máximo de 6. | Pendiente de probar |
+| Cantidad | `1` | Aceptada por el rango permitido. | Pendiente de probar |
+| Comentarios | Texto de 301 caracteres | El campo no debe permitir más de 300 caracteres. | Pendiente de probar |
+| Políticas | Casilla sin marcar | El envío debe bloquearse. | Pendiente de probar |
+
+### Observaciones
+
+La validación nativa del navegador ayuda a detectar errores de formato y campos incompletos antes del envío. Sin embargo, todavía no se verifica la disponibilidad de las bicicletas ni se almacenan las reservas, porque el formulario no está conectado a un backend.
+
+Los resultados de la tabla deben actualizarse después de realizar las pruebas. No se deben marcar como aprobados casos que no se hayan ejecutado.
+
+### Control de versiones
+
+Una vez terminadas las pruebas y guardados los cambios:
+
+`git status`
+
+`git add paginas/reservas.html bitacora.txt`
+
+`git commit -m "Agregar validaciones al formulario de reservas"`
+
+`git push`
+
+El reto se considera entregado cuando los cambios quedan confirmados en Git y subidos al repositorio remoto.

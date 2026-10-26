@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,11 @@
     <main>
         <section id="formulario-reserva">
             <h2>Formulario de reserva</h2>
+
             <p>
                 Completa los siguientes datos para solicitar el alquiler
-                de tus bicicletas.
+                de tus bicicletas. Los campos marcados como obligatorios
+                deben cumplir las reglas indicadas.
             </p>
 
             <form action="#" method="post">
@@ -31,25 +33,35 @@
                     <legend>Tus datos</legend>
 
                     <p>
-                        <label for="nombre-completo">Nombre completo:</label>
+                        <label for="nombre-completo">Nombre completo (obligatorio):</label>
                         <input
                             type="text"
                             id="nombre-completo"
                             name="nombre_completo"
                             autocomplete="name"
+                            minlength="3"
                             required
                         >
                     </p>
 
                     <p>
-                        <label for="documento">Número de documento:</label>
+                        <label for="documento">Número de documento (6 a 10 dígitos):</label>
                         <input
                             type="text"
                             id="documento"
                             name="numero_documento"
+                            inputmode="numeric"
+                            minlength="6"
+                            maxlength="10"
+                            pattern="[0-9]{6,10}"
+                            title="Ingresa únicamente números, entre 6 y 10 dígitos, sin puntos ni espacios."
+                            aria-describedby="ayuda-documento"
                             autocomplete="off"
                             required
                         >
+                        <small id="ayuda-documento">
+                            Solo números, entre 6 y 10 dígitos. No uses puntos, espacios ni guiones.
+                        </small>
                     </p>
 
                     <p>
@@ -64,14 +76,23 @@
                     </p>
 
                     <p>
-                        <label for="celular">Celular:</label>
+                        <label for="celular">Celular (10 dígitos, comienza por 3):</label>
                         <input
                             type="tel"
                             id="celular"
                             name="celular"
+                            inputmode="numeric"
+                            minlength="10"
+                            maxlength="10"
+                            pattern="3[0-9]{9}"
+                            title="Ingresa exactamente 10 dígitos, comenzando por 3. Ejemplo: 3001234567."
+                            aria-describedby="ayuda-celular"
                             autocomplete="tel"
                             required
                         >
+                        <small id="ayuda-celular">
+                            Ejemplo válido: 3001234567. No agregues espacios ni el indicativo del país.
+                        </small>
                     </p>
                 </fieldset>
 
@@ -84,11 +105,16 @@
                             type="date"
                             id="fecha-alquiler"
                             name="fecha_alquiler"
+                            min="2026-11-01"
+                            max="2026-12-31"
                             required
                         >
+                        <small>
+                            Selecciona una fecha entre el 1 de noviembre y el 31 de diciembre de 2026.
+                        </small>
                     </p>
 
-                    <p>Tipo de bicicleta:</p>
+                    <p>Tipo de bicicleta (obligatorio):</p>
 
                     <p>
                         <input
@@ -132,13 +158,13 @@
                     </p>
 
                     <p>
-                        <label for="cantidad">Cantidad de bicicletas:</label>
+                        <label for="cantidad">Cantidad de bicicletas (de 1 a 6):</label>
                         <input
                             type="number"
                             id="cantidad"
                             name="cantidad_bicicletas"
                             min="1"
-                            max="20"
+                            max="6"
                             step="1"
                             value="1"
                             required
@@ -156,14 +182,19 @@
                     </p>
 
                     <p>
-                        <label for="comentarios">Comentarios adicionales:</label>
+                        <label for="comentarios">Comentarios adicionales (opcional):</label>
                         <textarea
                             id="comentarios"
                             name="comentarios"
                             rows="5"
                             cols="40"
-                            placeholder="Cuéntanos si tienes alguna solicitud especial."
+                            maxlength="300"
+                            aria-describedby="ayuda-comentarios"
+                            placeholder="Escribe aquí tus solicitudes especiales."
                         ></textarea>
+                        <small id="ayuda-comentarios">
+                            Máximo 300 caracteres.
+                        </small>
                     </p>
                 </fieldset>
 
@@ -179,7 +210,7 @@
                             required
                         >
                         <label for="aceptar-politicas">
-                            Acepto las políticas de alquiler de Rueda Libre.
+                            Acepto las políticas de alquiler de Rueda Libre (obligatorio).
                         </label>
                     </p>
                 </fieldset>
