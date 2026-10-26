@@ -1529,3 +1529,194 @@ Después del push, revisar el repositorio remoto para confirmar que todos los ca
 - La bitácora conserva el registro de los retos anteriores y añade este nuevo reto.
 
 Fin del registro del reto.
+
+============================================================
+RETO: BOX MODEL, DIMENSIONES Y ESPACIADO CSS
+Proyecto: Rueda Libre
+Fecha: 26/10/2026
+============================================================
+
+1. OBJETIVO
+
+Mejorar la distribución visual del sitio mediante el modelo de caja de CSS, el control de dimensiones y el uso de unidades relativas. Se ajustaron las tarjetas de servicios, las tablas, el formulario, la navegación y el contenedor principal.
+
+2. BOX MODEL
+
+El modelo de caja está compuesto por:
+
+- Content: área donde aparece el contenido.
+- Padding: espacio interno entre el contenido y el borde.
+- Border: borde que rodea el elemento.
+- Margin: espacio externo que separa un elemento de los demás.
+
+Se agregó esta regla global:
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+Con border-box, el ancho declarado incluye el contenido, el padding y el borde. Esto facilita calcular dimensiones y evita que el relleno haga que una tarjeta supere el ancho previsto.
+
+3. CONTENEDOR PRINCIPAL
+
+El elemento main utiliza:
+- width: 92%.
+- max-width: 70rem.
+- margin-left: auto.
+- margin-right: auto.
+
+El ancho porcentual permite adaptarse a pantallas pequeñas, mientras que max-width limita el ancho en pantallas grandes. Los márgenes automáticos centran el contenido.
+
+La portada principal utiliza la clase .portada y min-height: 60vh. Esto establece una altura mínima equivalente al 60 % de la altura de la ventana del navegador.
+
+4. TARJETAS DE SERVICIOS
+
+La sección #servicios utiliza CSS Grid para distribuir las tarjetas.
+
+Las reglas principales son:
+- Tres columnas en pantallas amplias.
+- Dos columnas en pantallas medianas.
+- Una columna en pantallas pequeñas.
+- Separación entre tarjetas mediante var(--espacio-grande).
+- Relleno interno mediante var(--espacio-mediano).
+- Borde de 1px.
+- Esquinas redondeadas mediante var(--radio-borde).
+- Imágenes con width: 100% y max-width: 100%.
+
+Se utiliza min-width: 0 en las tarjetas para permitir que se ajusten a las columnas sin desbordarse.
+
+5. TABLAS
+
+Las tablas de tarifas y recorridos se mejoraron mediante:
+- width: 100%.
+- padding en las celdas.
+- Bordes de 1px.
+- Encabezados con fondo Azul Noche y texto Crema.
+- Alineación vertical superior.
+- Separación inferior con la escala de espaciado.
+- Desplazamiento horizontal en pantallas estrechas.
+
+El contraste de los encabezados utiliza la combinación aprobada de texto Crema sobre Azul Noche.
+
+6. FORMULARIO
+
+Se ajustó el formulario para que:
+- Tenga width: 100%.
+- No supere 48rem de ancho.
+- Quede centrado con márgenes automáticos.
+- Cada etiqueta aparezca encima de su campo.
+- Los campos de texto, fecha, selección y comentarios ocupen todo el ancho disponible.
+- Cada grupo fieldset tenga relleno y separación inferior.
+- El botón de envío tenga relleno generoso.
+
+Los campos conservan el indicador visible de foco y los estilos de interacción del reto anterior.
+
+7. NAVEGACIÓN
+
+La lista #menu utiliza:
+- display: flex.
+- flex-direction: row.
+- flex-wrap: wrap.
+- gap: var(--espacio-mediano).
+
+Esto presenta las opciones en una fila cuando existe espacio suficiente y permite que pasen a otra línea si la pantalla es estrecha.
+
+Los enlaces mantienen la clase activo para identificar la página actual.
+
+8. UNIDADES CSS UTILIZADAS
+
+rem:
+- Escala de espaciado.
+- Ancho máximo del contenido.
+- Ancho máximo del formulario.
+- Rellenos, márgenes y radios.
+- Indicadores de foco.
+
+%:
+- Ancho del contenedor principal.
+- Ancho de las imágenes de las tarjetas.
+- Ancho de los campos del formulario.
+
+vh:
+- Altura mínima de la portada.
+
+px:
+- Bordes de tarjetas, tablas, campos y botones.
+
+La escala de espaciado es:
+- 0.5rem: espacio pequeño.
+- 1rem: espacio mediano.
+- 2rem: espacio grande.
+- 3rem: espacio extra grande.
+
+9. PRUEBAS EN DEVTOOLS: BOX MODEL
+
+Objetivo: medir el ancho total de una tarjeta antes y después de aplicar box-sizing: border-box.
+
+Procedimiento:
+1. Abrir index.html con Live Server.
+2. Pulsar F12 y abrir Elements.
+3. Seleccionar una tarjeta, por ejemplo #alquiler-bicicletas.
+4. Abrir Computed y buscar width, padding, border y box-sizing.
+5. Registrar el ancho y comprobar el valor de box-sizing.
+6. Desactivar temporalmente la regla global border-box en Styles.
+7. Medir de nuevo la tarjeta con box-sizing: content-box.
+8. Restaurar la regla y confirmar el ancho con border-box.
+9. Registrar las medidas observadas en el navegador.
+
+Tabla de mediciones:
+
+Elemento: #alquiler-bicicletas
+
+Prueba A:
+box-sizing: content-box
+Ancho declarado: __________
+Padding horizontal total: __________
+Borde horizontal total: __________
+Ancho exterior calculado: __________
+Resultado real en Computed: __________
+
+Prueba B:
+box-sizing: border-box
+Ancho declarado: __________
+Padding horizontal total: __________
+Borde horizontal total: __________
+Ancho exterior calculado: __________
+Resultado real en Computed: __________
+
+Conclusión:
+Con content-box, el ancho declarado corresponde al área de contenido y el padding y los bordes se suman al ancho exterior. Con border-box, el ancho declarado ya incluye el padding y el borde.
+
+Nota: las medidas deben completarse con los valores reales obtenidos en DevTools; no se deben inventar.
+
+10. LISTA DE VERIFICACIÓN
+
+- [ ] Todos los elementos utilizan box-sizing: border-box.
+- [ ] El contenido principal está centrado y limitado a 70rem.
+- [ ] La portada tiene una altura mínima relativa a la ventana.
+- [ ] Las tarjetas tienen relleno, borde y separación.
+- [ ] Las imágenes de las tarjetas no se salen de su contenedor.
+- [ ] Las tablas tienen celdas espaciadas y encabezados legibles.
+- [ ] El formulario está centrado y los campos ocupan el ancho disponible.
+- [ ] El menú muestra sus opciones en fila cuando hay espacio suficiente.
+- [ ] Se comprobaron las dimensiones en DevTools.
+- [ ] Se registraron las medidas de content-box y border-box.
+
+11. CONTROL DE VERSIONES
+
+Comandos para guardar los cambios:
+
+git status
+git add css/styles.css index.html paginas/tarifas.html paginas/reservas.html bitacora.txt
+git commit -m "Mejorar box model y espaciado del sitio"
+git push origin main
+
+Después del push, verificar que todos los archivos estén guardados en el repositorio remoto.
+
+12. RESULTADO ESPERADO
+
+El sitio Rueda Libre presenta una distribución más ordenada y adaptable. El modelo de caja controla las dimensiones, el contenido principal mantiene una anchura legible, las tarjetas tienen separación, las tablas son más cómodas de leer y el formulario dispone de espacio suficiente.
+
+Fin del registro del reto.

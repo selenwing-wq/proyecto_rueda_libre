@@ -1,29 +1,40 @@
 /* =========================================
-   RUEDA LIBRE — ESTILOS DE MARCA
-   Navegación, botones, formularios y foco
+   RUEDA LIBRE — MODELO DE CAJA Y ESPACIADO
    ========================================= */
 
-/* 1. Variables globales */
+/* 1. Variables globales de la marca */
 :root {
+    /* Colores */
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
 
+    /* Tipografías */
     --fuente-titulos: "Montserrat", Arial, sans-serif;
     --fuente-textos: "Open Sans", Arial, sans-serif;
 
+    /* Escala de espaciado */
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
 
-    --ancho-contenido: 1100px;
-    --radio-borde: 0.5rem;
+    /* Dimensiones */
+    --ancho-contenido: 70rem;
+    --ancho-formulario: 48rem;
+    --radio-borde: 0.75rem;
 }
 
-/* 2. Estilos generales */
+/* 2. Box sizing global: padding y border quedan incluidos en el ancho */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 3. Estilos generales */
 body {
     margin: 0;
     font-family: var(--fuente-textos);
@@ -55,7 +66,8 @@ h2 {
 }
 
 h3 {
-    margin-top: var(--espacio-mediano);
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
 }
 
 p {
@@ -71,9 +83,12 @@ img {
 }
 
 main {
-    width: min(92%, var(--ancho-contenido));
-    margin: 0 auto;
-    padding: var(--espacio-grande) 0;
+    width: 92%;
+    max-width: var(--ancho-contenido);
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: var(--espacio-grande);
+    padding-bottom: var(--espacio-grande);
 }
 
 header,
@@ -101,22 +116,48 @@ footer p {
     margin-bottom: var(--espacio-pequeno);
 }
 
-/* 3. Navegación y lista del menú */
+/* 4. Portada de inicio: altura relativa a la ventana */
+.portada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+    padding: var(--espacio-extra-grande);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    border-radius: var(--radio-borde);
+}
+
+.portada h2 {
+    margin-top: 0;
+    color: var(--crema);
+}
+
+.portada p {
+    max-width: 42rem;
+}
+
+/* 5. Navegación en una fila */
 nav {
     margin-top: var(--espacio-mediano);
 }
 
-/* Lista del menú */
 #menu {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--espacio-mediano);
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-/* Selector descendiente: enlaces dentro del menú */
+#menu li {
+    display: block;
+    margin: 0;
+}
+
 #menu a {
     display: inline-block;
     padding: var(--espacio-pequeno) var(--espacio-mediano);
@@ -127,34 +168,33 @@ nav {
     text-underline-offset: 0.2em;
 }
 
-/* Estado hover del menú */
 #menu a:hover {
     color: var(--crema);
     background-color: var(--verde-ruta);
-    text-decoration-thickness: 0.15em;
 }
 
-/* Enlace de la página actual */
 #menu a.activo {
     color: var(--naranja-pedal);
     background-color: var(--azul-noche);
     font-weight: 700;
-    text-decoration-thickness: 0.15em;
 }
 
-/* Estado hover del enlace activo: conserva el contraste */
 #menu a.activo:hover {
     color: var(--naranja-pedal);
     background-color: var(--azul-noche);
 }
 
-/* Foco de teclado dentro del menú */
-#menu a:focus {
-    outline: 3px solid var(--crema);
-    outline-offset: 3px;
+#menu a:focus,
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.2rem;
 }
 
-/* 4. Enlaces del contenido */
+/* 6. Enlaces del contenido */
 a {
     color: var(--verde-ruta);
     font-weight: 600;
@@ -162,19 +202,13 @@ a {
 }
 
 a:hover {
-    color: var(--verde-ruta);
     text-decoration-thickness: 0.15em;
 }
 
-a:focus {
-    outline: 3px solid var(--azul-noche);
-    outline-offset: 3px;
-}
-
-/* 5. Enlaces de llamada a la acción con apariencia de botón */
+/* 7. Enlaces de llamada a la acción */
 .boton-accion {
     display: inline-block;
-    padding: 0.8rem 1.25rem;
+    padding: 0.9rem 1.5rem;
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
     background-color: var(--verde-ruta);
@@ -192,23 +226,48 @@ a:focus {
 }
 
 .boton-accion:focus {
-    outline: 3px solid var(--azul-noche);
-    outline-offset: 4px;
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.25rem;
 }
 
-/* 6. Secciones y tarjetas */
+/* 8. Secciones */
 section,
-article,
 aside {
-    margin-bottom: var(--espacio-grande);
+    margin-bottom: var(--espacio-extra-grande);
 }
 
-article {
+/* 9. Servicios en tarjetas separadas */
+#servicios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--espacio-grande);
+    align-items: stretch;
+}
+
+#servicios > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+#servicios article {
+    min-width: 0;
+    margin: 0;
     padding: var(--espacio-mediano);
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
+    background-color: var(--crema);
+    overflow-wrap: anywhere;
 }
 
+#servicios article img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--espacio-mediano);
+    border-radius: var(--radio-borde);
+}
+
+/* Listas */
 ul,
 ol {
     padding-left: 1.5rem;
@@ -218,9 +277,10 @@ li {
     margin-bottom: var(--espacio-pequeno);
 }
 
-/* 7. Tablas */
+/* 10. Tablas legibles */
 table {
     width: 100%;
+    margin-top: var(--espacio-mediano);
     margin-bottom: var(--espacio-grande);
     border-collapse: collapse;
     background-color: var(--crema);
@@ -238,6 +298,7 @@ td {
     padding: var(--espacio-mediano);
     border: 1px solid var(--gris-asfalto);
     text-align: left;
+    vertical-align: top;
 }
 
 th {
@@ -246,20 +307,33 @@ th {
     font-weight: 600;
 }
 
-/* 8. Formulario y controles */
+tbody tr:nth-child(even) {
+    background-color: var(--crema);
+}
+
+tbody tr:hover {
+    outline: 0.1rem solid var(--verde-ruta);
+    outline-offset: -0.1rem;
+}
+
+/* 11. Formulario ordenado */
 form {
-    max-width: 760px;
+    width: 100%;
+    max-width: var(--ancho-formulario);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 fieldset {
-    margin-bottom: var(--espacio-grande);
-    padding: var(--espacio-mediano);
+    min-width: 0;
+    margin: 0 0 var(--espacio-grande);
+    padding: var(--espacio-grande);
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
 }
 
-legend,
-label {
+legend {
+    padding: 0 var(--espacio-pequeno);
     color: var(--azul-noche);
     font-weight: 600;
 }
@@ -268,14 +342,17 @@ label {
     display: block;
     margin-top: var(--espacio-mediano);
     margin-bottom: var(--espacio-pequeno);
+    color: var(--azul-noche);
+    font-weight: 600;
 }
 
 input,
 select,
 textarea {
-    box-sizing: border-box;
+    display: block;
     width: 100%;
-    padding: 0.7rem;
+    max-width: 100%;
+    padding: 0.8rem;
     border: 1px solid var(--gris-asfalto);
     border-radius: 0.25rem;
     background-color: var(--crema);
@@ -283,25 +360,23 @@ textarea {
     font: inherit;
 }
 
-/* Cambio visible al pasar el mouse */
 input:hover,
 select:hover,
 textarea:hover {
     border-color: var(--verde-ruta);
 }
 
-/* Foco visible de teclado en los campos */
 input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--verde-ruta);
-    outline: 3px solid var(--azul-noche);
-    outline-offset: 2px;
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.15rem;
 }
 
-/* Radios y casillas */
 input[type="radio"],
 input[type="checkbox"] {
+    display: inline-block;
     width: auto;
     margin-right: var(--espacio-pequeno);
     accent-color: var(--verde-ruta);
@@ -314,13 +389,13 @@ label:has(input[type="checkbox"]) {
     gap: var(--espacio-pequeno);
 }
 
-/* Botón real de formulario */
 button,
 input[type="submit"] {
     display: inline-block;
     width: auto;
+    max-width: 100%;
     margin-top: var(--espacio-mediano);
-    padding: 0.8rem 1.25rem;
+    padding: var(--espacio-mediano) var(--espacio-grande);
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
     background-color: var(--verde-ruta);
@@ -339,16 +414,30 @@ input[type="submit"]:hover {
 
 button:focus,
 input[type="submit"]:focus {
-    outline: 3px solid var(--azul-noche);
-    outline-offset: 4px;
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.25rem;
 }
 
 small {
+    display: block;
+    margin-top: var(--espacio-pequeno);
     color: var(--gris-asfalto);
 }
 
-/* 9. Adaptación para pantallas pequeñas */
-@media (max-width: 600px) {
+/* 12. Diseño adaptable */
+@media (max-width: 55rem) {
+    #servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 38rem) {
     header,
     footer {
         padding: var(--espacio-mediano);
@@ -356,24 +445,29 @@ small {
 
     main {
         width: 92%;
-        padding: var(--espacio-mediano) 0;
+        padding-top: var(--espacio-mediano);
+        padding-bottom: var(--espacio-mediano);
+    }
+
+    #servicios {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--espacio-mediano);
+    }
+
+    .portada {
+        min-height: 50vh;
+        padding: var(--espacio-mediano);
     }
 
     #menu {
-        flex-direction: column;
         gap: var(--espacio-pequeno);
     }
 
     #menu a {
-        display: block;
+        display: inline-block;
     }
 
-    table {
-        font-size: 0.9rem;
-    }
-
-    th,
-    td {
-        padding: var(--espacio-pequeno);
+    fieldset {
+        padding: var(--espacio-mediano);
     }
 }
