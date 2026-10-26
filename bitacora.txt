@@ -974,3 +974,114 @@ Una vez terminadas las pruebas y guardados los cambios:
 `git push`
 
 El reto se considera entregado cuando los cambios quedan confirmados en Git y subidos al repositorio remoto.
+
+## Reto: Auditoría de accesibilidad, contraste y publicación — Rueda Libre v0.2
+
+### Objetivo
+
+Auditar y mejorar la accesibilidad de las páginas del sitio Rueda Libre, evaluar las combinaciones de colores de la marca mediante los criterios de contraste WCAG y publicar el proyecto con GitHub Pages.
+
+### Páginas auditadas
+
+- `index.html`: página de inicio.
+- `paginas/tarifas.html`: tarifas y recorridos.
+- `paginas/reservas.html`: formulario de reservas.
+
+### Hallazgos de accesibilidad y correcciones
+
+| N.º | Elemento revisado | Hallazgo o riesgo | Corrección aplicada o por verificar |
+|---|---|---|---|
+| 1 | Idioma del documento | Un idioma incorrecto o ausente dificulta que los lectores de pantalla interpreten el contenido. | Verificar `<html lang="es">` en las tres páginas. |
+| 2 | Texto alternativo | Las imágenes informativas necesitan una descripción útil; las decorativas deben usar `alt=""`. | Revisar todos los atributos `alt` y corregirlos según la función real de cada imagen. |
+| 3 | Jerarquía de encabezados | Los títulos deben reflejar la estructura del contenido y no utilizarse solo por su apariencia. | Verificar un `<h1>` principal por página y encabezados de sección organizados jerárquicamente. |
+| 4 | Texto de los enlaces | Los enlaces genéricos pueden ser confusos cuando se leen fuera de contexto. | Usar textos descriptivos, como «Consultar tarifas de alquiler y recorridos». |
+| 5 | Navegación con teclado | Todos los enlaces y controles deben poder alcanzarse sin usar el ratón. | Recorrer las tres páginas con `Tab` y `Shift + Tab`; comprobar que el foco sea visible. |
+| 6 | Formulario de reservas | Las etiquetas y controles deben estar asociados para facilitar su identificación y activación. | Verificar que cada `label` tenga un `for` coincidente con el `id` del control. |
+| 7 | Contraste de foco | Un indicador de foco poco visible puede dificultar la navegación. | Añadir un contorno visible con `:focus-visible` si resulta necesario y comprobar su contraste. |
+
+**Estado de la auditoría:** completar la revisión en el navegador y actualizar cada fila con el resultado real. Una corrección propuesta no equivale a una corrección verificada.
+
+### Estructura semántica del sitio
+
+Las páginas mantienen las regiones semánticas trabajadas en retos anteriores:
+
+- `<header>`: encabezado de la página.
+- `<nav>`: navegación principal.
+- `<main>`: contenido principal.
+- `<section>`: agrupación temática.
+- `<article>`: contenido independiente, como los servicios.
+- `<aside>`: información complementaria.
+- `<footer>`: información final y contacto.
+
+La página de reservas también contiene un formulario organizado mediante `<fieldset>` y `<legend>`.
+
+### Auditoría de contraste de la paleta
+
+Se utilizaron los valores hexadecimales de la marca para calcular la relación de contraste. La clasificación sigue los umbrales de contraste WCAG para texto normal y texto grande.
+
+| Combinación de texto y fondo | Contraste | Clasificación |
+|---|---:|---|
+| Blanco sobre Verde Ruta `#1E7A4F` | 5.31:1 | Apta para texto normal |
+| Blanco sobre Naranja Pedal `#F39A2B` | 2.22:1 | No apta |
+| Azul Noche `#14213D` sobre Naranja Pedal `#F39A2B` | 7.20:1 | Apta para texto normal |
+| Azul Noche `#14213D` sobre Crema `#FAF6EF` | 14.83:1 | Apta para texto normal |
+| Gris Asfalto `#5B6470` sobre Crema `#FAF6EF` | 5.57:1 | Apta para texto normal |
+| Verde Ruta `#1E7A4F` sobre Crema `#FAF6EF` | 4.93:1 | Apta para texto normal |
+| Naranja Pedal `#F39A2B` sobre Crema `#FAF6EF` | 2.06:1 | No apta |
+| Blanco sobre Azul Noche `#14213D` | 15.97:1 | Apta para texto normal |
+
+Criterios:
+
+- Texto normal: mínimo 4.5:1.
+- Texto grande: mínimo 3:1.
+- Menos de 3:1: no apta para texto.
+
+### Mapa de uso de color
+
+- **Azul Noche `#14213D`:** títulos, encabezados, texto principal sobre crema y texto de botones naranjas.
+- **Crema `#FAF6EF`:** fondo general y superficies claras.
+- **Verde Ruta `#1E7A4F`:** enlaces sobre crema y botones con texto blanco.
+- **Naranja Pedal `#F39A2B`:** destacados y botones secundarios con texto Azul Noche.
+- **Gris Asfalto `#5B6470`:** texto secundario sobre crema.
+
+No se utilizará texto blanco sobre naranja ni texto naranja sobre crema, porque esas combinaciones no alcanzan el contraste mínimo para texto grande.
+
+### Publicación con GitHub Pages
+
+El sitio se publicará desde la rama principal del repositorio mediante GitHub Pages.
+
+Pasos:
+
+1. Abrir el repositorio en GitHub.
+2. Entrar en Settings → Pages.
+3. En la sección de compilación y despliegue, elegir la opción para desplegar desde una rama.
+4. Seleccionar la rama `main` y la carpeta `/(root)`.
+5. Guardar la configuración.
+6. Esperar a que finalice el despliegue y copiar la URL pública que muestre GitHub Pages.
+7. Añadir esa URL a la descripción del repositorio y a esta bitácora.
+8. Abrir la URL pública y comprobar las tres páginas, las imágenes y los enlaces.
+
+### URL pública de Rueda Libre v0.2
+
+URL publicada: [PEGAR AQUÍ LA URL REAL QUE MUESTRE GITHUB PAGES]
+
+Estado de publicación: pendiente de confirmar hasta que GitHub Pages termine el despliegue y la página pueda abrirse desde el navegador.
+
+### Pruebas posteriores a la publicación
+
+| Prueba | Resultado |
+|---|---|
+| Inicio carga desde la URL pública | Pendiente de verificar |
+| Tarifas carga desde la URL pública | Pendiente de verificar |
+| Reservas carga desde la URL pública | Pendiente de verificar |
+| Las imágenes cargan correctamente | Pendiente de verificar |
+| Los enlaces internos funcionan | Pendiente de verificar |
+| El formulario conserva sus validaciones | Pendiente de verificar |
+| La navegación con teclado funciona | Pendiente de verificar |
+| La descripción del repositorio incluye la URL publicada | Pendiente de verificar |
+
+Si un archivo funciona localmente pero falla en GitHub Pages, revisar especialmente las mayúsculas y minúsculas de los nombres y las rutas relativas.
+
+### Control de versiones
+
+Después de terminar las correcciones, realizar un commit que represente este reto y subirlo a la rama principal. Verificar el estado de Git y confirmar que el despliegue público contiene la versión actualizada.
