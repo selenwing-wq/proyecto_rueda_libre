@@ -742,3 +742,136 @@ FIN DE LA BITACORA
 PROYECTO: RUEDA LIBRE
 VERSION DE REFERENCIA: V0.1
 ------------------------------------------------------------
+
+## Reto: Formulario de reserva en HTML
+
+### Objetivo
+
+Construir un formulario de reserva para Rueda Libre que permita recopilar los datos del cliente y las características del alquiler de bicicletas. El formulario busca reducir errores en la información recibida por WhatsApp y organizar los datos necesarios para solicitar una reserva.
+
+### Archivo modificado
+
+- `paginas/reservas.html`
+
+### Estructura semántica
+
+Se mantuvo la estructura semántica implementada en el reto anterior:
+
+- `<header>`: contiene el título de la página y la navegación principal.
+- `<nav>`: permite acceder a Inicio, Tarifas y Reservas.
+- `<main>`: contiene el contenido principal de la página.
+- `<section>`: agrupa el formulario y la información de contacto.
+- `<form>`: contiene los campos que debe completar el cliente.
+- `<fieldset>`: agrupa campos relacionados.
+- `<legend>`: identifica cada grupo del formulario.
+- `<aside>`: contiene información complementaria sobre los horarios.
+- `<footer>`: presenta la información final del sitio.
+
+### Organización del formulario
+
+El formulario se dividió en tres grupos:
+
+**1. Tus datos**
+
+- Nombre completo.
+- Número de documento.
+- Correo electrónico.
+- Celular.
+
+**2. Tu alquiler**
+
+- Fecha del alquiler.
+- Tipo de bicicleta: urbana, montaña o eléctrica.
+- Plan: una hora, medio día o día completo.
+- Cantidad de bicicletas.
+- Recorrido guiado: ninguno, Río y Parques, Sabores de Barrio o Reto Las Palmas.
+- Comentarios adicionales.
+
+**3. Confirmación**
+
+- Casilla para aceptar las políticas de alquiler.
+
+Al final se agregó el botón «Enviar reserva».
+
+### Tipos de controles utilizados
+
+- `text`: para el nombre completo y el número de documento.
+- `email`: para el correo electrónico.
+- `tel`: para el número de celular.
+- `date`: para seleccionar la fecha del alquiler.
+- `radio`: para elegir un único tipo de bicicleta.
+- `select` y `option`: para seleccionar el plan y el recorrido guiado.
+- `number`: para indicar la cantidad de bicicletas.
+- `textarea`: para escribir comentarios adicionales.
+- `checkbox`: para aceptar las políticas de alquiler.
+- `button type="submit"`: para enviar el formulario.
+
+### Justificación de tres decisiones
+
+**1. Correo electrónico con `type="email"`**
+
+Se eligió este tipo de campo porque permite al navegador comprobar que el valor ingresado tenga un formato similar al de una dirección de correo electrónico. Esto ayuda a detectar errores comunes antes de enviar el formulario.
+
+**2. Tipo de bicicleta con botones `radio`**
+
+Se utilizaron botones de opción porque el cliente debe escoger solamente una categoría de bicicleta para la reserva. Los tres controles comparten el atributo `name="tipo_bicicleta"`, por lo que el navegador permite seleccionar solo una opción de ese grupo.
+
+**3. Aceptación de políticas con `checkbox`**
+
+Se eligió una casilla de verificación porque representa una aceptación que el cliente debe marcar expresamente. El atributo `required` impide el envío normal del formulario si la casilla no está seleccionada.
+
+**Decisiones adicionales**
+
+- Se usó `type="date"` para facilitar la selección de una fecha.
+- Se usó `type="number"` para la cantidad de bicicletas y se establecieron límites de 1 a 20.
+- Se usaron listas desplegables para el plan y el recorrido, ya que tienen opciones definidas.
+- Se utilizó `textarea` para permitir comentarios de varias líneas.
+
+### Asociación entre etiquetas y controles
+
+Cada campo tiene una etiqueta `<label>` con el atributo `for`. El valor de `for` coincide exactamente con el `id` del control correspondiente. De esta manera, al hacer clic en la etiqueta, el control recibe el foco o se selecciona, según el tipo de campo.
+
+Todos los controles del formulario tienen un atributo `name`, que identifica el dato al enviar el formulario.
+
+### Método y validaciones
+
+El formulario utiliza:
+
+- `method="post"` para indicar que los datos se enviarían mediante el método HTTP POST.
+- `action="#"` como destino provisional mientras no se implemente un servidor que reciba las reservas.
+- `required` en los campos obligatorios.
+- `min="1"`, `max="20"` y `step="1"` para controlar la cantidad de bicicletas.
+- `type="email"` para la validación básica del formato del correo electrónico.
+
+**Nota:** el formulario todavía no registra reservas ni comprueba la disponibilidad real de bicicletas. Para procesar los datos es necesario conectar el formulario a un backend o servicio que los reciba. El atributo `action="#"` es provisional y debe cambiarse cuando exista un destino de envío real.
+
+### Pruebas pendientes y verificación
+
+Antes de dar por terminado el reto, se debe comprobar:
+
+1. Que el formulario se encuentre dentro de `<main>`.
+2. Que existan los tres grupos con sus títulos.
+3. Que cada etiqueta esté asociada al control correcto.
+4. Que los tres botones `radio` compartan `name="tipo_bicicleta"` y solo permitan una selección.
+5. Que todos los controles tengan un atributo `name`.
+6. Que el navegador impida el envío si faltan campos obligatorios o no se aceptan las políticas.
+7. Que los enlaces de navegación continúen funcionando.
+8. Que la estructura semántica de la página se mantenga.
+
+Las pruebas deben marcarse como completadas únicamente después de realizarlas en el navegador.
+
+### Control de versiones
+
+Después de revisar y probar el formulario, guardar los cambios en Git y subirlos al repositorio remoto.
+
+Comandos previstos:
+
+`git status`
+
+`git add paginas/reservas.html bitacora.txt`
+
+`git commit -m "Reto formulario de reserva en HTML"`
+
+`git push`
+
+El commit y el push se consideran completados solo cuando Git confirma que la operación se realizó correctamente.
