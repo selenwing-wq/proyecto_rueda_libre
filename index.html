@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce Rueda Libre, alquila bicicletas y descubre recorridos para disfrutar Medellín.">
+    <meta name="description" content="Alquila bicicletas y descubre Medellín con Rueda Libre.">
     <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
 
-    <!-- Conexión anticipada a Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Tipografías de marca -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Hoja de estilos externa -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -22,9 +17,11 @@
         <p>Muévete a tu ritmo. Descubre Medellín sobre dos ruedas.</p>
 
         <nav aria-label="Navegación principal">
-            <a href="index.html" aria-current="page">Inicio</a>
-            <a href="paginas/tarifas.html">Consultar tarifas y recorridos</a>
-            <a href="paginas/reservas.html">Reservar una bicicleta</a>
+            <ul id="menu">
+                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+                <li><a href="paginas/tarifas.html">Consultar tarifas y recorridos</a></li>
+                <li><a href="paginas/reservas.html">Reservar una bicicleta</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -35,9 +32,7 @@
                 Somos una iniciativa de alquiler de bicicletas que invita a recorrer
                 Medellín de una manera activa, práctica y sostenible.
             </p>
-            <img src="img/portada.jpg"
-                 alt="Imagen de presentación de Rueda Libre"
-                 width="700">
+            <img src="img/portada.jpg" alt="Imagen de presentación de Rueda Libre" width="700">
         </section>
 
         <section id="servicios">
@@ -45,24 +40,21 @@
 
             <article id="alquiler-bicicletas">
                 <h3>Alquiler de bicicletas</h3>
-                <img src="img/bicicleta.jpg"
-                     alt="Bicicleta disponible para alquilar"
-                     width="400">
+                <img src="img/bicicleta.jpg" alt="Bicicleta disponible para alquilar" width="400">
                 <p>
                     Elige una bicicleta urbana, de montaña o eléctrica según tu
                     recorrido y disfruta de la ciudad a tu manera.
                 </p>
                 <p><a href="paginas/tarifas.html">Consultar precios de alquiler</a></p>
+                <p><a class="boton-accion" href="paginas/reservas.html">Reservar ahora</a></p>
             </article>
 
             <article id="recorridos-guiados">
                 <h3>Recorridos guiados</h3>
-                <img src="img/ruta.jpg"
-                     alt="Paisaje de una ruta para recorrer en bicicleta"
-                     width="400">
+                <img src="img/ruta.jpg" alt="Paisaje de una ruta para recorrer en bicicleta" width="400">
                 <p>
-                    Explora parques, barrios y rutas de Medellín acompañado por
-                    una experiencia pensada para disfrutar el camino.
+                    Explora parques, barrios y rutas de Medellín con una experiencia
+                    pensada para disfrutar el camino.
                 </p>
                 <p><a href="paginas/tarifas.html#recorridos">Ver recorridos, dificultad y precios</a></p>
             </article>
@@ -92,19 +84,16 @@
                 <li>Consulta las bicicletas y las tarifas disponibles.</li>
                 <li>Elige la duración del alquiler y, si quieres, un recorrido.</li>
                 <li>Completa el formulario de reserva.</li>
-                <li>Espera la confirmación del servicio antes de presentarte.</li>
+                <li>Espera la confirmación antes de presentarte.</li>
             </ol>
-            <p>
-                <a href="paginas/reservas.html">Ir al formulario de reserva</a>
-            </p>
+            <p><a class="boton-accion" href="paginas/reservas.html">Reservar ahora</a></p>
         </section>
 
         <section id="ubicacion">
             <h2>Encuéntranos en Medellín</h2>
             <p>
                 <a href="https://www.google.com/maps/search/?api=1&query=Medellin%2C+Colombia"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   target="_blank" rel="noopener noreferrer">
                     Consultar Medellín en Google Maps
                 </a>
             </p>
@@ -116,12 +105,8 @@
                 Para consultar información sobre el servicio, escríbenos a
                 <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.
             </p>
-            <p>
-                <a href="paginas/tarifas.html">Consultar todas las tarifas</a>
-            </p>
-            <p>
-                <a href="paginas/reservas.html">Solicitar una reserva</a>
-            </p>
+            <p><a href="paginas/tarifas.html">Consultar todas las tarifas</a></p>
+            <p><a href="paginas/reservas.html">Solicitar una reserva</a></p>
         </section>
     </main>
 

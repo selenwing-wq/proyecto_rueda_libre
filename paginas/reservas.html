@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -18,9 +17,11 @@
         <p>Completa los datos para solicitar tu alquiler o recorrido.</p>
 
         <nav aria-label="Navegación principal">
-            <a href="../index.html">Inicio</a>
-            <a href="tarifas.html">Tarifas y recorridos</a>
-            <a href="reservas.html" aria-current="page">Reservar una bicicleta</a>
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html">Tarifas y recorridos</a></li>
+                <li><a href="reservas.html" class="activo" aria-current="page">Reservar una bicicleta</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -67,22 +68,16 @@
                            min="2026-11-01" max="2026-12-31" required>
 
                     <p>Tipo de bicicleta *</p>
-
                     <label>
-                        <input type="radio" name="tipo_bicicleta"
-                               value="urbana" required>
+                        <input type="radio" name="tipo_bicicleta" value="urbana" required>
                         Urbana
                     </label>
-
                     <label>
-                        <input type="radio" name="tipo_bicicleta"
-                               value="montana">
+                        <input type="radio" name="tipo_bicicleta" value="montana">
                         Montaña
                     </label>
-
                     <label>
-                        <input type="radio" name="tipo_bicicleta"
-                               value="electrica">
+                        <input type="radio" name="tipo_bicicleta" value="electrica">
                         Eléctrica
                     </label>
 
@@ -115,7 +110,6 @@
 
                 <fieldset>
                     <legend>Confirmación</legend>
-
                     <label>
                         <input type="checkbox" id="aceptar" name="aceptar"
                                value="si" required>

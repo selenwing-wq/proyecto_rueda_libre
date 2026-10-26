@@ -1098,3 +1098,434 @@ rueda-libre/
 └── paginas/
     ├── tarifas.html
     └── reservas.html
+
+============================================================
+RETO: HOJA DE ESTILOS EXTERNA, VARIABLES Y TIPOGRAFÍAS
+Proyecto: Rueda Libre
+Fecha: 26/10/2026
+============================================================
+
+1. OBJETIVO
+
+Centralizar la presentación visual de las tres páginas del proyecto mediante una hoja de estilos CSS externa, utilizando variables personalizadas para los colores, las tipografías y el espaciado. Cargar Montserrat y Open Sans desde Google Fonts y aprovechar la herencia de CSS para mantener una identidad visual consistente.
+
+2. ESTRUCTURA ACTUALIZADA
+
+rueda-libre/
+├── index.html
+├── bitacora.txt
+├── css/
+│   └── styles.css
+├── img/
+│   ├── portada.jpg
+│   ├── bicicleta.jpg
+│   └── ruta.jpg
+└── paginas/
+    ├── tarifas.html
+    └── reservas.html
+
+Nota: conservar los nombres reales de las imágenes si son diferentes.
+
+3. CONEXIÓN DE LA HOJA DE ESTILOS
+
+Página principal: index.html
+
+<link rel="stylesheet" href="css/styles.css">
+
+Página de tarifas: paginas/tarifas.html
+
+<link rel="stylesheet" href="../css/styles.css">
+
+Página de reservas: paginas/reservas.html
+
+<link rel="stylesheet" href="../css/styles.css">
+
+Las rutas son relativas a la ubicación de cada documento HTML. En las páginas de la carpeta paginas se utiliza ../ para subir al directorio raíz y después acceder a css/styles.css.
+
+4. TIPOGRAFÍAS DE GOOGLE FONTS
+
+Familia para títulos:
+Montserrat, peso 700.
+
+Familia para textos:
+Open Sans, pesos 400 y 600.
+
+En las tres páginas se agregaron:
+- preconnect a fonts.googleapis.com.
+- preconnect a fonts.gstatic.com con crossorigin.
+- Hoja de Google Fonts con Montserrat 700 y Open Sans 400 y 600.
+- Enlace a la hoja de estilos local después de los enlaces de fuentes.
+
+CSS aplicado:
+--fuente-titulos: "Montserrat", Arial, sans-serif;
+--fuente-textos: "Open Sans", Arial, sans-serif;
+
+5. VARIABLES PERSONALIZADAS
+
+Las variables están declaradas en :root para que puedan reutilizarse en todo el documento.
+
+Colores:
+--verde-ruta: #1E7A4F;
+--naranja-pedal: #F39A2B;
+--azul-noche: #14213D;
+--crema: #FAF6EF;
+--gris-asfalto: #5B6470;
+
+Tipografías:
+--fuente-titulos: "Montserrat", Arial, sans-serif;
+--fuente-textos: "Open Sans", Arial, sans-serif;
+
+Espaciado:
+--espacio-pequeno: 0.5rem;
+--espacio-mediano: 1rem;
+--espacio-grande: 2rem;
+--espacio-extra-grande: 3rem;
+
+Otras variables:
+--ancho-contenido: 1100px;
+--radio-borde: 0.5rem;
+
+Las propiedades se consumen con var(), por ejemplo:
+color: var(--azul-noche);
+background-color: var(--crema);
+font-family: var(--fuente-textos);
+padding: var(--espacio-mediano);
+
+6. HERENCIA DE CSS
+
+El selector body define:
+- font-family: var(--fuente-textos).
+- color: var(--azul-noche).
+- background-color: var(--crema).
+
+Los párrafos heredan la familia tipográfica y el color de texto del body cuando no tienen una declaración propia que los sobrescriba. El fondo del body no se hereda como propiedad: el fondo de un párrafo transparente permite ver el fondo de su elemento contenedor.
+
+Los encabezados h1, h2, h3, h4, h5 y h6 comparten un selector agrupado que establece la fuente Montserrat y el peso 700.
+
+Comprobación pendiente en DevTools:
+1. Abrir la página en el navegador.
+2. Pulsar F12 y seleccionar la herramienta Elements/Inspector.
+3. Seleccionar un párrafo.
+4. En Styles, revisar las reglas heredadas desde body.
+5. En Computed, comprobar font-family y color.
+6. Seleccionar un encabezado y comprobar que usa Montserrat.
+7. Registrar los resultados reales después de ejecutar la prueba.
+
+Tabla de comprobación:
+
+Elemento: párrafo (p)
+Propiedad heredada: font-family.
+Valor esperado: Open Sans.
+Estado: Pendiente de comprobación en DevTools.
+
+Elemento: párrafo (p)
+Propiedad no heredada: margin-bottom.
+Valor esperado: valor declarado para p en styles.css.
+Estado: Pendiente de comprobación en DevTools.
+
+Elemento: encabezado (h1–h6)
+Propiedad: font-family.
+Valor esperado: Montserrat.
+Estado: Pendiente de comprobación en DevTools.
+
+7. MAPA DE USO DE COLOR
+
+Verde Ruta (#1E7A4F):
+- Enlaces sobre fondo Crema.
+- Botones con texto Crema.
+
+Naranja Pedal (#F39A2B):
+- Texto de navegación de página activa sobre fondo Azul Noche.
+- Acentos decorativos sobre fondos oscuros.
+- No usar texto blanco sobre fondo naranja.
+
+Azul Noche (#14213D):
+- Texto general sobre fondo Crema.
+- Títulos sobre fondo Crema.
+- Fondo de encabezado, pie de página y cabeceras de tablas.
+- Texto sobre fondo Naranja Pedal.
+
+Crema (#FAF6EF):
+- Fondo principal del sitio.
+- Texto sobre fondo Azul Noche o Verde Ruta.
+
+Gris Asfalto (#5B6470):
+- Texto secundario sobre Crema.
+- Bordes y separadores.
+
+Contrastes aprobados previamente:
+- Blanco sobre Verde Ruta: 5.31:1.
+- Azul Noche sobre Naranja Pedal: 7.20:1.
+- Azul Noche sobre Crema: 14.83:1.
+- Gris Asfalto sobre Crema: 5.57:1.
+- Verde Ruta sobre Crema: 4.93:1.
+- Blanco sobre Azul Noche: 15.97:1.
+
+Combinaciones no recomendadas para texto:
+- Blanco sobre Naranja Pedal: 2.22:1.
+- Naranja Pedal sobre Crema: 2.06:1.
+
+8. LIMPIEZA DEL HTML
+
+Se centralizaron los estilos en css/styles.css.
+
+Comprobaciones que deben realizarse:
+- No debe quedar ningún atributo style="..." en las tres páginas.
+- No debe quedar ninguna etiqueta <style>.
+- Cada página debe cargar Google Fonts y styles.css.
+- Los estilos deben utilizar variables CSS para colores y familias tipográficas.
+- Los documentos conservan lang="es" y la estructura semántica.
+
+Resultado esperado:
+Las tres páginas comparten tipografías, colores, navegación, tablas, formularios y espaciados mediante una única hoja de estilos.
+
+9. PRUEBAS EN DEVTOOLS
+
+Registrar el resultado después de ejecutar cada prueba:
+
+Prueba 1: abrir index.html y comprobar que styles.css carga sin error en Network.
+Resultado: Pendiente.
+
+Prueba 2: abrir paginas/tarifas.html y comprobar que ../css/styles.css carga sin error.
+Resultado: Pendiente.
+
+Prueba 3: abrir paginas/reservas.html y comprobar que ../css/styles.css carga sin error.
+Resultado: Pendiente.
+
+Prueba 4: comprobar que Google Fonts carga correctamente en las tres páginas.
+Resultado: Pendiente.
+
+Prueba 5: en Computed, verificar Montserrat 700 para los encabezados.
+Resultado: Pendiente.
+
+Prueba 6: en Computed, verificar Open Sans para los párrafos.
+Resultado: Pendiente.
+
+Prueba 7: comprobar que no existan errores 404 de CSS o fuentes en Network.
+Resultado: Pendiente.
+
+Prueba 8: buscar atributos style y etiquetas style en los tres archivos HTML.
+Resultado: Pendiente.
+
+10. CONTROL DE VERSIONES
+
+Comandos para guardar el trabajo:
+
+git status
+git add index.html paginas/tarifas.html paginas/reservas.html css/styles.css bitacora.txt
+git commit -m "Agregar estilos externos y tipografias de marca"
+git push origin main
+
+Después de ejecutar los comandos, revisar el repositorio remoto para confirmar que los archivos quedaron publicados.
+
+11. RESULTADO ESPERADO
+
+- Una hoja css/styles.css compartida por las tres páginas.
+- Variables globales para los cinco colores de marca.
+- Variables para tipografías y espaciado.
+- Montserrat 700 en encabezados.
+- Open Sans 400 y 600 en textos y controles.
+- Colores aplicados respetando el mapa de contraste.
+- Sin estilos en línea ni etiquetas style en HTML.
+- Evidencia documentada de las pruebas de herencia y carga de recursos.
+
+Fin del registro del reto.
+
+============================================================
+RETO: SELECTORES, PSEUDOCLASES Y ESPECIFICIDAD CSS
+Proyecto: Rueda Libre
+Fecha: 26/10/2026
+============================================================
+
+1. OBJETIVO
+
+Mejorar la navegación y los elementos interactivos del sitio utilizando selectores de ID, clases, selectores descendientes y pseudoclases. Resolver conflictos de cascada y especificidad sin utilizar !important ni estilos en línea.
+
+2. CAMBIOS REALIZADOS
+
+- Se agregó id="menu" a la lista ul del menú de navegación de las tres páginas.
+- Se agregó class="activo" al enlace que corresponde a la página actual.
+- Se agregó aria-current="page" al enlace activo.
+- Se creó la clase .boton-accion para enlaces que funcionan como llamadas a la acción.
+- Se agregaron estados :hover y :focus a enlaces, botones y campos.
+- Se conservaron las variables de color y tipografía definidas en el reto anterior.
+- Se mantiene una hoja de estilos compartida: css/styles.css.
+
+3. SELECTORES Y ESPECIFICIDAD
+
+En CSS, la especificidad se calcula de forma simplificada con tres grupos:
+(A, B, C)
+
+A = cantidad de selectores de ID.
+B = cantidad de clases, atributos y pseudoclases.
+C = cantidad de selectores de elemento y pseudoelementos.
+
+Selector: #menu a
+Especificidad: (1, 0, 1)
+Explicación: contiene un ID (#menu) y un elemento (a).
+
+Selector: .activo
+Especificidad: (0, 1, 0)
+Explicación: contiene una clase.
+
+Selector: #menu a.activo
+Especificidad: (1, 1, 1)
+Explicación: contiene un ID, una clase y un elemento.
+
+Selector: #menu a:hover
+Especificidad: (1, 1, 1)
+Explicación: contiene un ID, una pseudoclase y un elemento.
+
+Selector: #menu a.activo:hover
+Especificidad: (1, 2, 1)
+Explicación: contiene un ID, dos pseudoclases/clases y un elemento.
+
+Selector: .boton-accion
+Especificidad: (0, 1, 0)
+Explicación: contiene una clase.
+
+Selector: input:focus
+Especificidad: (0, 1, 1)
+Explicación: contiene un elemento y una pseudoclase.
+
+4. CAUSA DEL CONFLICTO Y SOLUCIÓN
+
+Reglas originales del compañero:
+
+#menu a {
+    color: var(--gris-asfalto);
+}
+
+.activo {
+    color: var(--verde-ruta);
+    font-weight: 600;
+}
+
+La clase .activo no puede imponerse por sí sola a #menu a cuando ambas reglas declaran la misma propiedad, porque el selector con ID tiene mayor especificidad.
+
+Comparación:
+- #menu a = (1, 0, 1).
+- .activo = (0, 1, 0).
+
+El selector #menu a gana por tener un ID, aunque .activo aparezca después en el archivo CSS.
+
+Solución aplicada:
+Se utiliza un selector más específico para la página actual:
+
+#menu a.activo {
+    color: var(--naranja-pedal);
+    font-weight: 700;
+}
+
+Su especificidad es (1, 1, 1), por lo que supera a #menu a, cuya especificidad es (1, 0, 1).
+
+La solución no utiliza !important ni estilos en línea. Los colores del enlace activo respetan el mapa de marca: Naranja Pedal sobre Azul Noche.
+
+5. NAVEGACIÓN Y PSEUDOCLASES
+
+Se utiliza #menu a para seleccionar enlaces descendientes de la lista del menú.
+
+Estados definidos:
+- #menu a:hover: cambia el fondo a Verde Ruta y conserva el texto Crema.
+- #menu a:focus: dibuja un contorno Crema visible al navegar por teclado.
+- #menu a.activo: distingue la página actual con Naranja Pedal sobre Azul Noche.
+- #menu a.activo:hover: mantiene la apariencia del enlace activo y evita perder su identificación.
+
+Los enlaces del contenido también cuentan con :hover y :focus.
+
+6. BOTONES DE LLAMADA A LA ACCIÓN
+
+Se creó la clase .boton-accion.
+
+Uso en HTML:
+<a class="boton-accion" href="paginas/reservas.html">Reservar ahora</a>
+
+Apariencia:
+- Fondo Verde Ruta.
+- Texto Crema.
+- Borde Verde Ruta.
+- Texto subrayado al pasar el mouse y fondo Azul Noche en hover.
+- Contorno Azul Noche visible en foco.
+
+El contraste de texto de los estados principales cumple el mínimo de 4.5:1 según el mapa de contraste previo.
+
+7. CAMPOS DEL FORMULARIO
+
+Se definieron estados para input, select y textarea.
+
+Estado hover:
+- El borde cambia a Verde Ruta.
+
+Estado focus:
+- El borde cambia a Verde Ruta.
+- Aparece un contorno de 3 píxeles Azul Noche.
+- Se conserva un espacio entre el control y el contorno para facilitar su identificación.
+
+Los controles mantienen texto Azul Noche sobre fondo Crema. No se elimina el contorno sin reemplazarlo por otro indicador visible.
+
+8. PRUEBAS CON DEVTOOLS
+
+Procedimiento:
+1. Abrir el sitio en el navegador.
+2. Pulsar F12.
+3. En Elements, seleccionar el enlace activo del menú.
+4. Revisar Styles y buscar las reglas #menu a, .activo y #menu a.activo.
+5. Revisar qué declaraciones están tachadas y cuál selector gana.
+6. Pulsar el botón :hov para forzar :hover o :focus cuando corresponda.
+7. Recorrer las tres páginas usando Tab y comprobar el indicador de foco.
+
+Resultados que deben registrarse después de ejecutar las pruebas:
+
+- Página principal: pendiente de comprobación.
+- Página de tarifas: pendiente de comprobación.
+- Página de reservas: pendiente de comprobación.
+- Estado hover del menú: pendiente de comprobación.
+- Estado focus del menú: pendiente de comprobación.
+- Estado hover y focus del botón de llamada a la acción: pendiente de comprobación.
+- Estado focus de campos del formulario: pendiente de comprobación.
+
+9. PRUEBA MANUAL DE NAVEGACIÓN CON TAB
+
+Pasos:
+1. Abrir index.html.
+2. Pulsar Tab varias veces.
+3. Comprobar que cada enlace enfocado tiene un contorno visible.
+4. Continuar hasta llegar al botón Reservar ahora.
+5. Abrir la página de tarifas y repetir la prueba.
+6. Abrir la página de reservas y comprobar los campos, radios, casilla de confirmación y botón de envío.
+7. Confirmar que el enlace de la página actual se distingue visualmente.
+
+Estado: pendiente de ejecutar y registrar.
+
+10. CONTRASTE DE LOS ESTADOS
+
+Combinaciones utilizadas:
+- Texto Crema sobre Verde Ruta: 5.31:1.
+- Texto Crema sobre Azul Noche: 15.97:1.
+- Texto Naranja Pedal sobre Azul Noche: aproximadamente 7.20:1.
+- Texto Azul Noche sobre Crema: 14.83:1.
+- Texto Verde Ruta sobre Crema: 4.93:1.
+
+No se utiliza texto Gris Asfalto sobre Azul Noche, ni texto blanco sobre Naranja Pedal. Los colores de foco se han seleccionado para distinguirse de los fondos donde se aplican.
+
+11. CONTROL DE VERSIONES
+
+Comandos:
+
+git status
+git add css/styles.css index.html paginas/tarifas.html paginas/reservas.html bitacora.txt
+git commit -m "Mejorar navegacion y estados de foco"
+git push origin main
+
+Después del push, revisar el repositorio remoto para confirmar que todos los cambios están guardados.
+
+12. RESULTADO ESPERADO
+
+- Las tres páginas identifican el enlace activo.
+- La navegación tiene estados hover y focus visibles.
+- Los enlaces de llamada a la acción tienen apariencia de botón.
+- Los campos muestran un indicador de foco visible.
+- El conflicto de especificidad está documentado y resuelto sin !important.
+- La bitácora conserva el registro de los retos anteriores y añade este nuevo reto.
+
+Fin del registro del reto.

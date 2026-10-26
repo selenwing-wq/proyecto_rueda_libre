@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulta los precios de alquiler de bicicletas y recorridos guiados de Rueda Libre.">
+    <meta name="description" content="Consulta las tarifas de alquiler de bicicletas y recorridos guiados de Rueda Libre.">
     <title>Tarifas y recorridos | Rueda Libre</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -18,9 +17,11 @@
         <p>Encuentra la bicicleta y el recorrido ideales para ti.</p>
 
         <nav aria-label="Navegación principal">
-            <a href="../index.html">Inicio</a>
-            <a href="tarifas.html" aria-current="page">Tarifas y recorridos</a>
-            <a href="reservas.html">Reservar una bicicleta</a>
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html" class="activo" aria-current="page">Tarifas y recorridos</a></li>
+                <li><a href="reservas.html">Reservar una bicicleta</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -60,6 +61,8 @@
                     </tr>
                 </tbody>
             </table>
+
+            <p><a class="boton-accion" href="reservas.html">Reservar ahora</a></p>
         </section>
 
         <section id="recorridos">
@@ -102,9 +105,7 @@
                 </tbody>
             </table>
 
-            <p>
-                <a href="reservas.html">Solicitar una reserva para un recorrido</a>
-            </p>
+            <p><a class="boton-accion" href="reservas.html">Reservar un recorrido</a></p>
         </section>
 
         <aside id="informacion-adicional">
