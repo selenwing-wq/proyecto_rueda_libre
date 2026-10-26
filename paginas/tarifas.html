@@ -7,52 +7,39 @@
 
     <meta
         name="description"
-        content="Consulta las tarifas de alquiler de bicicletas y los precios de los recorridos guiados de Rueda Libre en Medellín."
+        content="Consulta los precios de alquiler de bicicletas y recorridos guiados de Rueda Libre en Medellín."
     >
 
     <title>Tarifas y recorridos | Rueda Libre</title>
 </head>
 <body>
 
+    <!-- ENCABEZADO Y MENU PRINCIPAL -->
     <header>
-    <nav aria-label="Menú principal">
-        <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="tarifas.html">Tarifas y rutas</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
-        </ul>
-    </nav>
-</header>
+        <a href="../index.html">Rueda Libre</a>
 
-    <header>
-        <a href="../index.html">
-            <img
-                src="../img/logo.png"
-                alt="Logo de Rueda Libre"
-                width="150"
-            >
-        </a>
-
-        <h1>Tarifas de Rueda Libre</h1>
-
-        <p>
-            Consulta nuestros precios de alquiler de bicicletas
-            y recorridos guiados por Medellín.
-        </p>
-
-        <nav>
-            <a href="../index.html">Volver al inicio</a>
-            |
-            <a href="#recorridos">Ver tarifas de recorridos guiados</a>
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
         </nav>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL DE TARIFAS -->
     <main>
+        <h1>Tarifas de Rueda Libre</h1>
+
+        <!-- TABLA DE ALQUILER -->
         <section id="alquiler">
             <h2>Tarifas de alquiler de bicicletas</h2>
 
             <table>
-                <caption>Precios de alquiler según el tipo de bicicleta y la duración</caption>
+                <caption>
+                    Precios de alquiler según el tipo de bicicleta
+                    y la duración
+                </caption>
 
                 <thead>
                     <tr>
@@ -88,11 +75,14 @@
             </table>
         </section>
 
+        <!-- TABLA DE RECORRIDOS -->
         <section id="recorridos">
             <h2>Tarifas de recorridos guiados</h2>
 
             <table>
-                <caption>Precios y características de nuestros recorridos guiados</caption>
+                <caption>
+                    Precios y características de los recorridos guiados
+                </caption>
 
                 <thead>
                     <tr>
@@ -130,13 +120,14 @@
                     </tr>
                 </tbody>
             </table>
+
+            <p>
+                <a href="reservas.html">Reservar ahora</a>
+            </p>
         </section>
 
-        <p>
-            <a href="reservas.html">Reservar ahora</a>
-        </p>
-
-        <section id="informacion-adicional">
+        <!-- INFORMACION COMPLEMENTARIA -->
+        <aside id="informacion-adicional">
             <h2>Información importante</h2>
 
             <p>
@@ -144,8 +135,10 @@
                 <strong>casco y candado</strong>.
             </p>
 
+            <h3>Horarios de los recorridos</h3>
+
             <p>
-                Los recorridos guiados salen los sábados y domingos
+                Los recorridos guiados salen sábados y domingos
                 a las 7:00 a. m.
             </p>
 
@@ -153,40 +146,36 @@
 
             <ul>
                 <li>Ropa cómoda.</li>
-                <li>Agua para mantenerte hidratado.</li>
+                <li>Agua.</li>
                 <li>Protector solar.</li>
                 <li>Documento de identidad.</li>
             </ul>
-        </section>
+        </aside>
 
+        <!-- CONTACTO -->
         <section id="contacto">
-            <h2>¿Quieres reservar?</h2>
+            <h2>¿Tienes preguntas?</h2>
 
             <p>
                 <a href="mailto:hola@ruedalibre.example">
                     Escríbenos para consultar disponibilidad
                 </a>
             </p>
-
-            <p>
-                <a href="../index.html">Regresar a la página de inicio</a>
-            </p>
         </section>
+
     </main>
 
+    <!-- PIE DE PAGINA -->
     <footer>
-        <p>&copy; 2026 Rueda Libre. Medellín, Colombia.</p>
-    </footer>
-
-    <footer>
-    <p>
-        Rueda Libre |
-        <a href="mailto:hola@ruedalibre.example">
-            hola@ruedalibre.example
-        </a>
-        | &copy; 2026
-    </p>
+        <p>
+            Rueda Libre |
+            <a href="mailto:hola@ruedalibre.example">
+                hola@ruedalibre.example
+            </a>
+            | &copy; 2026
+        </p>
     </footer>
 
 </body>
 </html>
+

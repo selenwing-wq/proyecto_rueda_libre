@@ -1,99 +1,744 @@
 
-PROYECTO: Rueda Libre
-DESCRIPCION: Sitio web para un negocio de alquiler de bicicletas en Medellín.
 
-1. CONFIGURACION DEL ENTORNO
-Editor utilizado: Visual Studio Code
-Servidor local: Live Server
-Navegador: Google Chrome
-Control de versiones: Git
-Repositorio remoto: GitHub
+============================================================
+PROYECTO: RUEDA LIBRE
+BITACORA DE DESARROLLO WEB
+VERSION DEL SITIO: v0.1
+AVANCE: HASTA EL MINIRETO DEL DIA 2
+============================================================
 
-2. ESTRUCTURA DEL PROYECTO
-index.html: contiene la estructura HTML inicial.
-paginas/: almacenará páginas adicionales.
-img/: almacena las imágenes del negocio.
-bitacora.txt: registra el desarrollo del proyecto.
+DESCRIPCION GENERAL DEL PROYECTO
 
-3. PETICION DEL DOCUMENTO HTML
-URL completa: [COPIAR LA URL REAL DE NETWORK]
-Protocolo: [http o https]
-Host: [VALOR REAL]
-Puerto: [VALOR REAL]
-Ruta: [VALOR REAL]
-Metodo HTTP: [GET u otro valor observado]
-Codigo de estado: [VALOR REAL]
+Rueda Libre es un proyecto web para un negocio de alquiler
+de bicicletas ubicado en Medellín, Colombia.
 
-Observacion:
-Al abrir index.html, el navegador solicita el documento al
-servidor local. El servidor responde con un codigo de estado
-que permite conocer el resultado de la peticion.
+El sitio permite a los visitantes conocer el negocio,
+consultar sus servicios, revisar las tarifas de alquiler
+y los precios de los recorridos guiados, conocer los horarios
+de atención y contactar al negocio para realizar reservas.
 
-4. PRUEBA DE UNA RUTA INEXISTENTE
-Ruta probada: /promociones.html
-URL completa: [COPIAR LA URL QUE PROBASTE]
-Codigo de estado: [VALOR REAL]
+El proyecto se desarrolla con HTML y utiliza Git y GitHub
+para controlar las versiones y guardar el historial
+de los cambios realizados durante los MiniRetos.
 
-Interpretacion:
-[EXPLICAR EL SIGNIFICADO DEL CODIGO OBSERVADO].
-Si la respuesta es 404 Not Found, significa que el recurso
-solicitado no fue encontrado en esa ruta.
+OBJETIVO GENERAL
 
-5. FUNCION DE HTML, CSS Y JAVASCRIPT
+Construir un sitio web organizado, accesible y navegable,
+utilizando HTML semántico, enlaces entre páginas, imágenes,
+listas, tablas y una estructura de archivos clara.
+
+------------------------------------------------------------
+1. ESTRUCTURA DE CARPETAS Y ARCHIVOS
+------------------------------------------------------------
+
+La estructura prevista del proyecto es:
+
+rueda-libre/
+|
+|-- index.html
+|-- bitacora.txt
+|-- img/
+|   |-- portada.jpg
+|   |-- bicicleta.jpg
+|   |-- ruta.jpg
+|   |-- logo.png
+|
+|-- paginas/
+    |-- tarifas.html
+    |-- reservas.html
+
+NOTA:
+Los nombres de las imágenes son ejemplos utilizados en
+el código. Deben coincidir con los nombres y las extensiones
+de los archivos que realmente existen en la carpeta img/.
+
+DESCRIPCION DE LOS ARCHIVOS
+
+index.html:
+Página principal del sitio. Presenta el negocio, sus
+servicios, beneficios, los pasos para alquilar, información
+de ubicación y enlaces a las tarifas y las reservas.
+
+paginas/tarifas.html:
+Página que contiene las tablas de precios de alquiler
+de bicicletas y recorridos guiados, además de información
+sobre horarios, elementos que deben llevar los usuarios
+y enlaces para realizar reservas.
+
+paginas/reservas.html:
+Página inicial de reservas. Presenta el correo de contacto
+y los horarios de atención mientras se desarrolla
+el formulario de reservas.
+
+img/:
+Carpeta destinada a las fotografías y al logo del negocio.
+
+bitacora.txt:
+Documento que registra las decisiones, los conceptos
+aprendidos, las rutas utilizadas y las verificaciones
+realizadas durante el desarrollo.
+
+------------------------------------------------------------
+2. ANALISIS DE LA PETICION DEL CLIENTE
+------------------------------------------------------------
+
+El cliente necesita un sitio web que permita a los usuarios
+conocer Rueda Libre sin tener que solicitar toda la
+información por WhatsApp.
+
+La página debe presentar de forma clara:
+
+- La identidad y presentación del negocio.
+- El alquiler de bicicletas urbanas, de montaña y eléctricas.
+- Los recorridos guiados disponibles.
+- El servicio de taller básico.
+- Los beneficios del alquiler.
+- Los pasos para alquilar.
+- Las tarifas y los precios por duración.
+- Los horarios de atención.
+- Los datos de contacto y las opciones de reserva.
+
+La solución consiste en dividir el contenido en tres páginas
+relacionadas mediante un menú de navegación común:
+
+1. Inicio.
+2. Tarifas y rutas.
+3. Reservas.
+
+La organización del contenido permite que el visitante
+encuentre la información de forma más rápida y facilita
+el mantenimiento futuro del sitio.
+
+------------------------------------------------------------
+3. FUNDAMENTOS DE HTML
+------------------------------------------------------------
 
 HTML:
-Define la estructura y el contenido de la pagina.
-Ejemplo: <h1>Rueda Libre</h1> muestra el titulo principal.
+Es el lenguaje de marcado utilizado para definir la
+estructura y el significado del contenido de una página web.
 
-CSS:
-Controla la apariencia visual de la pagina.
-Ejemplo: h1 { color: green; } cambia el color del titulo.
+ESTRUCTURA BASE:
 
-JavaScript:
-Agrega interactividad y comportamiento.
-Ejemplo: un boton que muestra un mensaje al hacer clic.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Titulo de la pagina</title>
+</head>
+<body>
+    <!-- Contenido visible -->
+</body>
+</html>
 
-6. CONTROL DE VERSIONES
-Repositorio: [URL REAL DE GITHUB]
-Commit inicial: Crear estructura inicial de Rueda Libre
-Fecha: [FECHA DE REALIZACION]
-Resultado del envio: [CONFIRMAR QUE SE SUBIO A GITHUB]
+DOCTYPE:
+Indica que el documento utiliza HTML moderno.
 
+html lang="es":
+Indica que el idioma principal del contenido es español.
 
-MINIRETO: SITIO NAVEGABLE RUEDA LIBRE v0.1
+meta charset="UTF-8":
+Permite representar correctamente caracteres especiales,
+acentos y la letra ñ.
 
-Objetivo:
-Integrar las páginas de inicio, tarifas y reservas mediante
-un menú común y un pie de página compartido.
+meta viewport:
+Ayuda a que la página se adapte al ancho de la pantalla
+del dispositivo.
 
-TABLA DE RUTAS RELATIVAS
+title:
+Define el título que aparece en la pestaña del navegador.
+
+meta description:
+Proporciona una descripción de la página que los motores
+de búsqueda pueden utilizar como resumen.
+
+------------------------------------------------------------
+4. JERARQUIA DE ENCABEZADOS
+------------------------------------------------------------
+
+h1:
+Es el encabezado principal de la página. En este proyecto
+se utiliza un solo h1 por documento.
+
+h2:
+Representa las secciones principales, por ejemplo:
+¿Quiénes somos?, Nuestros servicios y ¿Cómo alquilar?
+
+h3:
+Representa subsecciones, como los servicios individuales
+dentro de Nuestros servicios.
+
+La jerarquía se define según la relación entre los temas
+y no únicamente según el tamaño visual de las letras.
+
+Los encabezados permiten comprender la organización del
+contenido y facilitan la navegación con tecnologías
+de asistencia.
+
+------------------------------------------------------------
+5. ELEMENTOS DE TEXTO Y LISTAS
+------------------------------------------------------------
+
+p:
+Define un párrafo.
+
+strong:
+Marca texto de especial importancia. Por ejemplo:
+"El alquiler incluye casco y candado".
+
+em:
+Añade énfasis a una expresión.
+
+ul:
+Crea una lista no ordenada, normalmente presentada
+con viñetas. Se utiliza para presentar los beneficios
+y los elementos que deben llevar los usuarios.
+
+ol:
+Crea una lista ordenada, normalmente numerada.
+Se utiliza para presentar los cuatro pasos del alquiler.
+
+li:
+Representa cada elemento de una lista.
+
+dl:
+Crea una lista de descripciones o definiciones.
+
+dt:
+Identifica el término o elemento descrito, como
+"Lunes a viernes".
+
+dd:
+Contiene la descripción correspondiente, como el horario
+"7:00 a. m. a 7:00 p. m.".
+
+------------------------------------------------------------
+6. IMAGENES Y RUTAS RELATIVAS
+------------------------------------------------------------
+
+Las imágenes se incorporan mediante la etiqueta img.
+
+Ejemplo desde index.html:
+
+<img src="img/bicicleta.jpg"
+     alt="Bicicleta disponible para alquilar"
+     width="500">
+
+src:
+Indica la ubicación del archivo de imagen.
+
+alt:
+Proporciona una descripción textual de la imagen.
+
+width:
+Define el ancho de la imagen en píxeles.
+
+Las rutas utilizadas son relativas al archivo HTML
+desde el cual se solicita el recurso.
+
+Desde index.html hacia una imagen:
+
+img/bicicleta.jpg
+
+Desde paginas/tarifas.html hacia el logo:
+
+../img/logo.png
+
+El segmento ../ permite subir un nivel desde la carpeta
+paginas hasta la carpeta principal.
+
+No se deben utilizar rutas locales de Windows, como
+C:\Users\..., porque no funcionan como rutas del sitio
+cuando se publica en otro computador o servidor.
+
+------------------------------------------------------------
+7. ENLACES Y NAVEGACION
+------------------------------------------------------------
+
+Los enlaces se crean con la etiqueta a y el atributo href.
+
+ENLACE ENTRE CARPETAS:
+
+Desde index.html hacia tarifas:
+
+<a href="paginas/tarifas.html">Tarifas y rutas</a>
+
+Desde index.html hacia reservas:
+
+<a href="paginas/reservas.html">Reservas</a>
+
+Desde tarifas.html hacia Inicio:
+
+<a href="../index.html">Inicio</a>
+
+Desde tarifas.html hacia reservas:
+
+<a href="reservas.html">Reservas</a>
+
+ENLACE A UNA SECCION DE OTRA PAGINA:
+
+<a href="paginas/tarifas.html#recorridos">
+    Consultar recorridos guiados
+</a>
+
+El fragmento #recorridos lleva a la sección que tenga
+el atributo id="recorridos".
+
+ENLACE DE CORREO:
+
+<a href="mailto:hola@ruedalibre.example">
+    Escríbenos
+</a>
+
+El prefijo mailto: solicita abrir la aplicación de correo
+configurada en el dispositivo.
+
+ENLACE EXTERNO EN OTRA PESTAÑA:
+
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Medellin%2C+Colombia"
+   target="_blank"
+   rel="noopener noreferrer">
+    Ver ubicación en Google Maps
+</a>
+
+target="_blank":
+Solicita abrir el destino en otra pestaña.
+
+rel="noopener noreferrer":
+Añade protección al abrir un enlace en otra pestaña.
+
+NOTA:
+La búsqueda de Google Maps utilizada es una ubicación
+general de Medellín y no una dirección comercial verificada
+de Rueda Libre.
+
+El correo hola@ruedalibre.example es una dirección
+de ejemplo y no se ha verificado que exista.
+
+------------------------------------------------------------
+8. TABLAS DE TARIFAS
+------------------------------------------------------------
+
+Las tablas se utilizan para representar datos relacionados
+entre sí mediante filas y columnas.
+
+ETIQUETAS UTILIZADAS:
+
+table:
+Define la tabla.
+
+caption:
+Describe el contenido de la tabla.
+
+thead:
+Agrupa las filas de encabezados.
+
+tbody:
+Agrupa las filas con datos.
+
+tr:
+Define una fila.
+
+th:
+Define una celda de encabezado.
+
+td:
+Define una celda de datos.
+
+scope="col":
+Indica que el encabezado describe una columna.
+
+scope="row":
+Indica que el encabezado describe una fila.
+
+TABLA DE ALQUILER DE BICICLETAS
+
+Tipo de bicicleta | 1 hora | Medio día (4 h) | Día completo
+
+Urbana            | $10.000 | $30.000            | $50.000
+Montaña           | $15.000 | $45.000            | $70.000
+Eléctrica         | $25.000 | $70.000            | $110.000
+
+TABLA DE RECORRIDOS GUIADOS
+
+Recorrido        | Distancia | Duración | Nivel  | Precio por persona
+
+Río y Parques    | 12 km     | 2 h      | Fácil  | $45.000
+Sabores de Barrio| 18 km     | 3 h      | Medio  | $60.000
+Reto Las Palmas  | 25 km     | 4 h      | Difícil| $85.000
+
+INFORMACION ADICIONAL
+
+Todas las tarifas de alquiler incluyen casco y candado.
+
+Los recorridos guiados salen sábados y domingos
+a las 7:00 a. m.
+
+Elementos que deben llevar los participantes:
+- Ropa cómoda.
+- Agua.
+- Protector solar.
+- Documento de identidad.
+
+Las tablas se utilizan exclusivamente para los datos
+tabulares. La información complementaria se presenta
+mediante párrafos, encabezados y listas.
+
+------------------------------------------------------------
+9. PAGINA DE RESERVAS
+------------------------------------------------------------
+
+La página reservas.html proporciona información de contacto
+mientras se desarrolla el formulario de reservas.
+
+TITULO PRINCIPAL:
+Reserva tu bicicleta.
+
+CORREO DE CONTACTO:
+hola@ruedalibre.example
+
+HORARIOS DE ATENCION:
+
+Lunes a viernes:
+7:00 a. m. a 7:00 p. m.
+
+Sábados, domingos y festivos:
+6:00 a. m. a 2:00 p. m.
+
+La información del horario se presenta con dl, dt y dd.
+
+El formulario de reservas todavía no forma parte de esta
+versión del proyecto.
+
+------------------------------------------------------------
+10. ESTRUCTURA SEMANTICA DEL DIA 2
+------------------------------------------------------------
+
+El HTML semántico permite identificar la función de las
+distintas regiones del documento.
+
+header:
+Contiene información introductoria o encabezados.
+En este proyecto se utiliza para el encabezado del sitio.
+
+nav:
+Identifica el menú principal de navegación.
+
+main:
+Contiene el contenido principal de la página.
+Cada documento debe tener un único main visible.
+
+section:
+Agrupa contenido relacionado por tema y debe tener
+un encabezado apropiado.
+
+article:
+Representa una unidad de contenido independiente.
+En Inicio se utiliza para cada servicio:
+- Alquiler de bicicletas.
+- Recorridos guiados.
+- Taller básico.
+
+aside:
+Representa contenido complementario.
+En Tarifas se utiliza para la información adicional
+y la lista de qué llevar.
+En Reservas se utiliza para el horario de atención.
+
+footer:
+Representa el pie de página. Contiene el nombre del negocio,
+el correo de contacto y el año.
+
+div y span:
+Son elementos genéricos que pueden utilizarse cuando no
+existe un elemento semántico más apropiado.
+
+En la versión reconstruida de las tres páginas no se
+necesitaron div ni span. Si se incorporan posteriormente
+para organizar estilos, se debe justificar su uso.
+
+------------------------------------------------------------
+11. ESQUEMAS SEMANTICOS DE LAS PAGINAS
+------------------------------------------------------------
+
+A. INDEX.HTML
+
+body
+├── header
+│   ├── h1: Rueda Libre
+│   └── nav: menú principal
+├── main
+│   ├── section: ¿Quiénes somos?
+│   ├── section: Nuestros servicios
+│   │   ├── article: Alquiler de bicicletas
+│   │   ├── article: Recorridos guiados
+│   │   └── article: Taller básico
+│   ├── section: Beneficios
+│   ├── section: ¿Cómo alquilar?
+│   ├── section: Encuéntranos
+│   └── section: Reserva ahora
+└── footer: nombre, correo y año
+
+B. PAGINAS/TARIFAS.HTML
+
+body
+├── header
+│   └── nav: menú principal
+├── main
+│   ├── h1: Tarifas de Rueda Libre
+│   ├── section: Tarifas de alquiler
+│   │   └── table
+│   ├── section: Tarifas de recorridos
+│   │   └── table
+│   ├── aside: Información adicional
+│   └── section: Contacto
+└── footer: nombre, correo y año
+
+C. PAGINAS/RESERVAS.HTML
+
+body
+├── header
+│   └── nav: menú principal
+├── main
+│   ├── section: Reserva tu bicicleta
+│   └── aside: Horario de atención
+└── footer: nombre, correo y año
+
+------------------------------------------------------------
+12. TABLA DE RUTAS RELATIVAS
+------------------------------------------------------------
 
 Archivo de origen | Destino | Ruta escrita
-index.html | Inicio | index.html
-index.html | Tarifas y rutas | paginas/tarifas.html
-index.html | Reservas | paginas/reservas.html
-paginas/tarifas.html | Inicio | ../index.html
-paginas/tarifas.html | Tarifas y rutas | tarifas.html
-paginas/tarifas.html | Reservas | reservas.html
-paginas/reservas.html | Inicio | ../index.html
-paginas/reservas.html | Tarifas y rutas | tarifas.html
-paginas/reservas.html | Reservas | reservas.html
+
+index.html
+| Inicio
+| index.html
+
+index.html
+| Tarifas y rutas
+| paginas/tarifas.html
+
+index.html
+| Reservas
+| paginas/reservas.html
+
+paginas/tarifas.html
+| Inicio
+| ../index.html
+
+paginas/tarifas.html
+| Tarifas y rutas
+| tarifas.html
+
+paginas/tarifas.html
+| Reservas
+| reservas.html
+
+paginas/reservas.html
+| Inicio
+| ../index.html
+
+paginas/reservas.html
+| Tarifas y rutas
+| tarifas.html
+
+paginas/reservas.html
+| Reservas
+| reservas.html
 
 ENLACES ADICIONALES
 
 Desde index.html:
 Reservar ahora -> paginas/reservas.html
 
+Desde index.html:
+Recorridos guiados -> paginas/tarifas.html#recorridos
+
 Desde paginas/tarifas.html:
 Reservar ahora -> reservas.html
 
-HORARIO DE ATENCION
+Desde index.html:
+Imagen de bicicleta -> img/bicicleta.jpg
 
-Lunes a viernes: 7:00 a. m. a 7:00 p. m.
-Sábados, domingos y festivos: 6:00 a. m. a 2:00 p. m.
+Desde paginas/tarifas.html:
+Logo -> ../img/logo.png
 
-VERIFICACION
+------------------------------------------------------------
+13. ANALISIS DE LA PETICION AL SERVIDOR
+------------------------------------------------------------
 
-Navegación comprobada: [PENDIENTE DE VERIFICAR]
-Errores 404: [REGISTRAR RESULTADO REAL]
-Commit v0.1: [REGISTRAR RESULTADO REAL]
+Cuando una persona abre una página web, el navegador realiza
+una petición HTTP al servidor para solicitar el documento
+HTML o los recursos que necesita.
+
+Ejemplo del flujo de carga:
+
+1. El usuario abre index.html mediante el navegador
+   o mediante un servidor de desarrollo como Live Server.
+
+2. El navegador solicita el documento HTML.
+
+3. El servidor devuelve el documento solicitado.
+
+4. El navegador interpreta el HTML y construye el árbol
+   de elementos del documento.
+
+5. El navegador solicita recursos adicionales, como
+   imágenes, hojas de estilo y archivos JavaScript,
+   cuando están referenciados.
+
+6. El navegador presenta el contenido al usuario.
+
+7. Cuando el usuario pulsa un enlace a tarifas o reservas,
+   el navegador solicita el documento de destino.
+
+8. Si la ruta es incorrecta, el recurso puede no encontrarse
+   y aparecer un error 404.
+
+En DevTools, la pestaña Network permite revisar las peticiones,
+los recursos solicitados y los códigos de estado.
+
+Un código 200 suele indicar que la petición se completó
+correctamente. Un código 404 indica que el recurso solicitado
+no se encontró en esa ruta.
+
+La disponibilidad de un archivo depende de la estructura
+real del proyecto y de cómo se sirve o publica el sitio.
+
+------------------------------------------------------------
+14. FUNCIONES DE HTML, CSS Y JAVASCRIPT
+------------------------------------------------------------
+
+HTML:
+Define la estructura y el significado del contenido.
+En Rueda Libre organiza encabezados, párrafos, imágenes,
+listas, tablas, enlaces y regiones semánticas.
+
+CSS:
+Controla la presentación visual del sitio.
+Puede definir colores, tipografías, márgenes, espaciado,
+bordes, tamaños de imagen y diseño adaptable a móviles.
+
+JavaScript:
+Permite agregar comportamiento e interactividad.
+En una versión futura podría utilizarse para validar
+formularios, mostrar mensajes, calcular precios o gestionar
+interacciones de reserva.
+
+En la versión actual, la estructura principal está hecha
+con HTML. No es necesario JavaScript para que funcionen
+los enlaces básicos entre las páginas.
+
+------------------------------------------------------------
+15. DEVTOOLS Y VERIFICACION
+------------------------------------------------------------
+
+DevTools es el conjunto de herramientas de desarrollo
+integrado en navegadores como Chrome y Firefox.
+
+ELEMENTS:
+Permite inspeccionar el árbol HTML y revisar la estructura
+semántica del documento.
+
+NETWORK:
+Permite comprobar las peticiones de los documentos,
+las imágenes y otros recursos, además de identificar
+errores como 404.
+
+PRUEBAS PENDIENTES DE CONFIRMACION
+
+[ ] Inicio abre correctamente.
+[ ] Tarifas abre correctamente.
+[ ] Reservas abre correctamente.
+[ ] Desde cada página se puede navegar a las otras dos.
+[ ] El enlace directo #recorridos llega a la sección correcta.
+[ ] Las imágenes cargan sin errores.
+[ ] No hay errores 404 en Network.
+[ ] Cada página tiene un único main y un único h1.
+[ ] Las tablas conservan todos los datos.
+[ ] Los servicios de Inicio están en artículos.
+[ ] Cada sección tiene su encabezado correspondiente.
+[ ] Los pies de página son consistentes.
+[ ] El sitio mantiene su contenido después de los cambios.
+
+Las casillas deben marcarse solo después de realizar
+las pruebas en el navegador.
+
+------------------------------------------------------------
+16. CONTROL DE VERSIONES CON GIT Y GITHUB
+------------------------------------------------------------
+
+Git permite registrar los cambios realizados en los archivos
+y mantener un historial de versiones.
+
+GitHub permite alojar el repositorio remoto y compartir
+el proyecto.
+
+COMANDOS UTILIZADOS
+
+git status:
+Muestra los archivos modificados, nuevos y preparados.
+
+git add .:
+Prepara los cambios del directorio actual para el commit.
+
+git commit -m "Mensaje":
+Guarda un punto de control en el historial local.
+
+git push:
+Envía los commits locales al repositorio remoto.
+
+git log --oneline:
+Permite consultar el historial de commits.
+
+COMMIT DE LA VERSION V0.1
+
+Mensaje sugerido:
+MiniReto v0.1: integrar navegacion y reservas
+
+COMMIT DEL DIA 2
+
+Mensaje sugerido:
+Dia 2: agregar estructura semantica a las paginas
+
+IMPORTANTE:
+Los mensajes anteriores son los mensajes sugeridos para
+los commits. Deben comprobarse en el historial real de Git.
+
+No se debe afirmar que los cambios se subieron a GitHub
+hasta verificar que git push finalizó correctamente.
+
+------------------------------------------------------------
+17. ESTADO ACTUAL DEL PROYECTO
+------------------------------------------------------------
+
+FUNCIONALIDADES Y CONTENIDO DISEÑADOS
+
+- Página principal de Rueda Libre.
+- Presentación del negocio y sus servicios.
+- Lista de beneficios y pasos para alquilar.
+- Imágenes con texto alternativo y rutas relativas.
+- Tabla de tarifas de alquiler.
+- Tabla de precios de recorridos guiados.
+- Información adicional y lista de elementos necesarios.
+- Página inicial de reservas con correo y horarios.
+- Menú común para las tres páginas.
+- Pie de página común.
+- Enlaces entre páginas y enlace directo a recorridos.
+- Estructura semántica con header, nav, main, section,
+  article, aside y footer.
+
+VERIFICACIONES REALES
+
+Las comprobaciones de navegación, carga de imágenes,
+ausencia de errores 404, estado de los commits y publicación
+en GitHub deben completarse en el entorno local del proyecto.
+
+Estado de verificación: PENDIENTE DE CONFIRMAR.
+
+------------------------------------------------------------
+FIN DE LA BITACORA
+PROYECTO: RUEDA LIBRE
+VERSION DE REFERENCIA: V0.1
+------------------------------------------------------------
