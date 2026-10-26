@@ -1,47 +1,55 @@
-/* =========================================
-   RUEDA LIBRE — MODELO DE CAJA Y ESPACIADO
-   ========================================= */
+/* =========================================================
+   RUEDA LIBRE v1.0
+   Hoja de estilos principal
+   ========================================================= */
 
-/* 1. Variables globales de la marca */
+
+/* 1. VARIABLES DE DISEÑO
+   ========================================================= */
+
 :root {
-    /* Colores */
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
 
-    /* Tipografías */
     --fuente-titulos: "Montserrat", Arial, sans-serif;
     --fuente-textos: "Open Sans", Arial, sans-serif;
 
-    /* Escala de espaciado */
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
 
-    /* Dimensiones */
     --ancho-contenido: 70rem;
     --ancho-formulario: 48rem;
     --radio-borde: 0.75rem;
+
+    --altura-acceso-whatsapp: 3.25rem;
 }
 
-/* 2. Box sizing global: padding y border quedan incluidos en el ancho */
+
+/* 2. REGLAS GENERALES Y MODELO DE CAJA
+   ========================================================= */
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* 3. Estilos generales */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: var(--fuente-textos);
     font-weight: 400;
+    line-height: 1.6;
     color: var(--azul-noche);
     background-color: var(--crema);
-    line-height: 1.6;
 }
 
 h1,
@@ -50,6 +58,7 @@ h3,
 h4,
 h5,
 h6 {
+    margin-top: 0;
     font-family: var(--fuente-titulos);
     font-weight: 700;
     line-height: 1.2;
@@ -61,12 +70,10 @@ h1 {
 }
 
 h2 {
-    margin-top: var(--espacio-grande);
     margin-bottom: var(--espacio-mediano);
 }
 
 h3 {
-    margin-top: 0;
     margin-bottom: var(--espacio-mediano);
 }
 
@@ -82,62 +89,48 @@ img {
     border-radius: var(--radio-borde);
 }
 
-main {
-    width: 92%;
-    max-width: var(--ancho-contenido);
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: var(--espacio-grande);
-    padding-bottom: var(--espacio-grande);
+a {
+    color: var(--verde-ruta);
+    font-weight: 600;
+    text-underline-offset: 0.2em;
 }
+
+a:hover {
+    text-decoration-thickness: 0.15em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.2rem;
+}
+
+
+/* 3. ENCABEZADO, NAVEGACIÓN Y PIE DE PÁGINA
+   ========================================================= */
 
 header,
 footer {
     padding: var(--espacio-grande) 4%;
-}
-
-header {
     background-color: var(--azul-noche);
     color: var(--crema);
 }
 
 header h1,
-header p {
-    color: var(--crema);
-}
-
-footer {
-    margin-top: var(--espacio-grande);
-    background-color: var(--azul-noche);
-    color: var(--crema);
-}
-
+header p,
+footer h2,
+footer h3,
 footer p {
-    margin-bottom: var(--espacio-pequeno);
-}
-
-/* 4. Portada de inicio: altura relativa a la ventana */
-.portada {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 60vh;
-    padding: var(--espacio-extra-grande);
-    background-color: var(--azul-noche);
-    color: var(--crema);
-    border-radius: var(--radio-borde);
-}
-
-.portada h2 {
-    margin-top: 0;
     color: var(--crema);
 }
 
-.portada p {
-    max-width: 42rem;
+header h1 {
+    margin-bottom: var(--espacio-mediano);
 }
 
-/* 5. Navegación en una fila */
 nav {
     margin-top: var(--espacio-mediano);
 }
@@ -169,43 +162,71 @@ nav {
 }
 
 #menu a:hover {
-    color: var(--crema);
     background-color: var(--verde-ruta);
+    color: var(--crema);
 }
 
 #menu a.activo {
-    color: var(--naranja-pedal);
     background-color: var(--azul-noche);
+    color: var(--naranja-pedal);
     font-weight: 700;
 }
 
 #menu a.activo:hover {
-    color: var(--naranja-pedal);
     background-color: var(--azul-noche);
+    color: var(--naranja-pedal);
 }
 
-#menu a:focus,
-a:focus,
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-    outline: 0.2rem solid var(--azul-noche);
-    outline-offset: 0.2rem;
+footer {
+    margin-top: var(--espacio-grande);
 }
 
-/* 6. Enlaces del contenido */
-a {
-    color: var(--verde-ruta);
-    font-weight: 600;
-    text-underline-offset: 0.2em;
+footer p {
+    margin-bottom: var(--espacio-pequeno);
 }
 
-a:hover {
-    text-decoration-thickness: 0.15em;
+
+/* 4. CONTENEDOR PRINCIPAL Y SECCIONES
+   ========================================================= */
+
+main {
+    width: 92%;
+    max-width: var(--ancho-contenido);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--espacio-grande);
+    padding-bottom: var(--espacio-grande);
 }
 
-/* 7. Enlaces de llamada a la acción */
+section,
+aside {
+    margin-bottom: var(--espacio-extra-grande);
+}
+
+
+/* 5. PORTADA Y BOTONES
+   ========================================================= */
+
+.portada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+    padding: var(--espacio-extra-grande);
+    border-radius: var(--radio-borde);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+.portada h2 {
+    margin-top: 0;
+    color: var(--crema);
+}
+
+.portada p {
+    max-width: 42rem;
+}
+
 .boton-accion {
     display: inline-block;
     padding: 0.9rem 1.5rem;
@@ -225,18 +246,10 @@ a:hover {
     text-decoration: underline;
 }
 
-.boton-accion:focus {
-    outline: 0.2rem solid var(--azul-noche);
-    outline-offset: 0.25rem;
-}
 
-/* 8. Secciones */
-section,
-aside {
-    margin-bottom: var(--espacio-extra-grande);
-}
+/* 6. TARJETAS DE SERVICIOS Y ETIQUETA NUEVO
+   ========================================================= */
 
-/* 9. Servicios en tarjetas separadas */
 #servicios {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -250,6 +263,7 @@ aside {
 }
 
 #servicios article {
+    position: relative;
     min-width: 0;
     margin: 0;
     padding: var(--espacio-mediano);
@@ -264,10 +278,33 @@ aside {
     max-width: 100%;
     height: auto;
     margin-bottom: var(--espacio-mediano);
-    border-radius: var(--radio-borde);
 }
 
-/* Listas */
+/* La tarjeta eléctrica debe llevar la clase "servicio-electrico". */
+.servicio-electrico {
+    position: relative;
+}
+
+/* La etiqueta se ubica sobre la tarjeta sin ocupar espacio en el flujo. */
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-mediano);
+    right: var(--espacio-mediano);
+    z-index: 2;
+    padding: var(--espacio-pequeno) var(--espacio-mediano);
+    border: 2px solid var(--azul-noche);
+    border-radius: 0.25rem;
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* 7. LISTAS Y TABLAS DE TARIFAS
+   ========================================================= */
+
 ul,
 ol {
     padding-left: 1.5rem;
@@ -277,7 +314,6 @@ li {
     margin-bottom: var(--espacio-pequeno);
 }
 
-/* 10. Tablas legibles */
 table {
     width: 100%;
     margin-top: var(--espacio-mediano);
@@ -307,21 +343,20 @@ th {
     font-weight: 600;
 }
 
-tbody tr:nth-child(even) {
-    background-color: var(--crema);
-}
-
 tbody tr:hover {
     outline: 0.1rem solid var(--verde-ruta);
     outline-offset: -0.1rem;
 }
 
-/* 11. Formulario ordenado */
+
+/* 8. FORMULARIO DE RESERVAS
+   ========================================================= */
+
 form {
     width: 100%;
     max-width: var(--ancho-formulario);
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 
 fieldset {
@@ -366,12 +401,10 @@ textarea:hover {
     border-color: var(--verde-ruta);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
     border-color: var(--verde-ruta);
-    outline: 0.2rem solid var(--azul-noche);
-    outline-offset: 0.15rem;
 }
 
 input[type="radio"],
@@ -412,19 +445,62 @@ input[type="submit"]:hover {
     color: var(--crema);
 }
 
-button:focus,
-input[type="submit"]:focus {
-    outline: 0.2rem solid var(--azul-noche);
-    outline-offset: 0.25rem;
-}
-
 small {
     display: block;
     margin-top: var(--espacio-pequeno);
     color: var(--gris-asfalto);
 }
 
-/* 12. Diseño adaptable */
+
+/* 9. ACCESO FIJO A WHATSAPP
+   ========================================================= */
+
+.whatsapp-fijo {
+    position: fixed;
+    right: var(--espacio-mediano);
+    bottom: var(--espacio-mediano);
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--altura-acceso-whatsapp);
+    padding: var(--espacio-pequeno) var(--espacio-mediano);
+
+    border: 2px solid var(--azul-noche);
+    border-radius: var(--radio-borde);
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0.2rem 0.6rem rgb(20 33 61 / 25%);
+}
+
+.whatsapp-fijo:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    text-decoration: underline;
+}
+
+.whatsapp-fijo:focus-visible {
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.2rem;
+}
+
+/* Espacio extra para que WhatsApp no cubra el contenido del final. */
+body {
+    padding-bottom: calc(
+        var(--altura-acceso-whatsapp) + var(--espacio-grande)
+    );
+}
+
+
+/* 10. DISEÑO RESPONSIVE
+   ========================================================= */
+
 @media (max-width: 55rem) {
     #servicios {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -469,5 +545,10 @@ small {
 
     fieldset {
         padding: var(--espacio-mediano);
+    }
+
+    .whatsapp-fijo {
+        right: var(--espacio-pequeno);
+        bottom: var(--espacio-pequeno);
     }
 }

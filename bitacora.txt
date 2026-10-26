@@ -1720,3 +1720,273 @@ Después del push, verificar que todos los archivos estén guardados en el repos
 El sitio Rueda Libre presenta una distribución más ordenada y adaptable. El modelo de caja controla las dimensiones, el contenido principal mantiene una anchura legible, las tarjetas tienen separación, las tablas son más cómodas de leer y el formulario dispone de espacio suficiente.
 
 Fin del registro del reto.
+
+============================================================
+MINIRETO 12: RUEDA LIBRE V1.0 — LANZAMIENTO
+============================================================
+
+Fecha: [escribir fecha de realización]
+Proyecto: Rueda Libre
+Objetivo: integrar posicionamiento, acceso fijo a WhatsApp,
+revisión de calidad, publicación y cierre de la semana.
+
+1. OBJETIVOS DEL MINIRETO
+
+- Agregar una etiqueta "Nuevo" a la tarjeta de bicicletas
+  eléctricas sin desplazar el contenido.
+- Incorporar un enlace fijo a WhatsApp en las tres páginas.
+- Mantener un espacio inferior para evitar que el enlace
+  cubra el contenido al final del documento.
+- Consolidar los estilos en una sola hoja CSS.
+- Revisar navegación, accesibilidad, imágenes, fuentes y
+  validación del formulario.
+- Publicar la versión 1.0 en GitHub Pages.
+- Documentar el trabajo realizado durante los 12 MiniRetos.
+
+2. CAMBIOS REALIZADOS
+
+A. Posicionamiento de la etiqueta "Nuevo"
+
+Se utilizó position: relative en la tarjeta del servicio
+de bicicletas eléctricas y position: absolute en la etiqueta.
+
+La etiqueta se posiciona con top y right. Al estar fuera
+del flujo normal del documento, no desplaza el contenido
+de la tarjeta.
+
+B. Acceso fijo a WhatsApp
+
+Se incorporó un enlace con la clase .whatsapp-fijo en las
+tres páginas. Se usó position: fixed, bottom y right para
+mantenerlo visible en la esquina inferior derecha.
+
+Se configuró el enlace para abrir en otra pestaña mediante
+target="_blank" y rel="noopener noreferrer".
+
+Se agregó espacio inferior al body para reducir el riesgo
+de que el acceso fijo cubra contenido al final de la página.
+
+C. Consolidación del CSS
+
+Se organizaron los estilos en secciones comentadas:
+
+1. Variables de diseño.
+2. Reglas generales y modelo de caja.
+3. Encabezado, navegación y pie.
+4. Contenedor principal y secciones.
+5. Portada y botones.
+6. Tarjetas y etiqueta "Nuevo".
+7. Listas y tablas.
+8. Formulario de reservas.
+9. Acceso fijo a WhatsApp.
+10. Diseño adaptable a pantallas pequeñas.
+
+Se agruparon selectores relacionados y se mantuvieron las
+variables de color, tipografía, espaciado y bordes.
+
+3. DECISIONES DE DISEÑO
+
+- Se mantuvo la paleta de colores definida anteriormente.
+- Se utilizó el naranja para destacar "Nuevo" y el verde
+  para el acceso de WhatsApp.
+- Se conservaron las tipografías Montserrat y Open Sans.
+- Se mantuvo una única hoja de estilos para las tres páginas.
+- Se emplearon rutas relativas según la ubicación de cada
+  archivo HTML.
+- Se añadieron estados de foco visibles para facilitar la
+  navegación mediante teclado.
+- Se mantuvieron los diseños adaptables para escritorio,
+  tabletas y teléfonos.
+
+4. PRUEBAS DE CALIDAD
+
+Completar esta sección después de ejecutar las pruebas.
+
+Prueba 1: etiqueta "Nuevo"
+Resultado: [pendiente de verificar]
+Observación: comprobar que aparece en la esquina superior
+derecha de la tarjeta eléctrica y no desplaza su contenido.
+
+Prueba 2: WhatsApp en Inicio
+Resultado: [pendiente de verificar]
+Observación: comprobar visibilidad al desplazarse y apertura
+del enlace en una pestaña nueva.
+
+Prueba 3: WhatsApp en Tarifas
+Resultado: [pendiente de verificar]
+Observación: comprobar posición fija y espacio al final.
+
+Prueba 4: WhatsApp en Reservas
+Resultado: [pendiente de verificar]
+Observación: comprobar posición fija y que no cubra el botón
+de envío ni los últimos campos del formulario.
+
+Prueba 5: navegación entre páginas
+Resultado: [pendiente de verificar]
+Observación: probar Inicio, Tarifas y Reservas desde cada
+página y verificar la clase activa del menú.
+
+Prueba 6: imágenes y tipografías
+Resultado: [pendiente de verificar]
+Observación: revisar que no existan errores 404 en la pestaña
+Network de las herramientas de desarrollo.
+
+Prueba 7: formulario
+Resultado: [pendiente de verificar]
+Observación: intentar enviar campos obligatorios vacíos y
+datos con formatos incorrectos; comprobar los mensajes
+de validación del navegador.
+
+Prueba 8: teclado
+Resultado: [pendiente de verificar]
+Observación: recorrer los enlaces, controles y botones con
+Tab; usar Shift+Tab para regresar y Enter para activar enlaces.
+Verificar que el foco sea siempre visible.
+
+Prueba 9: diseño adaptable
+Resultado: [pendiente de verificar]
+Observación: revisar las tres páginas en escritorio y en
+un ancho móvil. Comprobar que las tablas no desborden
+horizontalmente el sitio y que WhatsApp siga siendo accesible.
+
+Prueba 10: consola y estilos
+Resultado: [pendiente de verificar]
+Observación: revisar errores en Console y declaraciones
+tachadas inesperadas en Styles de DevTools.
+
+5. MEDICIONES
+
+Registrar valores reales en DevTools; no completar con
+estimaciones.
+
+Elemento                 Medición                  Resultado
+Contenedor main           Ancho observado           [anotar]
+Tarjeta eléctrica         Ancho observado           [anotar]
+Etiqueta Nuevo            Posición respecto tarjeta [anotar]
+WhatsApp                  Distancia inferior        [anotar]
+WhatsApp                  Distancia derecha         [anotar]
+Formulario                Ancho máximo observado    [anotar]
+
+6. MAPA DE CONSTRUCCIÓN: LOS 12 MINIRETOS
+
+MiniReto 1 — Kilómetro 0: el repositorio y la página base
+Se creó la estructura inicial del proyecto, el repositorio,
+la página base y la bitácora. Este trabajo estableció los
+cimientos del sitio.
+
+MiniReto 2 — La vitrina de Rueda Libre
+Se construyó el contenido de Inicio con títulos, párrafos,
+listas, imágenes y enlaces. Se organizó la información
+para presentar el servicio al visitante.
+
+MiniReto 3 — Tarifas claras: tablas y rutas relativas
+Se desarrolló la página de tarifas y recorridos, incluyendo
+tablas y enlaces entre archivos ubicados en carpetas distintas.
+
+MiniReto 4 — Rueda Libre v0.1: un sitio navegable
+Se integraron las páginas de Inicio, Tarifas y Reservas,
+con menú de navegación y pie de página comunes.
+
+MiniReto 5 — Estructura con significado
+Se organizaron las páginas con regiones semánticas como
+header, nav, main, section, aside y footer, según el contenido.
+
+MiniReto 6 — El formulario de reservas
+Se construyó el formulario con etiquetas, controles,
+agrupaciones y campos para registrar una solicitud de reserva.
+
+MiniReto 7 — Reservas sin errores: validación y teclado
+Se incorporaron reglas de validación nativa y se revisó
+el acceso a los controles mediante teclado.
+
+MiniReto 8 — Rueda Libre v0.2 en línea
+Se trabajó en accesibilidad, revisión de colores y publicación
+inicial del sitio, preparando una versión navegable en línea.
+
+MiniReto 9 — La identidad de Rueda Libre
+Se creó la hoja de estilos externa y se definieron variables
+para colores, tipografías, espaciados y otros elementos visuales.
+
+MiniReto 10 — Navegación con estados y sin conflictos
+Se estilizaron los estados hover y focus, los enlaces activos
+y los botones para mejorar la interacción.
+
+MiniReto 11 — Todo en su lugar: modelo de caja
+Se trabajó con márgenes, rellenos, bordes, dimensiones,
+tarjetas, tablas y formulario para ordenar el contenido.
+
+MiniReto 12 — Rueda Libre v1.0: lanzamiento
+Se incorporaron la etiqueta "Nuevo", el acceso fijo a
+WhatsApp y una organización final del CSS. Se preparó
+la revisión de calidad y la publicación de la versión 1.0.
+
+7. QUÉ CONSTRUÍ DURANTE LA SEMANA
+
+El resultado de los 12 MiniRetos es un sitio informativo
+de alquiler de bicicletas con tres páginas principales:
+Inicio, Tarifas y rutas, y Reservas.
+
+El sitio reúne contenido organizado, navegación compartida,
+imágenes, tablas de precios, información de recorridos,
+un formulario con validación nativa, identidad visual propia
+y acceso fijo a WhatsApp.
+
+El proyecto también me permitió practicar HTML semántico,
+rutas relativas, CSS externo, variables, tipografías, modelo
+de caja, posicionamiento, diseño adaptable, accesibilidad,
+herramientas de desarrollo, Git y GitHub Pages.
+
+8. QUÉ MEJORARÍA
+
+- Conectar el formulario con un servicio o backend para
+  almacenar y gestionar reservas reales.
+- Confirmar que el número de WhatsApp sea el oficial.
+- Añadir pruebas automatizadas de navegación y formulario.
+- Optimizar el peso y el formato de las imágenes.
+- Revisar accesibilidad con herramientas adicionales y
+  usuarios reales.
+- Mejorar la gestión de errores y los mensajes al usuario.
+- Añadir información real de disponibilidad de bicicletas.
+- Incorporar analítica para conocer el uso del sitio.
+- Mantener la bitácora actualizada en cada cambio importante.
+
+9. PUBLICACIÓN Y CONTROL DE VERSIONES
+
+Repositorio:
+https://github.com/selenwing-wq/proyecto_semana_1
+
+URL esperada de GitHub Pages:
+https://selenwing-wq.github.io/proyecto_semana_1/
+
+La publicación debe confirmarse abriendo la URL y verificando
+que las tres páginas carguen correctamente.
+
+Commit de lanzamiento propuesto:
+"Rueda Libre v1.0: posicionamiento y revisión final"
+
+Comandos previstos:
+
+git status
+git add index.html paginas/tarifas.html paginas/reservas.html css/styles.css bitacora.txt
+git commit -m "Rueda Libre v1.0: posicionamiento y revisión final"
+git push origin main
+
+Estado del commit: [pendiente de ejecutar]
+Estado de GitHub Pages: [pendiente de verificar]
+URL comprobada: [anotar fecha y resultado]
+
+10. CIERRE DE LA SEMANA
+
+Con este MiniReto concluye la primera semana de construcción
+de Rueda Libre. El proyecto pasó de una estructura básica a
+un sitio de tres páginas con contenido, navegación, estilos,
+formulario y elementos de contacto.
+
+La versión 1.0 queda lista para su revisión final y publicación
+una vez se completen las pruebas pendientes. La siguiente
+etapa podrá enfocarse en mejorar la experiencia del usuario,
+gestionar reservas reales y ampliar las funcionalidades.
+
+============================================================
+FIN DE LA BITÁCORA DE LA SEMANA
+============================================================

@@ -13,17 +13,23 @@
 </head>
 <body>
     <header>
-        <h1>Rueda Libre</h1>
-        <p>Muévete a tu ritmo. Descubre Medellín sobre dos ruedas.</p>
+    <h1>Rueda Libre</h1>
+    <p>Explora Medellín a tu propio ritmo.</p>
 
-        <nav aria-label="Navegación principal">
-            <ul id="menu">
-                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
-                <li><a href="paginas/tarifas.html">Consultar tarifas y recorridos</a></li>
-                <li><a href="paginas/reservas.html">Reservar una bicicleta</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav aria-label="Navegación principal">
+        <ul id="menu">
+            <li>
+                <a href="index.html" class="activo" aria-current="page">Inicio</a>
+            </li>
+            <li>
+                <a href="paginas/tarifas.html">Tarifas y rutas</a>
+            </li>
+            <li>
+                <a href="paginas/reservas.html">Reservas</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <section id="quienes-somos" class="portada">
@@ -40,21 +46,25 @@
                  width="700">
         </section>
 
-        <section id="servicios">
-            <h2>Nuestros servicios</h2>
+        <article class="servicio-electrico">
+        <span class="etiqueta-nuevo">Nuevo</span>
 
-            <article id="alquiler-bicicletas">
-                <h3>Alquiler de bicicletas</h3>
-                <img src="img/bicicleta.jpg"
-                     alt="Bicicleta disponible para alquilar"
-                     width="400">
-                <p>
-                    Elige una bicicleta urbana, de montaña o eléctrica según tu
-                    recorrido y disfruta de la ciudad a tu manera.
-                </p>
-                <p><a href="paginas/tarifas.html">Consultar precios de alquiler</a></p>
-                <p><a class="boton-accion" href="paginas/reservas.html">Reservar ahora</a></p>
-            </article>
+         <img
+        src="img/bicicletas.jpg"
+        alt="Bicicleta eléctrica disponible para alquiler"
+        >
+
+        <h3>Bicicletas eléctricas</h3>
+
+         <p>
+        Recorre Medellín con asistencia eléctrica y disfruta
+        tus trayectos con mayor comodidad.
+        </p>
+
+         <a class="boton-accion" href="paginas/tarifas.html">
+        Consultar tarifas
+        </a>
+        </article>
 
             <article id="recorridos-guiados">
                 <h3>Recorridos guiados</h3>
@@ -120,9 +130,20 @@
     </main>
 
     <footer>
-        <p>Rueda Libre — Alquiler de bicicletas en Medellín.</p>
-        <p>Horario: lunes a viernes de 7:00 a. m. a 7:00 p. m.; fines de semana y festivos de 6:00 a. m. a 2:00 p. m.</p>
-        <p>&copy; 2026 Rueda Libre. Todos los derechos reservados.</p>
+    <p><strong>Rueda Libre</strong> — Muévete, descubre y disfruta Medellín.</p>
+    <p>Horario: lunes a viernes, 7:00 a. m. a 7:00 p. m.</p>
+    <p>Fines de semana y festivos: 6:00 a. m. a 2:00 p. m.</p>
+    <p>Contacto: hola@ruedalibre.example</p>
+    <p>&copy; 2026 Rueda Libre. Todos los derechos reservados.</p>
     </footer>
+    <a
+    class="whatsapp-fijo"
+    href="https://wa.me/573117925300"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar a Rueda Libre por WhatsApp (se abre en otra pestaña)"
+>
+    WhatsApp
+</a>
 </body>
 </html>
