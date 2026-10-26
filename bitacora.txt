@@ -1,0 +1,60 @@
+
+PROYECTO: Rueda Libre
+DESCRIPCION: Sitio web para un negocio de alquiler de bicicletas en Medellín.
+
+1. CONFIGURACION DEL ENTORNO
+Editor utilizado: Visual Studio Code
+Servidor local: Live Server
+Navegador: Google Chrome
+Control de versiones: Git
+Repositorio remoto: GitHub
+
+2. ESTRUCTURA DEL PROYECTO
+index.html: contiene la estructura HTML inicial.
+paginas/: almacenará páginas adicionales.
+img/: almacena las imágenes del negocio.
+bitacora.txt: registra el desarrollo del proyecto.
+
+3. PETICION DEL DOCUMENTO HTML
+URL completa: [COPIAR LA URL REAL DE NETWORK]
+Protocolo: [http o https]
+Host: [VALOR REAL]
+Puerto: [VALOR REAL]
+Ruta: [VALOR REAL]
+Metodo HTTP: [GET u otro valor observado]
+Codigo de estado: [VALOR REAL]
+
+Observacion:
+Al abrir index.html, el navegador solicita el documento al
+servidor local. El servidor responde con un codigo de estado
+que permite conocer el resultado de la peticion.
+
+4. PRUEBA DE UNA RUTA INEXISTENTE
+Ruta probada: /promociones.html
+URL completa: [COPIAR LA URL QUE PROBASTE]
+Codigo de estado: [VALOR REAL]
+
+Interpretacion:
+[EXPLICAR EL SIGNIFICADO DEL CODIGO OBSERVADO].
+Si la respuesta es 404 Not Found, significa que el recurso
+solicitado no fue encontrado en esa ruta.
+
+5. FUNCION DE HTML, CSS Y JAVASCRIPT
+
+HTML:
+Define la estructura y el contenido de la pagina.
+Ejemplo: <h1>Rueda Libre</h1> muestra el titulo principal.
+
+CSS:
+Controla la apariencia visual de la pagina.
+Ejemplo: h1 { color: green; } cambia el color del titulo.
+
+JavaScript:
+Agrega interactividad y comportamiento.
+Ejemplo: un boton que muestra un mensaje al hacer clic.
+
+6. CONTROL DE VERSIONES
+Repositorio: [URL REAL DE GITHUB]
+Commit inicial: Crear estructura inicial de Rueda Libre
+Fecha: [FECHA DE REALIZACION]
+Resultado del envio: [CONFIRMAR QUE SE SUBIO A GITHUB]
