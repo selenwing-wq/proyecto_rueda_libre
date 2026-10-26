@@ -1,0 +1,299 @@
+/* =========================================
+   RUEDA LIBRE — HOJA DE ESTILOS
+   Identidad visual y estilos compartidos
+   ========================================= */
+
+/* 1. Variables globales de la marca */
+:root {
+    /* Colores */
+    --verde-ruta: #1E7A4F;
+    --naranja-pedal: #F39A2B;
+    --azul-noche: #14213D;
+    --crema: #FAF6EF;
+    --gris-asfalto: #5B6470;
+
+    /* Tipografías */
+    --fuente-titulos: "Montserrat", Arial, sans-serif;
+    --fuente-textos: "Open Sans", Arial, sans-serif;
+
+    /* Espaciado */
+    --espacio-pequeno: 0.5rem;
+    --espacio-mediano: 1rem;
+    --espacio-grande: 2rem;
+    --espacio-extra-grande: 3rem;
+
+    /* Otros tamaños reutilizables */
+    --ancho-contenido: 1100px;
+    --radio-borde: 0.5rem;
+}
+
+/* 2. Estilos generales y herencia */
+body {
+    margin: 0;
+    font-family: var(--fuente-textos);
+    font-weight: 400;
+    color: var(--azul-noche);
+    background-color: var(--crema);
+    line-height: 1.6;
+}
+
+/* 3. Una sola regla para todos los encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--azul-noche);
+}
+
+h1 {
+    margin-bottom: var(--espacio-mediano);
+}
+
+h2 {
+    margin-top: var(--espacio-grande);
+    margin-bottom: var(--espacio-mediano);
+}
+
+h3 {
+    margin-top: var(--espacio-mediano);
+}
+
+/* 4. Elementos generales */
+p {
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radio-borde);
+}
+
+main {
+    width: min(92%, var(--ancho-contenido));
+    margin: 0 auto;
+    padding: var(--espacio-grande) 0;
+}
+
+header,
+footer {
+    padding: var(--espacio-grande) 4%;
+}
+
+header {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+header h1 {
+    color: var(--crema);
+}
+
+footer {
+    margin-top: var(--espacio-grande);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+footer p {
+    margin-bottom: var(--espacio-pequeno);
+}
+
+/* 5. Navegación */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-mediano);
+    margin-top: var(--espacio-mediano);
+}
+
+nav a {
+    color: var(--crema);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+nav a[aria-current="page"] {
+    color: var(--naranja-pedal);
+    font-weight: 700;
+}
+
+a {
+    color: var(--verde-ruta);
+    font-weight: 600;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 0.15em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
+}
+
+/* 6. Secciones y tarjetas */
+section,
+article,
+aside {
+    margin-bottom: var(--espacio-grande);
+}
+
+article {
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    border-radius: var(--radio-borde);
+}
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: var(--espacio-pequeno);
+}
+
+/* 7. Tablas de tarifas y recorridos */
+table {
+    width: 100%;
+    margin-bottom: var(--espacio-grande);
+    border-collapse: collapse;
+    background-color: var(--crema);
+}
+
+caption {
+    padding: var(--espacio-mediano);
+    color: var(--azul-noche);
+    font-weight: 600;
+    text-align: left;
+}
+
+th,
+td {
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    text-align: left;
+}
+
+th {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    font-weight: 600;
+}
+
+/* 8. Formularios */
+form {
+    max-width: 760px;
+}
+
+fieldset {
+    margin-bottom: var(--espacio-grande);
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    border-radius: var(--radio-borde);
+}
+
+legend,
+label {
+    color: var(--azul-noche);
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin-top: var(--espacio-mediano);
+    margin-bottom: var(--espacio-pequeno);
+}
+
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--gris-asfalto);
+    border-radius: 0.25rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    font: inherit;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: var(--espacio-pequeno);
+    accent-color: var(--verde-ruta);
+}
+
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-pequeno);
+}
+
+button,
+input[type="submit"] {
+    display: inline-block;
+    width: auto;
+    margin-top: var(--espacio-mediano);
+    padding: 0.8rem 1.25rem;
+    border: 2px solid var(--verde-ruta);
+    border-radius: var(--radio-borde);
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--azul-noche);
+    border-color: var(--azul-noche);
+}
+
+small {
+    color: var(--gris-asfalto);
+}
+
+/* 9. Adaptación a pantallas pequeñas */
+@media (max-width: 600px) {
+    header,
+    footer {
+        padding: var(--espacio-mediano);
+    }
+
+    main {
+        width: 92%;
+        padding: var(--espacio-mediano) 0;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--espacio-pequeno);
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: var(--espacio-pequeno);
+    }
+}

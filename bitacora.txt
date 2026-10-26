@@ -1085,3 +1085,16 @@ Si un archivo funciona localmente pero falla en GitHub Pages, revisar especialme
 ### Control de versiones
 
 Después de terminar las correcciones, realizar un commit que represente este reto y subirlo a la rama principal. Verificar el estado de Git y confirmar que el despliegue público contiene la versión actualizada.
+
+rueda-libre/
+├── index.html
+├── bitacora.txt
+├── css/
+│   └── styles.css
+├── img/
+│   ├── portada.jpg
+│   ├── bicicleta.jpg
+│   └── ruta.jpg
+└── paginas/
+    ├── tarifas.html
+    └── reservas.html

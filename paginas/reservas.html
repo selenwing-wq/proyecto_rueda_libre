@@ -3,266 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solicita una reserva de bicicleta con Rueda Libre en Medellín.">
     <title>Reservas | Rueda Libre</title>
 
-    <style>
-        body {
-            background-color: #FAF6EF;
-            color: #14213D;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-        a {
-            color: #1E7A4F;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid #14213D;
-            outline-offset: 3px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
         <h1>Reserva tu bicicleta</h1>
+        <p>Completa los datos para solicitar tu alquiler o recorrido.</p>
 
         <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Consultar tarifas y recorridos</a></li>
-                <li><a href="reservas.html" aria-current="page">Reservas</a></li>
-            </ul>
+            <a href="../index.html">Inicio</a>
+            <a href="tarifas.html">Tarifas y recorridos</a>
+            <a href="reservas.html" aria-current="page">Reservar una bicicleta</a>
         </nav>
     </header>
 
     <main>
         <section id="formulario-reserva">
             <h2>Formulario de reserva</h2>
-            <p>
-                Completa los datos para solicitar tu alquiler.
-                Los campos obligatorios deben cumplir las reglas indicadas.
-            </p>
+            <p>Los campos marcados como obligatorios deben completarse.</p>
 
             <form action="#" method="post">
                 <fieldset>
                     <legend>Tus datos</legend>
 
-                    <p>
-                        <label for="nombre-completo">Nombre completo (obligatorio):</label>
-                        <input
-                            type="text"
-                            id="nombre-completo"
-                            name="nombre_completo"
-                            minlength="3"
-                            autocomplete="name"
-                            required
-                        >
-                    </p>
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre"
+                           autocomplete="name" minlength="3" required>
 
-                    <p>
-                        <label for="documento">Número de documento (6 a 10 dígitos):</label>
-                        <input
-                            type="text"
-                            id="documento"
-                            name="numero_documento"
-                            inputmode="numeric"
-                            minlength="6"
-                            maxlength="10"
-                            pattern="[0-9]{6,10}"
-                            title="Ingresa entre 6 y 10 dígitos, sin puntos ni espacios."
-                            aria-describedby="ayuda-documento"
-                            required
-                        >
-                        <small id="ayuda-documento">
-                            Solo números, entre 6 y 10 dígitos; sin puntos, espacios ni guiones.
-                        </small>
-                    </p>
+                    <label for="documento">Número de documento *</label>
+                    <input type="text" id="documento" name="documento"
+                           inputmode="numeric" minlength="6" maxlength="10"
+                           pattern="[0-9]{6,10}"
+                           title="Ingresa entre 6 y 10 dígitos numéricos."
+                           aria-describedby="ayuda-documento" required>
+                    <small id="ayuda-documento">Entre 6 y 10 dígitos, sin puntos ni espacios.</small>
 
-                    <p>
-                        <label for="correo">Correo electrónico:</label>
-                        <input
-                            type="email"
-                            id="correo"
-                            name="correo_electronico"
-                            autocomplete="email"
-                            required
-                        >
-                    </p>
+                    <label for="correo">Correo electrónico *</label>
+                    <input type="email" id="correo" name="correo"
+                           autocomplete="email" required>
 
-                    <p>
-                        <label for="celular">Celular (10 dígitos y comienza por 3):</label>
-                        <input
-                            type="tel"
-                            id="celular"
-                            name="celular"
-                            inputmode="numeric"
-                            minlength="10"
-                            maxlength="10"
-                            pattern="3[0-9]{9}"
-                            title="Ingresa exactamente 10 dígitos y comienza por 3. Ejemplo: 3001234567."
-                            aria-describedby="ayuda-celular"
-                            autocomplete="tel"
-                            required
-                        >
-                        <small id="ayuda-celular">
-                            Ejemplo válido: 3001234567. No agregues espacios ni el indicativo del país.
-                        </small>
-                    </p>
+                    <label for="telefono">Celular *</label>
+                    <input type="tel" id="telefono" name="telefono"
+                           autocomplete="tel" inputmode="numeric"
+                           minlength="10" maxlength="10"
+                           pattern="3[0-9]{9}"
+                           title="Ingresa un celular colombiano de 10 dígitos que comience por 3."
+                           aria-describedby="ayuda-telefono" required>
+                    <small id="ayuda-telefono">Ingresa 10 dígitos y comienza por 3.</small>
                 </fieldset>
 
                 <fieldset>
                     <legend>Tu alquiler</legend>
 
-                    <p>
-                        <label for="fecha-alquiler">Fecha del alquiler:</label>
-                        <input
-                            type="date"
-                            id="fecha-alquiler"
-                            name="fecha_alquiler"
-                            min="2026-11-01"
-                            max="2026-12-31"
-                            required
-                        >
-                        <small>
-                            Fecha permitida: del 1 de noviembre al 31 de diciembre de 2026.
-                        </small>
-                    </p>
+                    <label for="fecha">Fecha deseada *</label>
+                    <input type="date" id="fecha" name="fecha"
+                           min="2026-11-01" max="2026-12-31" required>
 
-                    <p>Tipo de bicicleta (obligatorio):</p>
+                    <p>Tipo de bicicleta *</p>
 
-                    <p>
-                        <input
-                            type="radio"
-                            id="bicicleta-urbana"
-                            name="tipo_bicicleta"
-                            value="urbana"
-                            required
-                        >
-                        <label for="bicicleta-urbana">Urbana</label>
-                    </p>
+                    <label>
+                        <input type="radio" name="tipo_bicicleta"
+                               value="urbana" required>
+                        Urbana
+                    </label>
 
-                    <p>
-                        <input
-                            type="radio"
-                            id="bicicleta-montana"
-                            name="tipo_bicicleta"
-                            value="montana"
-                        >
-                        <label for="bicicleta-montana">Montaña</label>
-                    </p>
+                    <label>
+                        <input type="radio" name="tipo_bicicleta"
+                               value="montana">
+                        Montaña
+                    </label>
 
-                    <p>
-                        <input
-                            type="radio"
-                            id="bicicleta-electrica"
-                            name="tipo_bicicleta"
-                            value="electrica"
-                        >
-                        <label for="bicicleta-electrica">Eléctrica</label>
-                    </p>
+                    <label>
+                        <input type="radio" name="tipo_bicicleta"
+                               value="electrica">
+                        Eléctrica
+                    </label>
 
-                    <p>
-                        <label for="plan">Plan de alquiler:</label>
-                        <select id="plan" name="plan_alquiler" required>
-                            <option value="">Selecciona un plan</option>
-                            <option value="1_hora">1 hora</option>
-                            <option value="medio_dia">Medio día (4 horas)</option>
-                            <option value="dia_completo">Día completo</option>
-                        </select>
-                    </p>
+                    <label for="duracion">Duración del alquiler *</label>
+                    <select id="duracion" name="duracion" required>
+                        <option value="">Selecciona una duración</option>
+                        <option value="1_hora">1 hora</option>
+                        <option value="medio_dia">Medio día (4 horas)</option>
+                        <option value="dia_completo">Día completo</option>
+                    </select>
 
-                    <p>
-                        <label for="cantidad">Cantidad de bicicletas (de 1 a 6):</label>
-                        <input
-                            type="number"
-                            id="cantidad"
-                            name="cantidad_bicicletas"
-                            min="1"
-                            max="6"
-                            step="1"
-                            value="1"
-                            required
-                        >
-                    </p>
+                    <label for="cantidad">Cantidad de bicicletas *</label>
+                    <input type="number" id="cantidad" name="cantidad"
+                           min="1" max="6" step="1" value="1" required>
 
-                    <p>
-                        <label for="recorrido">Recorrido guiado:</label>
-                        <select id="recorrido" name="recorrido_guiado" required>
-                            <option value="ninguno">Ninguno</option>
-                            <option value="rio_parques">Río y Parques</option>
-                            <option value="sabores_barrio">Sabores de Barrio</option>
-                            <option value="reto_palmas">Reto Las Palmas</option>
-                        </select>
-                    </p>
+                    <label for="recorrido">¿Quieres un recorrido guiado? *</label>
+                    <select id="recorrido" name="recorrido" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="ninguno">No, solo quiero alquilar</option>
+                        <option value="rio_parques">Río y Parques</option>
+                        <option value="sabores_barrio">Sabores de Barrio</option>
+                        <option value="reto_palmas">Reto Las Palmas</option>
+                    </select>
 
-                    <p>
-                        <label for="comentarios">Comentarios adicionales (opcional):</label>
-                        <textarea
-                            id="comentarios"
-                            name="comentarios"
-                            rows="5"
-                            cols="40"
-                            maxlength="300"
-                            aria-describedby="ayuda-comentarios"
-                            placeholder="Escribe tus solicitudes especiales."
-                        ></textarea>
-                        <small id="ayuda-comentarios">Máximo 300 caracteres.</small>
-                    </p>
+                    <label for="comentarios">Comentarios adicionales</label>
+                    <textarea id="comentarios" name="comentarios"
+                              rows="4" maxlength="300"
+                              placeholder="Escribe aquí alguna necesidad o pregunta (opcional)."></textarea>
                 </fieldset>
 
                 <fieldset>
                     <legend>Confirmación</legend>
 
-                    <p>
-                        <input
-                            type="checkbox"
-                            id="aceptar-politicas"
-                            name="aceptar_politicas"
-                            value="aceptadas"
-                            required
-                        >
-                        <label for="aceptar-politicas">
-                            Acepto las políticas de alquiler de Rueda Libre (obligatorio).
-                        </label>
-                    </p>
+                    <label>
+                        <input type="checkbox" id="aceptar" name="aceptar"
+                               value="si" required>
+                        Confirmo que los datos ingresados son correctos y acepto
+                        que se contacten conmigo para gestionar la solicitud.
+                    </label>
                 </fieldset>
 
-                <p>
-                    <button type="submit">Enviar reserva</button>
-                </p>
+                <button type="submit">Enviar solicitud de reserva</button>
             </form>
         </section>
 
-        <aside id="horario">
-            <h2>Horario de atención</h2>
-            <dl>
-                <dt>Lunes a viernes</dt>
-                <dd>7:00 a. m. a 7:00 p. m.</dd>
-
-                <dt>Fines de semana y festivos</dt>
-                <dd>6:00 a. m. a 2:00 p. m.</dd>
-            </dl>
+        <aside id="horarios">
+            <h2>Horarios de atención</h2>
+            <p>Lunes a viernes: 7:00 a. m. a 7:00 p. m.</p>
+            <p>Fines de semana y festivos: 6:00 a. m. a 2:00 p. m.</p>
+            <p>Enviar este formulario constituye una solicitud; no garantiza una reserva confirmada.</p>
         </aside>
 
         <section id="contacto">
-            <h2>¿Tienes preguntas?</h2>
+            <h2>¿Necesitas ayuda?</h2>
             <p>
                 Escríbenos a
-                <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.
+                <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>
+                para consultar tus dudas.
             </p>
-            <p>
-                Consulta los <a href="tarifas.html">precios y recorridos</a>
-                antes de enviar tu solicitud.
-            </p>
+            <p><a href="tarifas.html">Consultar tarifas y recorridos</a></p>
         </section>
     </main>
 
     <footer>
-        <p>Rueda Libre | Contacto: hola@ruedalibre.example</p>
+        <p>Rueda Libre — Solicitudes de reserva.</p>
         <p>&copy; 2026 Rueda Libre. Todos los derechos reservados.</p>
+        <p><a href="../index.html">Volver a la página de inicio</a></p>
     </footer>
 </body>
 </html>
