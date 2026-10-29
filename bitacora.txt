@@ -1990,3 +1990,44 @@ gestionar reservas reales y ampliar las funcionalidades.
 ============================================================
 FIN DE LA BITÁCORA DE LA SEMANA
 ============================================================
+
+BITÁCORA — MiniReto: Flexbox en encabezado, menú y pie de página
+Proyecto: Rueda Libre
+Fecha: 29/10/2026
+
+Objetivo
+Aplicar Flexbox para organizar el encabezado, los enlaces de navegación y el pie de página, manteniendo una presentación adaptable a diferentes tamaños de pantalla.
+
+Cambios realizados
+1. Encabezado:
+   - Se creó el contenedor .contenedor-encabezado.
+   - Se aplicó display: flex, align-items: center y justify-content: space-between.
+   - La marca (logo y nombre) queda a un lado y el menú al otro.
+2. Menú:
+   - #menu utiliza display: flex, gap y flex-wrap: wrap.
+   - Se eliminaron márgenes individuales de los elementos li para separar enlaces; la separación se controla con gap.
+3. Pie de página:
+   - Se organizaron marca, contacto y horarios en tres secciones dentro de .pie-contenido.
+   - Se usaron align-items: flex-start, justify-content: space-between y gap.
+   - El copyright queda en una línea independiente debajo de los tres bloques.
+4. Diseño adaptable:
+   - En pantallas pequeñas, el encabezado pasa a una distribución vertical.
+   - Los enlaces pueden pasar a otra línea mediante flex-wrap.
+   - Los tres bloques del pie se apilan en móviles para mejorar la lectura.
+5. Revisión adicional:
+   - Se recuperó el contenedor semántico #servicios de la página de inicio, que faltaba en el HTML recibido.
+   - Se mantuvieron las rutas relativas del logo y de la hoja de estilos para las tres páginas.
+   - Se mantuvo el acceso fijo a WhatsApp.
+
+Pruebas manuales recomendadas
+- Abrir index.html y revisar el encabezado y el pie.
+- Repetir en Tarifas y rutas y Reservas.
+- Probar el navegador a unos 1200 px, 800 px y 375 px de ancho.
+- Confirmar que los enlaces del menú saltan de línea sin desbordarse y que en móvil los bloques del pie quedan apilados.
+- Verificar que el logo carga y que los enlaces entre páginas funcionan.
+
+Aprendizaje
+Flexbox permite distribuir elementos en una fila o columna y alinearlos con propiedades como justify-content y align-items. La propiedad gap controla el espacio entre elementos sin tener que añadir márgenes a cada uno. flex-wrap permite que los elementos pasen a otra línea cuando falta espacio.
+
+Nota
+El formulario sigue siendo una solicitud de reserva de demostración: action="#" no envía los datos a un servidor ni confirma una reserva real.
