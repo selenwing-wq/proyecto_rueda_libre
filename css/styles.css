@@ -320,9 +320,7 @@ aside {
 }
 
 #servicios article {
-    #servicios article {
     position: relative;
-    align-self: start;
 
     min-width: 0;
     margin: 0;
@@ -333,7 +331,6 @@ aside {
 
     background-color: var(--crema);
     overflow-wrap: anywhere;
-}
 }
 
 #servicios article img {
@@ -670,137 +667,95 @@ footer p {
 }
 
 /* =========================================================
-   MINIRETO: FLEXBOX EN ENCABEZADO, MENÚ Y PIE DE PÁGINA
+   14. NUESTRA FLOTA: CUADRICULA CON CSS GRID Y TARJETAS FLEX
    ========================================================= */
 
-/* Encabezado: marca a la izquierda y navegación a la derecha. */
-.contenedor-encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Grid calcula automáticamente cuántas columnas caben.
+   Cada tarjeta tendrá como mínimo 15rem y podrá crecer con 1fr. */
+#flota .flota-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: var(--espacio-grande);
-    max-width: var(--ancho-contenido);
-    margin: 0 auto;
+    align-items: stretch;
 }
 
-.encabezado-marca {
+/* La tarjeta usa Flexbox en columna para ordenar sus elementos. */
+.tarjeta-bicicleta {
     display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    margin-bottom: 0;
-    min-width: 0;
-}
-
-header nav {
-    margin-top: 0;
-    flex: 0 1 auto;
-}
-
-#menu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--espacio-mediano);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#menu li {
-    margin: 0;
-}
-
-/* Pie de página: tres bloques alineados arriba y repartidos en la fila. */
-footer {
-    margin-top: var(--espacio-grande);
-}
-
-.pie-contenido {
-    display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     justify-content: space-between;
-    gap: var(--espacio-extra-grande);
-    max-width: var(--ancho-contenido);
-    margin: 0 auto;
-}
 
-.pie-contenido section {
-    flex: 1 1 0;
+    height: 100%;
     min-width: 0;
     margin: 0;
+    padding: var(--espacio-mediano);
+
+    border: 1px solid var(--gris-asfalto);
+    border-radius: var(--radio-borde);
+
+    background-color: var(--crema);
+    overflow: hidden;
 }
 
-.pie-contenido h2 {
+/* Todas las fotos mantienen una proporción visual uniforme. */
+.tarjeta-bicicleta > img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
     margin-bottom: var(--espacio-mediano);
-    font-size: 1.1rem;
 }
 
-footer .pie-copyright {
-    max-width: var(--ancho-contenido);
-    margin: var(--espacio-grande) auto 0;
-    padding-top: var(--espacio-mediano);
-    border-top: 1px solid var(--gris-asfalto);
-    font-size: 0.9rem;
+/* El contenido interno también se organiza en columna. */
+.contenido-tarjeta {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
-footer a {
+.contenido-tarjeta h3 {
+    margin-bottom: var(--espacio-pequeno);
+}
+
+.contenido-tarjeta p {
+    margin-bottom: var(--espacio-mediano);
+}
+
+.precio {
+    color: var(--verde-ruta);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.precio span {
+    color: var(--gris-asfalto);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.enlace-reservar {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.7rem 1.2rem;
+
+    border: 2px solid var(--verde-ruta);
+    border-radius: var(--radio-borde);
+
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+.enlace-reservar:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
     color: var(--crema);
 }
 
-/* En pantallas medianas, el encabezado puede ocupar dos filas si hace falta. */
-@media (max-width: 55rem) {
-    .contenedor-encabezado {
-        align-items: flex-start;
-        gap: var(--espacio-mediano);
-    }
-
-    #menu {
-        gap: var(--espacio-pequeno);
-    }
-
-    .pie-contenido {
-        gap: var(--espacio-mediano);
-    }
-}
-
-/* En móviles, los bloques se apilan para evitar que el contenido se apriete. */
-@media (max-width: 38rem) {
-    .contenedor-encabezado {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--espacio-mediano);
-    }
-
-    .encabezado-marca {
-        margin-bottom: 0;
-    }
-
-    header nav {
-        width: 100%;
-    }
-
-    #menu {
-        justify-content: flex-start;
-        gap: var(--espacio-pequeno);
-    }
-
-    #menu a {
-        padding: 0.45rem 0.6rem;
-    }
-
-    .pie-contenido {
-        flex-direction: column;
-        gap: var(--espacio-mediano);
-    }
-
-    .pie-contenido section {
-        flex: 1 1 auto;
-        width: 100%;
-    }
-
-    footer .pie-copyright {
-        margin-top: var(--espacio-mediano);
-    }
+.introduccion-flota {
+    max-width: 45rem;
 }

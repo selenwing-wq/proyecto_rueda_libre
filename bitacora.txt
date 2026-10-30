@@ -2031,3 +2031,78 @@ Flexbox permite distribuir elementos en una fila o columna y alinearlos con prop
 
 Nota
 El formulario sigue siendo una solicitud de reserva de demostración: action="#" no envía los datos a un servidor ni confirma una reserva real.
+
+BITÁCORA — Reto: Nuestra flota con CSS Grid y Flexbox
+Proyecto: Rueda Libre
+Fecha: 30/10/2026
+Rama de trabajo: semana_2
+
+OBJETIVO
+Crear en la página de inicio una sección llamada “Nuestra flota” con siete tarjetas de bicicletas. La cuadrícula debe adaptarse automáticamente al ancho disponible y los enlaces “Reservar” deben quedar alineados al final de las tarjetas.
+
+CAMBIOS REALIZADOS
+1. Se agregó la sección #flota en index.html.
+2. Se crearon siete artículos (article), uno para cada modelo:
+   - Urbana Clásica — $10.000 por hora.
+   - Urbana Plegable — $12.000 por hora.
+   - Montaña Trail — $15.000 por hora.
+   - Gravel Aventura — $18.000 por hora.
+   - Eléctrica Urbana — $25.000 por hora.
+   - Infantil — $8.000 por hora.
+   - Tándem — $20.000 por hora.
+3. Cada tarjeta contiene imagen, nombre, descripción, precio y enlace “Reservar”.
+4. En styles.css se creó .flota-grid con display: grid y:
+   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+   gap: var(--espacio-grande);
+5. Cada .tarjeta-bicicleta usa display: flex, flex-direction: column y justify-content: space-between.
+6. El enlace .enlace-reservar usa margin-top: auto para permanecer al final de la tarjeta.
+7. Se conservaron padding, borde, radio de esquina y colores del diseño de Rueda Libre.
+
+CÓMO FUNCIONA
+- repeat() repite el patrón de columnas.
+- auto-fit hace que el navegador calcule cuántas columnas caben.
+- minmax(15rem, 1fr) establece un ancho mínimo de 15rem y permite que las columnas crezcan y compartan el espacio.
+- gap crea una separación uniforme entre filas y columnas.
+- Flexbox organiza el contenido de cada tarjeta en una columna.
+- margin-top: auto empuja el enlace “Reservar” hacia la parte inferior.
+- Grid estira las tarjetas de una misma fila para que tengan la misma altura.
+
+PRUEBA RESPONSIVE CON DEVTOOLS
+Anchos solicitados por el reto:
+- 1280 px: resultado esperado con el contenedor actual: 4 columnas.
+- 900 px: resultado esperado con el contenedor actual: 3 columnas.
+- 500 px: resultado esperado con el contenedor actual: 1 columna.
+
+IMPORTANTE: los conteos anteriores son una previsión calculada según el ancho máximo de main, el ancho mínimo de 15rem y el gap de 2rem. Abrir DevTools > Toggle Device Toolbar y comprobarlos en el navegador. Si el resultado real difiere, reemplazar esta previsión por el número observado.
+
+IMÁGENES
+Se actualizaron las siete tarjetas para utilizar las fotografías específicas que el usuario agregó a la carpeta img/:
+- Urbana Clásica: img/urbana_clasica.jpg
+- Urbana Plegable: img/urbana_plegable.jpg
+- Montaña Trail: img/montana_trail.jpg
+- Gravel Aventura: img/gravel_aventura.jpg
+- Eléctrica Urbana: img/electrica_urbana.jpg
+- Infantil: img/infantil.jpg
+- Tándem: img/tandem.jpg
+
+Los nombres y extensiones deben coincidir exactamente con los archivos reales. Git los mostrará como “untracked” hasta ejecutar git add. Se debe comprobar en el navegador que cada imagen cargue correctamente.
+
+PENDIENTE DE VERIFICACIÓN
+- Confirmar que las imágenes bicicleta.jpg y bicicleta_electrica.jpg cargan.
+- Comprobar los enlaces “Reservar”.
+- Registrar el número real de columnas a 1280, 900 y 500 px.
+- Revisar que el enlace de cada tarjeta quede abajo y que las tarjetas de una misma fila tengan la misma altura.
+
+APRENDIZAJE
+Aprendí que CSS Grid distribuye las tarjetas en filas y columnas, mientras que Flexbox organiza los elementos dentro de cada tarjeta. Al usar auto-fit y minmax(), la cuadrícula se adapta sin necesitar media queries para definir el número de columnas.
+
+
+CONSERVACIÓN DE IMÁGENES ANTERIORES
+Se conservaron las fotografías que ya pertenecían al sitio y sus usos fuera de la nueva cuadrícula:
+- img/logo.jpg: logotipo del encabezado.
+- img/portada.jpg: imagen de presentación de la página de inicio.
+- img/bicicleta.jpg: imagen del servicio general “Alquiler de bicicletas”.
+- img/bicicleta_electrica.jpg: imagen del servicio “Bicicletas eléctricas”.
+- img/ruta.jpg: imagen del servicio “Recorridos guiados”.
+
+Las siete imágenes nuevas (urbana_clasica.jpg, urbana_plegable.jpg, montana_trail.jpg, gravel_aventura.jpg, electrica_urbana.jpg, infantil.jpg y tandem.jpg) se utilizan exclusivamente en las nuevas tarjetas de la sección “Nuestra flota”. Ninguna reemplaza las fotografías anteriores.
