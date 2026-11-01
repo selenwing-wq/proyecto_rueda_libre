@@ -77,19 +77,18 @@
                     <input type="date" id="fecha" name="fecha"
                            min="2026-11-01" max="2026-12-31" required>
 
-                    <p>Tipo de bicicleta *</p>
-                    <label>
-                        <input type="radio" name="tipo_bicicleta" value="urbana" required>
-                        Urbana
-                    </label>
-                    <label>
-                        <input type="radio" name="tipo_bicicleta" value="montana">
-                        Montaña
-                    </label>
-                    <label>
-                        <input type="radio" name="tipo_bicicleta" value="electrica">
-                        Eléctrica
-                    </label>
+                    <label for="tipo_bicicleta">Modelo de bicicleta *</label>
+                    <select id="tipo_bicicleta" name="tipo_bicicleta" required>
+                        <option value="">Selecciona un modelo</option>
+                        <option value="urbana_clasica">Urbana Clásica — $10.000 COP / hora</option>
+                        <option value="urbana_plegable">Urbana Plegable — $12.000 COP / hora</option>
+                        <option value="montana_trail">Montaña Trail — $15.000 COP / hora</option>
+                        <option value="gravel_aventura">Gravel Aventura — $18.000 COP / hora</option>
+                        <option value="electrica_urbana">Eléctrica Urbana — $25.000 COP / hora</option>
+                        <option value="infantil">Infantil — $8.000 COP / hora</option>
+                        <option value="tandem">Tándem — $20.000 COP / hora</option>
+                    </select>
+                    <p class="ayuda-campo">Los precios indicados corresponden a una hora de alquiler. Consulta las condiciones de otros planes antes de reservar.</p>
 
                     <label for="duracion">Duración del alquiler *</label>
                     <select id="duracion" name="duracion" required>

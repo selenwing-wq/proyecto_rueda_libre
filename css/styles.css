@@ -963,3 +963,9 @@ footer p {
         gap: var(--espacio-mediano);
     }
 }
+
+
+/* Tablas adaptables y texto auxiliar de formularios */
+.tabla-contenedor { width: 100%; overflow-x: auto; }
+.tabla-contenedor table { width: 100%; }
+.ayuda-campo { color: var(--gris-asfalto); font-size: 0.9rem; }

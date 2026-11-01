@@ -2186,3 +2186,29 @@ APRENDIZAJE
 Grid permite organizar contenido en dos dimensiones (filas y columnas).
 Flexbox facilita alinear elementos en una dimensión. Elegir la herramienta
 adecuada hace que el código sea más claro, ordenado y fácil de mantener.
+
+BITÁCORA — RUEDA LIBRE
+Ajustes previos al último reto
+
+OBJETIVO
+Actualizar las siete bicicletas en tarifas y reservas e incorporar las nuevas fotografías de rutas.
+
+ARCHIVOS MODIFICADOS
+- index.html
+- css/styles.css
+- paginas/tarifas.html
+- paginas/reservas.html
+
+CAMBIOS
+1. Tarifas: se muestran los siete modelos con descripción y precio por hora: Urbana Clásica $10.000; Urbana Plegable $12.000; Montaña Trail $15.000; Gravel Aventura $18.000; Eléctrica Urbana $25.000; Infantil $8.000; Tándem $20.000 (todos COP por hora).
+2. Reservas: el selector permite elegir cualquiera de los siete modelos y muestra el precio por hora. Se conserva required y las demás validaciones.
+3. Galería: Río y Parques usa img/rio.jpg; Sabores de Barrio usa img/barrio.png; Reto Las Palmas conserva img/ruta.jpg. Las tres imágenes usan la misma regla CSS de tamaño, relación de aspecto 16:10 y object-fit: cover.
+
+NOTA SOBRE PRECIOS
+No se proporcionaron precios de medio día ni día completo para los siete modelos. Por eso solo se publican los precios por hora confirmados; no se inventan tarifas adicionales.
+
+PRUEBAS PENDIENTES
+- Confirmar que img/rio.jpg e img/barrio.png existan y que el nombre/extensión coincidan exactamente.
+- Revisar las tres fotos de rutas y su tamaño uniforme.
+- Verificar los siete modelos en tarifas y reservas.
+- Probar enlaces y validaciones del formulario.
