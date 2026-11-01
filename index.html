@@ -12,34 +12,26 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="encabezado-marca">
-            <a class="enlace-logo" href="index.html" aria-label="Rueda Libre - Inicio">
-                <img class="logo-sitio" src="img/logo.jpg" alt="Logo de Rueda Libre">
-            </a>
+  <header>
+    <div class="encabezado-marca">
+        <a href="index.html" class="enlace-logo">
+            <img src="img/logo.jpg" class="logo-sitio">
+        </a>
+        
 
-            <div class="texto-marca">
-                <h1>Rueda Libre</h1>
-                <p>Explora Medellín a tu propio ritmo.</p>
-            </div>
+        <div class="texto-marca">
+            <h1>Rueda Libre</h1>
+            <p>Rueda Libre Medellín: Tu pasaporte para descubrir cada rincón a tu propio ritmo. Vive la ciudad desde una perspectiva única y activa.</p>
         </div>
-
-        <nav aria-label="Navegación principal">
-            <ul id="menu">
-                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
-                <li><a href="paginas/tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="paginas/reservas.html">Reservas</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
+</header>
 
     <main>
         <section id="quienes-somos" class="portada">
             <h2>Conoce Rueda Libre</h2>
-            <p>
-                Somos una iniciativa de alquiler de bicicletas que invita a recorrer
-                Medellín de una manera activa, práctica y sostenible.
-            </p>
+            <p>Somos tu aliado ideal para alquilar bicicletas en Medellín, diseñados para quienes buscan más que un transporte: una experiencia de libertad y conexión sostenible con la ciudad.
+             </p>
+        
             <p>
                 <a class="boton-accion" href="paginas/reservas.html">Reservar ahora</a>
             </p>
@@ -51,9 +43,8 @@
         <section id="servicios">
             <h2>Nuestros servicios</h2>
 
-            <!-- Servicio original: alquiler general de bicicletas.
-                 Conservamos bicicleta.jpg para esta sección. -->
-            <article id="alquiler-bicicletas">
+            
+            <article class="card-servicios" id="alquiler-bicicletas">
                 <img src="img/bicicleta.jpg"
                      alt="Bicicleta disponible para alquiler">
                 <h3>Alquiler de bicicletas</h3>
@@ -64,9 +55,8 @@
                 <a class="boton-accion" href="paginas/tarifas.html">Consultar tarifas</a>
             </article>
 
-            <!-- Servicio original: bicicletas eléctricas.
-                 Conservamos bicicleta_electrica.jpg para esta sección. -->
-            <article class="servicio-electrico">
+        
+            <article class="card-servicios" id="bicicletas-electricas">
                 <span class="etiqueta-nuevo">Nuevo</span>
                 <img src="img/bicicleta_electrica.jpg"
                      alt="Bicicleta eléctrica disponible para alquiler">
@@ -78,17 +68,13 @@
                 <a class="boton-accion" href="paginas/tarifas.html">Consultar tarifas</a>
             </article>
 
-            <article id="recorridos-guiados">
+           <article class="card-servicios" id="recorridos-guiados">
+                <img src="img/ruta.jpg" alt="Paisaje de una ruta para recorrer en bicicleta">
                 <h3>Recorridos guiados</h3>
-                <img src="img/ruta.jpg"
-                     alt="Paisaje de una ruta para recorrer en bicicleta"
-                     width="400">
-                <p>
-                    Explora parques, barrios y rutas de Medellín con una experiencia
-                    pensada para disfrutar el camino.
-                </p>
-                <p><a href="paginas/tarifas.html#recorridos">Ver recorridos, dificultad y precios</a></p>
-            </article>
+                <p>Explora parques, barrios y rutas de Medellín con una experiencia pensada para disfrutar el camino.</p>
+                <a class="boton-accion" href="paginas/tarifas.html#recorridos">Ver recorridos, dificultad y precios</a>
+                </article>
+             
 
             <article id="taller-basico">
                 <h3>Orientación básica</h3>
@@ -99,7 +85,7 @@
             </article>
         </section>
 
-        <!-- NUEVA SECCIÓN: CATÁLOGO DE BICICLETAS -->
+        
         <section id="flota">
             <h2>Nuestra flota</h2>
             <p class="introduccion-flota">
@@ -239,7 +225,7 @@
         <p><strong>Rueda Libre</strong> — Muévete, descubre y disfruta Medellín.</p>
         <p>Horario: lunes a viernes, 7:00 a. m. a 7:00 p. m.</p>
         <p>Fines de semana y festivos: 6:00 a. m. a 2:00 p. m.</p>
-        <p>Contacto: hola@ruedalibre.example</p>
+        <p>Contacto: vive@ruedalibre.com</p>
         <p>&copy; 2026 Rueda Libre. Todos los derechos reservados.</p>
     </footer>
 
@@ -252,3 +238,4 @@
     </a>
 </body>
 </html>
+
