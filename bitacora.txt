@@ -2106,3 +2106,83 @@ Se conservaron las fotografías que ya pertenecían al sitio y sus usos fuera de
 - img/ruta.jpg: imagen del servicio “Recorridos guiados”.
 
 Las siete imágenes nuevas (urbana_clasica.jpg, urbana_plegable.jpg, montana_trail.jpg, gravel_aventura.jpg, electrica_urbana.jpg, infantil.jpg y tandem.jpg) se utilizan exclusivamente en las nuevas tarjetas de la sección “Nuestra flota”. Ninguna reemplaza las fotografías anteriores.
+
+BITÁCORA — RUEDA LIBRE
+Semana 2 — Día 1 — Reto 3: Layout general con Grid y Flexbox
+
+OBJETIVO
+Construir el layout de escritorio de inicio y reservas combinando Grid y
+Flexbox según la necesidad de cada componente.
+
+ARCHIVOS MODIFICADOS
+- index.html
+- css/styles.css
+- paginas/reservas.html
+
+CAMBIOS REALIZADOS Y JUSTIFICACIÓN DE LAS SEIS DECISIONES
+
+1. PORTADA DE INICIO — GRID
+Se organizaron el bloque de texto y la fotografía en dos columnas.
+Se utilizó grid-template-columns: 1.1fr 0.9fr y align-items: center.
+Grid es adecuado porque se necesitan dos zonas paralelas en una estructura
+de dos dimensiones; fr reparte el espacio disponible de forma flexible.
+
+2. GALERÍA “NUESTRAS RUTAS” — GRID
+Se creó una sección independiente con tres tarjetas: Río y Parques,
+Sabores de Barrio y Reto Las Palmas. Se utilizó repeat(3, minmax(0, 1fr))
+y gap para distribuir las tarjetas en una fila en escritorio.
+Grid permite controlar columnas y filas de una galería.
+
+3. PÁGINA DE RESERVAS — GRID
+Se agruparon el formulario y la información de contacto dentro de
+.layout-reservas. Se utilizó grid-template-columns: 2fr 1fr para que
+el formulario ocupe dos partes y la información una parte.
+Grid permite controlar las dos columnas y su proporción.
+
+4. FILA DOCUMENTO/CELULAR — FLEXBOX
+Se agruparon los dos campos en .fila-campos y se utilizó Flexbox
+con align-items y gap. Flexbox es suficiente porque solo se necesita
+alinear dos elementos en una dirección horizontal. Se conservaron
+los atributos de validación HTML originales de ambos campos.
+
+5. ENCABEZADO — FLEXBOX
+Se utilizó Flexbox en .contenedor-encabezado para alinear la marca
+y el menú con align-items, justify-content y gap.
+Es una distribución principalmente unidimensional.
+
+6. PIE DE PÁGINA — FLEXBOX
+Se agruparon marca, contacto y horarios en tres bloques y se alinearon
+en una fila con align-items: flex-start, justify-content y gap.
+Flexbox facilita distribuir bloques en una sola dirección.
+
+DISEÑO ADAPTABLE
+Se añadieron reglas para tabletas y celulares. En pantallas pequeñas,
+la portada y reservas pasan a una columna; la galería reduce sus columnas;
+documento y celular se apilan; y los bloques del pie pasan a vertical.
+Las columnas principales de escritorio se definen con unidades fr.
+
+IMÁGENES
+La galería reutiliza img/ruta.jpg en las tres tarjetas porque es la imagen
+de rutas disponible en los archivos revisados. Si más adelante se agregan
+fotos específicas para cada recorrido, se podrán cambiar únicamente los src.
+
+PRUEBAS PENDIENTES
+- Verificar portada: texto a la izquierda e imagen a la derecha.
+- Verificar galería: tres tarjetas en una fila en escritorio.
+- Verificar reservas: formulario e información en proporción 2:1.
+- Verificar documento y celular en una fila en escritorio.
+- Confirmar navegación, flota y validaciones del formulario.
+- Probar también tableta y celular.
+
+RESULTADOS DE DEVTOOLS — COMPLETAR DESPUÉS DE PROBAR
+- Encabezado: [anotar resultado]
+- Portada: [anotar resultado]
+- Galería: [anotar columnas observadas]
+- Reservas: [anotar resultado]
+- Fila documento/celular: [anotar resultado]
+- Pie de página: [anotar resultado]
+
+APRENDIZAJE
+Grid permite organizar contenido en dos dimensiones (filas y columnas).
+Flexbox facilita alinear elementos en una dimensión. Elegir la herramienta
+adecuada hace que el código sea más claro, ordenado y fácil de mantener.
