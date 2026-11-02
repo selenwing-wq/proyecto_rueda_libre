@@ -92,12 +92,12 @@ header h1 { margin-bottom: 0.35rem; }
 }
 .enlace-logo {
     display: inline-flex;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    width: 4.5rem;
+    width: 11rem;
     max-width: 100%;
-    padding: 0.2rem;
+    padding: 0.15rem;
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
     background-color: var(--crema);
@@ -315,8 +315,8 @@ footer p { margin-bottom: var(--espacio-pequeno); }
 @media (min-width: 768px) {
     header { padding: var(--espacio-grande) 4%; }
     .contenedor-encabezado { flex-direction: row; justify-content: space-between; align-items: center; gap: var(--espacio-grande); }
-    .encabezado-marca { flex-direction: row; align-items: center; justify-content: flex-start; width: auto; gap: 0.85rem; text-align: left; }
-    .enlace-logo { width: 5rem; flex-shrink: 0; }
+    .encabezado-marca { flex-direction: row; align-items: center; justify-content: flex-start; width: auto; min-width: 0; gap: 1rem; text-align: left; }
+    .enlace-logo { width: 12rem; flex-shrink: 0; }
     .texto-marca h1 { font-size: 1.7rem; }
     .texto-marca p { font-size: 1rem; }
     .contenedor-encabezado nav { width: auto; flex-shrink: 0; }
@@ -342,7 +342,7 @@ footer p { margin-bottom: var(--espacio-pequeno); }
    ESCRITORIO: desde 1200 px
    ========================================================= */
 @media (min-width: 1200px) {
-    .enlace-logo { width: 6rem; }
+    .enlace-logo { width: 13rem; }
     .portada { min-height: 60vh; padding: var(--espacio-extra-grande); }
     .portada > img { max-height: 28rem; }
     #servicios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
