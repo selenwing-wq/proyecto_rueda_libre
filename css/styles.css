@@ -1,971 +1,354 @@
 /* =========================================================
-   RUEDA LIBRE
-   Hoja de estilos principal
+   RUEDA LIBRE | SEMANA 2 - RETO 4
+   CSS MOBILE-FIRST: primero celular, luego tablet y escritorio
    ========================================================= */
 
-
-/* 1. VARIABLES DE DISEÑO
-   ========================================================= */
-
+/* 1. VARIABLES */
 :root {
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
-
     --fuente-titulos: "Montserrat", Arial, sans-serif;
     --fuente-textos: "Open Sans", Arial, sans-serif;
-
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
-
     --ancho-contenido: 70rem;
     --ancho-formulario: 48rem;
     --radio-borde: 0.75rem;
-
     --altura-acceso-whatsapp: 3.25rem;
 }
 
-
-/* 2. REGLAS GENERALES Y MODELO DE CAJA
-   ========================================================= */
-
+/* 2. BASE GENERAL: reglas pensadas para celular */
 *,
 *::before,
-*::after {
-    box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    padding-bottom: calc(
-        var(--altura-acceso-whatsapp) + var(--espacio-grande)
-    );
-
+    padding-bottom: calc(var(--altura-acceso-whatsapp) + var(--espacio-grande));
     font-family: var(--fuente-textos);
     font-weight: 400;
     line-height: 1.6;
-
     color: var(--azul-noche);
     background-color: var(--crema);
+    overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-family: var(--fuente-titulos);
     font-weight: 700;
     line-height: 1.2;
     color: var(--azul-noche);
 }
+h1, h2 { margin-bottom: var(--espacio-mediano); }
+h3 { margin-bottom: var(--espacio-mediano); }
+p { margin-top: 0; margin-bottom: var(--espacio-mediano); }
 
-h1 {
-    margin-bottom: var(--espacio-mediano);
-}
-
-h2 {
-    margin-bottom: var(--espacio-mediano);
-}
-
-h3 {
-    margin-bottom: var(--espacio-mediano);
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: var(--espacio-mediano);
-}
-
-img {
+/* Ninguna imagen puede superar el ancho disponible. */
+img, picture, video, iframe {
     display: block;
     max-width: 100%;
-    height: auto;
-    border-radius: var(--radio-borde);
 }
-
-a {
-    color: var(--verde-ruta);
-    font-weight: 600;
-    text-underline-offset: 0.2em;
-}
-
-a:hover {
-    text-decoration-thickness: 0.15em;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+img { height: auto; border-radius: var(--radio-borde); }
+a { color: var(--verde-ruta); font-weight: 600; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 0.15em; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
     outline: 0.2rem solid var(--azul-noche);
     outline-offset: 0.2rem;
 }
 
-
-/* 3. ENCABEZADO Y LOGO
-   ========================================================= */
-
+/* 3. ENCABEZADO: en móvil marca arriba y menú debajo, centrados. */
 header {
-    padding: var(--espacio-grande) 4%;
+    padding: var(--espacio-mediano);
     background-color: var(--azul-noche);
     color: var(--crema);
 }
-
-header h1,
-header p {
-    color: var(--crema);
+header h1, header p { color: var(--crema); }
+header h1 { margin-bottom: 0.35rem; }
+.contenedor-encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-mediano);
+    width: 100%;
 }
-
-header h1 {
-    margin-bottom: 0.35rem;
-}
-
 .encabezado-marca {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.85rem;
-    margin-bottom: var(--espacio-mediano);
+    gap: var(--espacio-pequeno);
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 0;
+    text-align: center;
 }
-
 .enlace-logo {
     display: inline-flex;
-    flex-shrink: 0;
+    flex: 0 1 auto;
     align-items: center;
     justify-content: center;
-
-    
-    width: 32rem;       
-    height: auto;      
-    padding: 0.25rem;
-
+    width: 4.5rem;
+    max-width: 100%;
+    padding: 0.2rem;
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
     background-color: var(--crema);
-
     text-decoration: none;
 }
+.logo-sitio { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; }
+.texto-marca { min-width: 0; }
+.texto-marca h1 { margin: 0 0 0.35rem; font-size: 1.45rem; }
+.texto-marca p { margin: 0; font-size: 0.9rem; }
+.enlace-logo:focus-visible { outline: 0.2rem solid var(--naranja-pedal); outline-offset: 0.2rem; }
 
-.logo-sitio {
-    display: block;
-    width: 100%;
-    height: auto;       
-    object-fit: contain;
-    border-radius: 0;
-}
-
-.texto-marca {
-    min-width: 0;
-}
-
-.texto-marca h1 {
-    margin: 0 0 0.35rem;
-}
-
-.texto-marca p {
-    margin: 0;
-}
-
-.enlace-logo:focus-visible {
-    outline: 0.2rem solid var(--naranja-pedal);
-    outline-offset: 0.2rem;
-}
-
-
-/* 4. NAVEGACIÓN
-   ========================================================= */
-
-nav {
-    margin-top: var(--espacio-mediano);
-}
-
+nav { width: 100%; margin-top: 0; }
 #menu {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    gap: var(--espacio-mediano);
-
+    justify-content: center;
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
-
-#menu li {
-    display: block;
-    margin: 0;
-}
-
+#menu li { display: block; margin: 0; }
 #menu a {
     display: inline-block;
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
-
+    padding: 0.45rem 0.8rem;
     border-radius: 0.25rem;
-
     color: var(--crema);
     font-weight: 600;
+    text-align: center;
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
+#menu a:hover { background-color: var(--verde-ruta); color: var(--crema); }
+#menu a.activo { background-color: var(--azul-noche); color: var(--naranja-pedal); font-weight: 700; }
+#menu a.activo:hover { background-color: var(--azul-noche); color: var(--naranja-pedal); }
 
-#menu a:hover {
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-}
-
-#menu a.activo {
-    background-color: var(--azul-noche);
-    color: var(--naranja-pedal);
-    font-weight: 700;
-}
-
-#menu a.activo:hover {
-    background-color: var(--azul-noche);
-    color: var(--naranja-pedal);
-}
-
-
-/* 5. CONTENEDOR PRINCIPAL Y SECCIONES
-   ========================================================= */
-
+/* 4. CONTENIDO GENERAL */
 main {
     width: 92%;
     max-width: var(--ancho-contenido);
-
-    margin-right: auto;
-    margin-left: auto;
-
-    padding-top: var(--espacio-grande);
-    padding-bottom: var(--espacio-grande);
+    margin: 0 auto;
+    padding: var(--espacio-mediano) 0;
 }
+section, aside { min-width: 0; margin-bottom: var(--espacio-extra-grande); }
 
-section,
-aside {
-    margin-bottom: var(--espacio-extra-grande);
-}
-
-
-/* 6. PORTADA Y BOTONES
-   ========================================================= */
-
+/* 5. PORTADA: una columna en móvil. */
 .portada {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    min-height: 60vh;
-    padding: var(--espacio-extra-grande);
-
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacio-mediano);
+    align-items: center;
+    min-height: 0;
+    padding: var(--espacio-mediano);
     border-radius: var(--radio-borde);
     background-color: var(--azul-noche);
     color: var(--crema);
 }
-
-.portada h2 {
-    margin-top: 0;
-    color: var(--crema);
-}
-
-.portada p {
-    max-width: 42rem;
-}
-
+.portada h2 { color: var(--crema); }
+.portada p { max-width: 42rem; }
+.portada-texto { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.portada > img { width: 100%; max-height: 20rem; object-fit: cover; }
 .boton-accion {
     display: inline-block;
-
-    padding: 0.9rem 1.5rem;
-
+    max-width: 100%;
+    padding: 0.8rem 1rem;
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
-
     background-color: var(--verde-ruta);
     color: var(--crema);
-
     font-weight: 600;
     text-align: center;
     text-decoration: none;
 }
+.boton-accion:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); text-decoration: underline; }
 
-.boton-accion:hover {
-    border-color: var(--azul-noche);
-    background-color: var(--azul-noche);
-    color: var(--crema);
-    text-decoration: underline;
-}
-
-
-/* 7. TARJETAS DE SERVICIOS Y ETIQUETA NUEVO
-   ========================================================= */
-
-#servicios {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--espacio-grande);
-    align-items: stretch;
-}
-
-#servicios > h2 {
-    grid-column: 1 / -1;
-    margin-bottom: 0;
-}
-
+/* 6. SERVICIOS: una columna en móvil. */
+#servicios { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
+#servicios > h2 { grid-column: 1 / -1; margin-bottom: 0; }
 #servicios article {
     position: relative;
-    display: flex;             /* <- Agregado para controlar los elementos internos */
-    flex-direction: column;    /* <- Apila los elementos verticalmente */
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     margin: 0;
     padding: var(--espacio-mediano);
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
     background-color: var(--crema);
-    overflow-wrap: anywhere;
 }
-
-/* Opcional: Para que todas las imágenes tengan la misma proporción visual */
-#servicios article img {
-    width: 100%;
-    height: 180px;             /* <- Puedes fijar una altura uniforme (ajusta a tu gusto) */
-    object-fit: cover;         /* <- Evita que la imagen se deforme */
-    max-width: 100%;
-    margin-bottom: var(--espacio-mediano);
-}
-
-/* Hace que el párrafo de descripción ocupe el espacio flexible y empuje el botón hacia abajo */
-#servicios article p {
-    flex-grow: 1;              /* <- Empuja el botón al fondo para que todos queden alineados */
-    margin-bottom: var(--espacio-mediano);
-}
-
-.servicio-electrico {
-    position: relative;
-}
-
+#servicios article img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
+#servicios article p { flex-grow: 1; }
+.servicio-electrico { position: relative; }
 .etiqueta-nuevo {
-    position: absolute;
-    top: var(--espacio-mediano);
-    right: var(--espacio-mediano);
-    z-index: 2;
-
+    position: absolute; top: var(--espacio-mediano); right: var(--espacio-mediano); z-index: 2;
     padding: var(--espacio-pequeno) var(--espacio-mediano);
-
-    border: 2px solid var(--azul-noche);
-    border-radius: 0.25rem;
-
-    background-color: var(--naranja-pedal);
-    color: var(--azul-noche);
-
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.2;
+    border: 2px solid var(--azul-noche); border-radius: 0.25rem;
+    background-color: var(--naranja-pedal); color: var(--azul-noche);
+    font-size: 0.875rem; font-weight: 700; line-height: 1.2;
 }
 
-
-/* 8. LISTAS Y TABLAS
-   ========================================================= */
-
-ul,
-ol {
-    padding-left: 1.5rem;
-}
-
-li {
-    margin-bottom: var(--espacio-pequeno);
-}
-
+/* 7. LISTAS Y TABLAS: sin desbordamiento horizontal en móvil. */
+ul, ol { padding-left: 1.35rem; }
+li { margin-bottom: var(--espacio-pequeno); }
 table {
     width: 100%;
-    margin-top: var(--espacio-mediano);
-    margin-bottom: var(--espacio-grande);
-
+    max-width: 100%;
+    margin: var(--espacio-mediano) 0 var(--espacio-grande);
     border-collapse: collapse;
+    table-layout: fixed;
     background-color: var(--crema);
+    font-size: 0.72rem;
 }
-
-caption {
-    padding: var(--espacio-mediano);
-    color: var(--azul-noche);
-    font-weight: 600;
-    text-align: left;
-}
-
-th,
-td {
-    padding: var(--espacio-mediano);
+caption { padding: 0.45rem; color: var(--azul-noche); font-weight: 600; text-align: left; }
+th, td {
+    min-width: 0;
+    padding: 0.4rem 0.3rem;
     border: 1px solid var(--gris-asfalto);
-
     text-align: left;
     vertical-align: top;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
+th { background-color: var(--azul-noche); color: var(--crema); font-weight: 600; }
+tbody tr:hover { outline: 0.1rem solid var(--verde-ruta); outline-offset: -0.1rem; }
+.tabla-contenedor { width: 100%; max-width: 100%; overflow: visible; }
 
-th {
-    background-color: var(--azul-noche);
-    color: var(--crema);
-    font-weight: 600;
+/* 8. FORMULARIO: campos apilados en móvil. */
+form { width: 100%; max-width: var(--ancho-formulario); margin: 0 auto; }
+fieldset { min-width: 0; margin: 0 0 var(--espacio-grande); padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); }
+legend { padding: 0 var(--espacio-pequeno); color: var(--azul-noche); font-weight: 600; }
+label { display: block; margin: var(--espacio-mediano) 0 var(--espacio-pequeno); color: var(--azul-noche); font-weight: 600; }
+input, select, textarea {
+    display: block; width: 100%; max-width: 100%; min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--gris-asfalto); border-radius: 0.25rem;
+    background-color: var(--crema); color: var(--azul-noche); font: inherit;
 }
-
-tbody tr:hover {
-    outline: 0.1rem solid var(--verde-ruta);
-    outline-offset: -0.1rem;
-}
-
-
-/* 9. FORMULARIO DE RESERVAS
-   ========================================================= */
-
-form {
-    width: 100%;
-    max-width: var(--ancho-formulario);
-
-    margin-right: auto;
-    margin-left: auto;
-}
-
-fieldset {
-    min-width: 0;
-
-    margin: 0 0 var(--espacio-grande);
-    padding: var(--espacio-grande);
-
-    border: 1px solid var(--gris-asfalto);
-    border-radius: var(--radio-borde);
-}
-
-legend {
-    padding: 0 var(--espacio-pequeno);
-    color: var(--azul-noche);
-    font-weight: 600;
-}
-
-label {
-    display: block;
-
-    margin-top: var(--espacio-mediano);
-    margin-bottom: var(--espacio-pequeno);
-
-    color: var(--azul-noche);
-    font-weight: 600;
-}
-
-input,
-select,
-textarea {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-
-    padding: 0.8rem;
-
-    border: 1px solid var(--gris-asfalto);
-    border-radius: 0.25rem;
-
-    background-color: var(--crema);
-    color: var(--azul-noche);
-
-    font: inherit;
-}
-
-input:hover,
-select:hover,
-textarea:hover {
-    border-color: var(--verde-ruta);
-}
-
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    border-color: var(--verde-ruta);
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-    margin-right: var(--espacio-pequeno);
-    accent-color: var(--verde-ruta);
-}
-
-label:has(input[type="radio"]),
-label:has(input[type="checkbox"]) {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--espacio-pequeno);
-}
-
-button,
-input[type="submit"] {
-    display: inline-block;
-    width: auto;
-    max-width: 100%;
-
-    margin-top: var(--espacio-mediano);
+input:hover, select:hover, textarea:hover { border-color: var(--verde-ruta); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--verde-ruta); }
+input[type="radio"], input[type="checkbox"] { display: inline-block; width: auto; margin-right: var(--espacio-pequeno); accent-color: var(--verde-ruta); }
+label:has(input[type="radio"]), label:has(input[type="checkbox"]) { display: flex; align-items: flex-start; gap: var(--espacio-pequeno); }
+button, input[type="submit"] {
+    display: inline-block; width: auto; max-width: 100%; margin-top: var(--espacio-mediano);
     padding: var(--espacio-mediano) var(--espacio-grande);
-
-    border: 2px solid var(--verde-ruta);
-    border-radius: var(--radio-borde);
-
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
+    border: 2px solid var(--verde-ruta); border-radius: var(--radio-borde);
+    background-color: var(--verde-ruta); color: var(--crema); font: inherit; font-weight: 600; cursor: pointer;
 }
+button:hover, input[type="submit"]:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); }
+small { display: block; margin-top: var(--espacio-pequeno); color: var(--gris-asfalto); }
+.ayuda-campo { margin-top: var(--espacio-pequeno); color: var(--gris-asfalto); font-size: 0.9rem; }
+.layout-reservas { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-grande); align-items: start; }
+#formulario-reserva, .informacion-reservas { min-width: 0; }
+#formulario-reserva form { max-width: none; margin: 0; }
+.informacion-reservas { padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); background-color: var(--crema); }
+.informacion-reservas section { margin-bottom: var(--espacio-grande); }
+.informacion-reservas h2 { font-size: 1.25rem; }
+.aviso-reserva { margin-bottom: 0; padding-top: var(--espacio-mediano); border-top: 1px solid var(--gris-asfalto); color: var(--gris-asfalto); font-size: 0.9rem; }
+.fila-campos { display: flex; flex-direction: column; gap: 0; }
+.fila-campos .campo { flex: 1 1 auto; min-width: 0; width: 100%; }
+.fila-campos label { margin-top: var(--espacio-mediano); }
+.fila-campos small { overflow-wrap: anywhere; }
 
-button:hover,
-input[type="submit"]:hover {
-    border-color: var(--azul-noche);
-    background-color: var(--azul-noche);
-    color: var(--crema);
+/* 9. FLOTA: una tarjeta por fila en móvil. */
+#flota .flota-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
+.tarjeta-bicicleta {
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 100%; min-width: 0; margin: 0; padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde);
+    background-color: var(--crema); overflow: hidden;
 }
+.tarjeta-bicicleta > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
+.contenido-tarjeta { display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; min-width: 0; }
+.contenido-tarjeta h3 { margin-bottom: var(--espacio-pequeno); }
+.contenido-tarjeta p { margin-bottom: var(--espacio-mediano); }
+.precio { color: var(--verde-ruta); font-size: 1.2rem; font-weight: 700; }
+.precio span { color: var(--gris-asfalto); font-size: 0.85rem; font-weight: 400; }
+.enlace-reservar { display: inline-block; align-self: flex-start; margin-top: auto; padding: 0.7rem 1.2rem; border: 2px solid var(--verde-ruta); border-radius: var(--radio-borde); background-color: var(--verde-ruta); color: var(--crema); font-weight: 600; text-decoration: none; text-align: center; }
+.enlace-reservar:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); }
+.introduccion-flota, .introduccion-rutas { max-width: 45rem; }
 
-small {
-    display: block;
-    margin-top: var(--espacio-pequeno);
-    color: var(--gris-asfalto);
-}
+/* 10. RUTAS: una tarjeta por fila en móvil. */
+#rutas .rutas-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
+.tarjeta-ruta { display: flex; flex-direction: column; min-width: 0; padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); background-color: var(--crema); }
+.tarjeta-ruta > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
+.contenido-ruta { display: flex; flex-direction: column; flex-grow: 1; gap: var(--espacio-pequeno); min-width: 0; }
+.contenido-ruta h3, .contenido-ruta p { margin-bottom: 0; }
 
+/* 11. PIE: bloques apilados y centrados en móvil. */
+footer { margin-top: var(--espacio-grande); padding: var(--espacio-grande) var(--espacio-mediano); background-color: var(--azul-noche); color: var(--crema); }
+footer h2, footer h3, footer p { color: var(--crema); }
+footer p { margin-bottom: var(--espacio-pequeno); }
+.pie-contenido { display: flex; flex-direction: column; align-items: center; gap: var(--espacio-grande); text-align: center; }
+.pie-contenido section { width: 100%; min-width: 0; margin-bottom: 0; }
+.pie-copyright { margin: var(--espacio-grande) 0 0; text-align: center; }
 
-/* 10. PIE DE PÁGINA
-   ========================================================= */
-
-footer {
-    margin-top: var(--espacio-grande);
-    padding: var(--espacio-grande) 4%;
-
-    background-color: var(--azul-noche);
-    color: var(--crema);
-}
-
-footer h2,
-footer h3,
-footer p {
-    color: var(--crema);
-}
-
-footer p {
-    margin-bottom: var(--espacio-pequeno);
-}
-
-
-/* 11. ACCESO FIJO A WHATSAPP
-   ========================================================= */
-
+/* 12. ACCESO FIJO A WHATSAPP */
 .whatsapp-fijo {
-    position: fixed;
-    right: var(--espacio-mediano);
-    bottom: var(--espacio-mediano);
-    z-index: 1000;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: var(--altura-acceso-whatsapp);
+    position: fixed; right: var(--espacio-pequeno); bottom: var(--espacio-pequeno); z-index: 1000;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: var(--altura-acceso-whatsapp); max-width: calc(100% - 1rem);
     padding: var(--espacio-pequeno) var(--espacio-mediano);
-
-    border: 2px solid var(--azul-noche);
-    border-radius: var(--radio-borde);
-
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-
+    border: 2px solid var(--azul-noche); border-radius: var(--radio-borde);
+    background-color: var(--verde-ruta); color: var(--crema);
+    font-weight: 700; text-align: center; text-decoration: none;
     box-shadow: 0 0.2rem 0.6rem rgb(20 33 61 / 25%);
 }
+.whatsapp-fijo:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); text-decoration: underline; }
+.whatsapp-fijo:focus-visible { outline: 0.2rem solid var(--azul-noche); outline-offset: 0.2rem; }
 
-.whatsapp-fijo:hover {
-    border-color: var(--azul-noche);
-    background-color: var(--azul-noche);
-    color: var(--crema);
-    text-decoration: underline;
-}
-
-.whatsapp-fijo:focus-visible {
-    outline: 0.2rem solid var(--azul-noche);
-    outline-offset: 0.2rem;
-}
-
-
-/* 12. DISEÑO ADAPTABLE A TABLETAS
+/* =========================================================
+   TABLET: desde 768 px
+   Se recupera la distribución horizontal del MiniReto 1.
    ========================================================= */
-
-@media (max-width: 55rem) {
-    #servicios {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    table {
-        display: block;
-        max-width: 100%;
-        overflow-x: auto;
-    }
-}
-
-
-/* 13. DISEÑO ADAPTABLE A CELULARES
-   ========================================================= */
-
-@media (max-width: 38rem) {
-    header,
-    footer {
-        padding: var(--espacio-mediano);
-    }
-
-    .encabezado-marca {
-        gap: 0.65rem;
-    }
-
-    .enlace-logo {
-        width: 3.5rem;
-        height: 3.5rem;
-        padding: 0.2rem;
-    }
-
-    .texto-marca h1 {
-        font-size: 1.4rem;
-    }
-
-    .texto-marca p {
-        font-size: 0.85rem;
-    }
-
-    main {
-        width: 92%;
-        padding-top: var(--espacio-mediano);
-        padding-bottom: var(--espacio-mediano);
-    }
-
-    #servicios {
-        grid-template-columns: minmax(0, 1fr);
-        gap: var(--espacio-mediano);
-    }
-
-    .portada {
-        min-height: 50vh;
-        padding: var(--espacio-mediano);
-    }
-
-    #menu {
-        gap: var(--espacio-pequeno);
-    }
-
-    fieldset {
-        padding: var(--espacio-mediano);
-    }
-
-    .whatsapp-fijo {
-        right: var(--espacio-pequeno);
-        bottom: var(--espacio-pequeno);
-    }
+@media (min-width: 768px) {
+    header { padding: var(--espacio-grande) 4%; }
+    .contenedor-encabezado { flex-direction: row; justify-content: space-between; align-items: center; gap: var(--espacio-grande); }
+    .encabezado-marca { flex-direction: row; align-items: center; justify-content: flex-start; width: auto; gap: 0.85rem; text-align: left; }
+    .enlace-logo { width: 5rem; flex-shrink: 0; }
+    .texto-marca h1 { font-size: 1.7rem; }
+    .texto-marca p { font-size: 1rem; }
+    .contenedor-encabezado nav { width: auto; flex-shrink: 0; }
+    #menu { flex-direction: row; flex-wrap: wrap; gap: var(--espacio-pequeno); }
+    main { padding-top: var(--espacio-grande); padding-bottom: var(--espacio-grande); }
+    .portada { grid-template-columns: 1.1fr 0.9fr; gap: var(--espacio-grande); padding: var(--espacio-grande); min-height: 45vh; }
+    .portada > img { height: 100%; max-height: 25rem; }
+    #servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
+    #rutas .rutas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
+    #flota .flota-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
+    .layout-reservas { grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr); gap: var(--espacio-grande); }
+    .informacion-reservas { padding: var(--espacio-grande); }
+    .fila-campos { flex-direction: row; gap: var(--espacio-mediano); }
+    .fila-campos .campo { flex: 1 1 0; width: auto; }
+    fieldset { padding: var(--espacio-grande); }
+    table { font-size: 0.85rem; }
+    th, td { padding: 0.6rem; }
+    .pie-contenido { flex-direction: row; align-items: flex-start; justify-content: space-between; text-align: left; }
+    .pie-contenido section { flex: 1 1 0; }
 }
 
 /* =========================================================
-   14. NUESTRA FLOTA: CUADRICULA CON CSS GRID Y TARJETAS FLEX
+   ESCRITORIO: desde 1200 px
    ========================================================= */
-
-/* Grid calcula automáticamente cuántas columnas caben.
-   Cada tarjeta tendrá como mínimo 15rem y podrá crecer con 1fr. */
-#flota .flota-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: var(--espacio-grande);
-    align-items: stretch;
+@media (min-width: 1200px) {
+    .enlace-logo { width: 6rem; }
+    .portada { min-height: 60vh; padding: var(--espacio-extra-grande); }
+    .portada > img { max-height: 28rem; }
+    #servicios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #rutas .rutas-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #flota .flota-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    table { font-size: 0.95rem; }
+    th, td { padding: var(--espacio-mediano); }
+    .pie-contenido { gap: var(--espacio-extra-grande); }
 }
-
-/* La tarjeta usa Flexbox en columna para ordenar sus elementos. */
-.tarjeta-bicicleta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    height: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: var(--espacio-mediano);
-
-    border: 1px solid var(--gris-asfalto);
-    border-radius: var(--radio-borde);
-
-    background-color: var(--crema);
-    overflow: hidden;
-}
-
-/* Todas las fotos mantienen una proporción visual uniforme. */
-.tarjeta-bicicleta > img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    margin-bottom: var(--espacio-mediano);
-}
-
-/* El contenido interno también se organiza en columna. */
-.contenido-tarjeta {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
-}
-
-.contenido-tarjeta h3 {
-    margin-bottom: var(--espacio-pequeno);
-}
-
-.contenido-tarjeta p {
-    margin-bottom: var(--espacio-mediano);
-}
-
-.precio {
-    color: var(--verde-ruta);
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.precio span {
-    color: var(--gris-asfalto);
-    font-size: 0.85rem;
-    font-weight: 400;
-}
-
-.enlace-reservar {
-    display: inline-block;
-    align-self: flex-start;
-    margin-top: auto;
-    padding: 0.7rem 1.2rem;
-
-    border: 2px solid var(--verde-ruta);
-    border-radius: var(--radio-borde);
-
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-}
-
-.enlace-reservar:hover {
-    border-color: var(--azul-noche);
-    background-color: var(--azul-noche);
-    color: var(--crema);
-}
-
-.introduccion-flota {
-    max-width: 45rem;
-}
-
-
-/* =========================================================
-   15. RETO 3 SEMANA 2: LAYOUT CON GRID Y FLEXBOX
-   ========================================================= */
-
-/* Encabezado: Flexbox alinea marca y menú en una dimensión. */
-.contenedor-encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--espacio-grande);
-}
-.encabezado-marca {
-    margin-bottom: 0;
-    min-width: 0;
-}
-.contenedor-encabezado nav {
-    margin-top: 0;
-}
-
-/* Portada: Grid distribuye texto e imagen en dos columnas. */
-.portada {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: var(--espacio-grande);
-}
-.portada-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.portada > img {
-    width: 100%;
-    height: 100%;
-    max-height: 28rem;
-    object-fit: cover;
-}
-
-/* Galería: Grid distribuye las tres tarjetas de rutas. */
-#rutas .rutas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--espacio-grande);
-    align-items: stretch;
-}
-.introduccion-rutas {
-    max-width: 45rem;
-}
-.tarjeta-ruta {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    padding: var(--espacio-mediano);
-    border: 1px solid var(--gris-asfalto);
-    border-radius: var(--radio-borde);
-    background-color: var(--crema);
-}
-.tarjeta-ruta > img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    margin-bottom: var(--espacio-mediano);
-}
-.contenido-ruta {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: var(--espacio-pequeno);
-}
-.contenido-ruta h3,
-.contenido-ruta p {
-    margin-bottom: 0;
-}
-
-/* Reservas: Grid crea dos columnas en proporción 2fr y 1fr. */
-.layout-reservas {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: start;
-    gap: var(--espacio-grande);
-}
-#formulario-reserva {
-    min-width: 0;
-}
-#formulario-reserva form {
-    max-width: none;
-    margin: 0;
-}
-.informacion-reservas {
-    min-width: 0;
-    padding: var(--espacio-grande);
-    border: 1px solid var(--gris-asfalto);
-    border-radius: var(--radio-borde);
-    background-color: var(--crema);
-}
-.informacion-reservas section {
-    margin-bottom: var(--espacio-grande);
-}
-.informacion-reservas h2 {
-    font-size: 1.25rem;
-}
-.aviso-reserva {
-    margin-bottom: 0;
-    padding-top: var(--espacio-mediano);
-    border-top: 1px solid var(--gris-asfalto);
-    color: var(--gris-asfalto);
-    font-size: 0.9rem;
-}
-
-/* Documento y celular: Flexbox alinea dos campos en una fila. */
-.fila-campos {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--espacio-mediano);
-}
-.fila-campos .campo {
-    flex: 1 1 0;
-    min-width: 0;
-}
-.fila-campos label {
-    margin-top: var(--espacio-mediano);
-}
-.fila-campos small {
-    overflow-wrap: anywhere;
-}
-
-/* Pie de página: Flexbox distribuye los tres bloques en una fila. */
-.pie-contenido {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--espacio-grande);
-}
-.pie-contenido section {
-    flex: 1 1 0;
-    min-width: 0;
-    margin-bottom: 0;
-}
-.pie-contenido h2 {
-    font-size: 1.15rem;
-}
-.pie-contenido a {
-    color: var(--naranja-pedal);
-}
-.pie-copyright {
-    margin-top: var(--espacio-grande);
-    margin-bottom: 0;
-    padding-top: var(--espacio-mediano);
-    border-top: 1px solid rgb(250 246 239 / 35%);
-    text-align: center;
-}
-
-/* Ajustes para tabletas. */
-@media (max-width: 55rem) {
-    .contenedor-encabezado {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    .portada {
-        grid-template-columns: 1fr 1fr;
-    }
-    #rutas .rutas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .layout-reservas {
-        grid-template-columns: 1.5fr 1fr;
-    }
-}
-
-/* Ajustes para celulares. */
-@media (max-width: 38rem) {
-    .portada {
-        grid-template-columns: minmax(0, 1fr);
-    }
-    .portada > img {
-        max-height: 18rem;
-    }
-    #rutas .rutas-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-    .layout-reservas {
-        grid-template-columns: minmax(0, 1fr);
-    }
-    .fila-campos {
-        flex-direction: column;
-    }
-    .fila-campos .campo {
-        width: 100%;
-    }
-    .pie-contenido {
-        flex-direction: column;
-        gap: var(--espacio-mediano);
-    }
-}
-
-
-/* Tablas adaptables y texto auxiliar de formularios */
-.tabla-contenedor { width: 100%; overflow-x: auto; }
-.tabla-contenedor table { width: 100%; }
-.ayuda-campo { color: var(--gris-asfalto); font-size: 0.9rem; }
