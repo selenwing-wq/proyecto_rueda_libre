@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catálogo de bicicletas Rueda Libre construido con Bootstrap 5.3.">
+    <title>Catálogo Bootstrap | Rueda Libre</title>
+
+    <!-- Bootstrap 5.3: hoja de estilos oficial por CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+</head>
+<body>
+    <main class="container py-4">
+        <header class="text-center mb-4">
+            <h1 class="mb-2">Rueda Libre</h1>
+            <p class="lead">Nuestra flota de bicicletas</p>
+            <p>Elige la bicicleta que mejor se adapte a tu recorrido por Medellín.</p>
+            <a href="../index.html">Volver a la página principal</a>
+        </header>
+
+        <!--
+            Grilla Bootstrap:
+            col-12: 1 columna en móvil.
+            col-sm-6: 2 columnas desde 576 px.
+            col-lg-4: 3 columnas desde 992 px.
+            col-xl-3: 4 columnas desde 1200 px.
+            g-4: separación horizontal y vertical entre tarjetas.
+        -->
+        <section aria-labelledby="titulo-flota">
+            <h2 id="titulo-flota" class="visually-hidden">Catálogo de bicicletas</h2>
+
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/urbana_clasica.jpg" class="card-img-top"
+                             alt="Bicicleta urbana clásica" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Urbana Clásica</h3>
+                            <p class="card-text">Cómoda y liviana para las ciclorrutas.</p>
+                            <p class="fw-bold mt-auto">$10.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/urbana_plegable.jpg" class="card-img-top"
+                             alt="Bicicleta urbana plegable" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Urbana Plegable</h3>
+                            <p class="card-text">Se dobla en segundos; ideal para combinar con el metro.</p>
+                            <p class="fw-bold mt-auto">$12.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/montana_trail.jpg" class="card-img-top"
+                             alt="Bicicleta de montaña Trail" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Montaña Trail</h3>
+                            <p class="card-text">Suspensión delantera y 21 cambios para las subidas.</p>
+                            <p class="fw-bold mt-auto">$15.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/gravel_aventura.jpg" class="card-img-top"
+                             alt="Bicicleta Gravel para rutas mixtas" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Gravel Aventura</h3>
+                            <p class="card-text">Para rutas mixtas de asfalto y destapado.</p>
+                            <p class="fw-bold mt-auto">$18.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/electrica_urbana.jpg" class="card-img-top"
+                             alt="Bicicleta eléctrica urbana" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Eléctrica Urbana</h3>
+                            <p class="card-text">Asistencia eléctrica con 45 km de autonomía.</p>
+                            <p class="fw-bold mt-auto">$25.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/infantil.jpg" class="card-img-top"
+                             alt="Bicicleta infantil" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Infantil</h3>
+                            <p class="card-text">Para niños de 6 a 10 años.</p>
+                            <p class="fw-bold mt-auto">$8.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <article class="card h-100">
+                        <img src="../img/tandem.jpg" class="card-img-top"
+                             alt="Bicicleta tándem para dos personas" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Tándem</h3>
+                            <p class="card-text">Para dos personas; perfecta para pasear en pareja.</p>
+                            <p class="fw-bold mt-auto">$20.000 <span class="fw-normal">COP / hora</span></p>
+                            <a class="btn btn-success" href="../paginas/reservas.html">Reservar</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap 5.3: bundle oficial (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GKCIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+</body>
+</html>

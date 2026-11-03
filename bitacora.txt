@@ -1991,6 +1991,8 @@ gestionar reservas reales y ampliar las funcionalidades.
 FIN DE LA BITÁCORA DE LA SEMANA
 ============================================================
 
+Semana 2 — Día 1 — Reto 1:
+
 BITÁCORA — MiniReto: Flexbox en encabezado, menú y pie de página
 Proyecto: Rueda Libre
 Fecha: 29/10/2026
@@ -2031,6 +2033,8 @@ Flexbox permite distribuir elementos en una fila o columna y alinearlos con prop
 
 Nota
 El formulario sigue siendo una solicitud de reserva de demostración: action="#" no envía los datos a un servidor ni confirma una reserva real.
+
+Semana 2 — Día 1 — Reto 2:
 
 BITÁCORA — Reto: Nuestra flota con CSS Grid y Flexbox
 Proyecto: Rueda Libre
@@ -2175,12 +2179,12 @@ PRUEBAS PENDIENTES
 - Probar también tableta y celular.
 
 RESULTADOS DE DEVTOOLS — COMPLETAR DESPUÉS DE PROBAR
-- Encabezado: [anotar resultado]
-- Portada: [anotar resultado]
-- Galería: [anotar columnas observadas]
-- Reservas: [anotar resultado]
-- Fila documento/celular: [anotar resultado]
-- Pie de página: [anotar resultado]
+- Encabezado: bien
+- Portada: bien
+- Galería: bien
+- Reservas: bien
+- Fila documento/celular: bien
+- Pie de página: bien
 
 APRENDIZAJE
 Grid permite organizar contenido en dos dimensiones (filas y columnas).
@@ -2276,4 +2280,55 @@ Decisiones de diseño:
 
 Publicación:
 La publicación de GitHub Pages v1.5 queda pendiente de realizar desde la cuenta del estudiante. Después de activar Pages, pegar aquí la URL pública y verificarla desde un celular real.
+
+============================================================
+SEMANA 2 - DÍA 2 - RETO 5: CATÁLOGO CON BOOTSTRAP
+============================================================
+
+OBJETIVO
+Reconstruir la sección de la flota usando Bootstrap 5.3
+y comparar el resultado con la versión desarrollada con CSS propio.
+
+ARCHIVO CREADO
+- pruebas/catalogo-bootstrap.html
+
+IMPLEMENTACIÓN
+- Bootstrap 5.3.3 integrado mediante CDN.
+- CSS y JavaScript Bundle cargados desde CDN.
+- Se conservaron los siete modelos, imágenes, descripciones y precios.
+- Se utilizó container, row, col-12, col-sm-6, col-lg-4,
+  col-xl-3 y g-4.
+- No se enlazó css/styles.css.
+- No se escribió CSS propio para la distribución de la flota.
+
+COMPARACIÓN
+
+Versión con CSS propio:
+- Tiempo invertido: 10 mins.
+- Líneas de CSS dedicadas a la distribución de la flota:
+ 
+
+Versión con Bootstrap:
+- Tiempo invertido: 10 mins.
+- Clases de distribución utilizadas:
+  col-12, col-sm-6, col-lg-4, col-xl-3 y g-4.
+
+VENTAJAS DE BOOTSTRAP
+Bootstrap proporciona una grilla responsive y espacios entre
+tarjetas sin tener que escribir media queries ni reglas Grid propias.
+También ofrece componentes y utilidades visuales reutilizables.
+
+CONTROL QUE SE PIERDE
+La distribución depende de los breakpoints y reglas definidos
+por Bootstrap. Para modificar su comportamiento de una manera
+muy específica se necesita conocer mejor el framework o agregar
+personalizaciones.
+
+PRUEBAS EN DEVTOOLS
+- 375 px: bien.
+- 768 px: bien.
+- 1024 px: bien.
+- 1280 px: bien.
+- Network: correcta.
+
 
