@@ -2650,3 +2650,44 @@ Crear y conectar una hoja de estilos externa utilizando variables CSS, Google Fo
    - Open Sans 400 y 600 para textos.
 5. Organicé las variables CSS dentro de `:root`, incluyendo los cinco colores de marca, las familias tipográficas, los tamaños de texto en `rem` y las variables de espaciado.
 6. Configuré el elemento `body` para aplicar la tipografía, el color
+
+============================================================
+# RETO 10 – Navegación, pseudoclases y accesibilidad
+Semana: 2  Día: 3  
+============================================================
+
+### Objetivo
+Mejorar la experiencia de navegación del sitio web mediante selectores CSS, clases, identificadores, pseudoclases y el control de la especificidad. También se buscó garantizar que los elementos interactivos fueran visibles y accesibles al utilizar el teclado.
+
+### Actividades realizadas
+
+1. **Identificación de la página activa:** se utilizó el identificador `id="menu"` en la navegación y la clase `activo` junto con `aria-current="page"` en el enlace correspondiente a cada página.
+
+2. **Especificidad y cascada CSS:** se revisó el conflicto entre los selectores `#menu a` y `.activo`. Se identificó que `#menu a` tiene una especificidad de 101, mientras que `.activo` tiene una especificidad de 10. Para resolver el conflicto se utilizaron selectores más específicos, sin recurrir a `!important` ni a estilos en línea.
+
+3. **Estilos de navegación:** se utilizaron selectores descendientes para personalizar los enlaces del menú y se definieron estados visuales mediante las pseudoclases `:hover` y `:focus`.
+
+4. **Botones de acción:** se reutilizó la clase `boton-accion` para dar apariencia de botón a los enlaces de reserva. Se agregaron estados para el paso del mouse y el enfoque mediante teclado.
+
+5. **Campos de formulario:** se personalizaron los estados `:hover` y `:focus` de los campos de texto, listas desplegables y casillas de verificación.
+
+6. **Accesibilidad:** se incorporaron indicadores visuales de enfoque para facilitar la navegación mediante la tecla Tab, evitando que el usuario pierda de vista el elemento seleccionado.
+
+7. **Pruebas:** se revisaron las tres páginas del sitio —Inicio, Tarifas y rutas, y Reservas— y se utilizaron las herramientas de desarrollador para inspeccionar los estilos y comprobar los estados interactivos.
+
+### Conceptos aprendidos
+
+- Selectores por identificador (`#`).
+- Selectores por clase (`.`).
+- Selectores descendientes.
+- Pseudoclases `:hover` y `:focus`.
+- Cascada y especificidad CSS.
+- Inspección de reglas CSS desde DevTools.
+- Accesibilidad mediante navegación por teclado.
+- Indicadores visuales de enfoque.
+
+### Resultado
+
+Se mejoró la navegación de Rueda Libre, diferenciando visualmente la página activa y proporcionando respuestas visuales al pasar el mouse o utilizar el teclado.
+También se resolvieron conflictos de especificidad sin utilizar `!important`, manteniendo los estilos organizados y reutilizables.
+
