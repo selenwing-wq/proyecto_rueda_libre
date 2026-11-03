@@ -2541,3 +2541,94 @@ Estado del commit: pendiente de ejecutar.
 Estado del push: pendiente de confirmar.
 ============================================================
 
+============================================================
+# BITÁCORA – RUEDA LIBRE
+## Semana 2 – Día 2 – Reto 8
+### Migración de páginas a Bootstrap 5.3.3
+============================================================
+
+**Objetivo del reto**
+
+Migrar las páginas Tarifas y Reservas a Bootstrap 5.3.3, manteniendo la identidad visual del proyecto Rueda Libre y reduciendo la dependencia de CSS personalizado para la distribución de los elementos.
+
+### 1. Actividades realizadas
+
+- Se integró Bootstrap 5.3.3 mediante CDN en las páginas Tarifas y Reservas.
+- Se utilizaron los contenedores `container` para organizar el contenido.
+- Se implementaron las clases `row` y `col-*` para distribuir los elementos de las páginas.
+- Se adaptó la estructura del formulario de reservas utilizando componentes y clases de Bootstrap.
+- Se conservaron las validaciones HTML de los campos del formulario.
+- Se mantuvieron los colores corporativos, las tipografías y los estilos propios de Rueda Libre.
+- Se actualizó el archivo `css/styles.css` para evitar duplicar con CSS personalizado las funciones de distribución que ahora realiza Bootstrap.
+- Se conservaron los estilos de las tarjetas, tablas, botones, encabezados, pie de página y acceso fijo a WhatsApp.
+
+### 2. Uso de Bootstrap
+
+Se utilizaron principalmente las siguientes clases:
+
+- `container`: organiza y limita el ancho del contenido.
+- `row`: crea filas para organizar los elementos.
+- `col-12`: permite ocupar todo el ancho disponible.
+- `col-md-*`: establece distribuciones diferentes en pantallas medianas.
+- `col-lg-*`: permite adaptar la distribución a pantallas grandes.
+- `g-4`: establece espacios entre columnas y filas.
+- `form-control`: aplica estilos de Bootstrap a los campos de entrada.
+- `form-select`: adapta las listas desplegables.
+- `form-check`: organiza las casillas de verificación.
+
+### 3. Actualización del CSS
+
+Se reorganizó `css/styles.css` para mantener únicamente los estilos personalizados necesarios para la identidad visual y presentación del proyecto.
+
+Se conservaron:
+
+- Variables de colores corporativos.
+- Tipografías Montserrat y Open Sans.
+- Estilos del encabezado y logo.
+- Apariencia del menú de navegación.
+- Estilos de portada y tarjetas.
+- Presentación de precios y tablas.
+- Apariencia de los formularios.
+- Estilos del pie de página.
+- Botón fijo de WhatsApp.
+
+Se retiraron reglas de distribución que duplicaban las funcionalidades de Bootstrap, como las relacionadas con CSS Grid y Flexbox en la estructura de reservas.
+
+### 4. Pruebas y validación
+
+Se estableció como criterio de revisión comprobar el comportamiento responsive del sitio en tres resoluciones:
+
+- 360 px: dispositivos móviles.
+- 768 px: tabletas y pantallas medianas.
+- 1280 px: computadores de escritorio.
+
+Las páginas que deben validarse son:
+
+- Inicio.
+- Tarifas y rutas.
+- Reservas.
+
+Se debe verificar que las tablas no provoquen desbordamientos, que el formulario conserve sus validaciones y que los elementos mantengan una presentación adecuada en diferentes tamaños de pantalla.
+
+### 5. Comparación entre CSS personalizado y Bootstrap
+
+La migración permite utilizar un sistema de diseño responsive ya establecido, reduciendo la necesidad de escribir reglas propias para columnas, filas y distribución de elementos.
+
+La identidad visual continúa dependiendo del CSS personalizado, mientras que Bootstrap se encarga principalmente de la estructura y adaptación responsive.
+
+**Datos pendientes de completar:**
+
+- Cantidad de líneas de `styles.css` versión 1.5: pendiente de medición.
+- Cantidad de líneas de `styles.css` actualizado: pendiente de medición.
+- Tiempo invertido en la versión anterior: pendiente de registrar.
+- Tiempo invertido en la migración: pendiente de registrar.
+- Conflictos encontrados durante las pruebas: registrar los resultados de la validación.
+
+### 6. Conclusión
+
+La migración de las páginas Tarifas y Reservas permite avanzar hacia una estructura más organizada y responsive mediante Bootstrap 5.3.3.
+
+Se mantiene la identidad visual de Rueda Libre y se reduce la duplicación de código CSS, diferenciando las responsabilidades de cada tecnología: Bootstrap para la distribución y CSS propio para la presentación visual.
+
+**Estado del reto:** migración de HTML y actualización de CSS realizadas. Pendiente completar las pruebas finales, la comparativa de versiones y la publicación o actualización de GitHub Pages.
+

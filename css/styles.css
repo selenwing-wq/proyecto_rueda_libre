@@ -1,7 +1,10 @@
+
 /* =========================================================
    RUEDA LIBRE
-   SEMANA 2 - DÍA 2 - RETO 7
+   SEMANA 2 - DÍA 2 - RETO 8
    Identidad visual propia + Bootstrap 5.3.3
+   Bootstrap controla la distribución.
+   CSS propio conserva la identidad visual.
    ========================================================= */
 
 
@@ -25,14 +28,13 @@
     --espacio-extra-grande: 3rem;
 
     --ancho-contenido: 70rem;
-    --ancho-formulario: 48rem;
     --radio-borde: 0.75rem;
     --altura-acceso-whatsapp: 3.25rem;
 }
 
 
 /* =========================================================
-   2. ESTILOS GENERALES E IDENTIDAD VISUAL
+   2. ESTILOS GENERALES
    ========================================================= */
 
 *,
@@ -47,12 +49,17 @@ html {
 
 body {
     margin: 0;
-    padding-bottom: calc(var(--altura-acceso-whatsapp) + var(--espacio-grande));
+    padding-bottom: calc(
+        var(--altura-acceso-whatsapp) + var(--espacio-grande)
+    );
+
     font-family: var(--fuente-textos);
     font-weight: 400;
     line-height: 1.6;
+
     color: var(--azul-noche);
     background-color: var(--crema);
+
     overflow-wrap: break-word;
 }
 
@@ -104,24 +111,9 @@ textarea:focus-visible {
     outline-offset: 0.2rem;
 }
 
-/*
-   Las páginas de tarifas y reservas no utilizan necesariamente
-   la clase container de Bootstrap. Esta regla mantiene su ancho.
-   En Inicio, Bootstrap controla el ancho mediante .container.
-*/
-
-main:not(.container) {
-    width: 92%;
-    max-width: var(--ancho-contenido);
-    margin: 0 auto;
-    padding: var(--espacio-grande) 0;
-}
-
 
 /* =========================================================
-   3. ENCABEZADO E IDENTIDAD DE MARCA
-   Bootstrap controla la distribución con row, col y flex.
-   Aquí solo conservamos colores, logo y tipografía.
+   3. ENCABEZADO Y LOGO
    ========================================================= */
 
 header,
@@ -160,11 +152,14 @@ header h1 {
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
+
     width: 11rem;
     max-width: 100%;
+
     padding: 0.15rem;
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
+
     background-color: var(--crema);
     text-decoration: none;
 }
@@ -185,8 +180,6 @@ header h1 {
 
 /* =========================================================
    4. MENÚ DE NAVEGACIÓN
-   Bootstrap controla la distribución de los enlaces.
-   Este bloque conserva los colores y estados de interacción.
    ========================================================= */
 
 #menu {
@@ -198,7 +191,9 @@ header h1 {
 #menu .nav-link {
     display: inline-block;
     padding: 0.45rem 0.8rem;
+
     border-radius: 0.25rem;
+
     color: var(--crema);
     font-weight: 600;
     text-align: center;
@@ -225,13 +220,12 @@ header h1 {
 
 /* =========================================================
    5. PORTADA
-   Bootstrap controla las columnas mediante row y col.
-   CSS conserva el fondo, el color y la presentación de imagen.
    ========================================================= */
 
 .portada {
     padding: var(--espacio-mediano);
     border-radius: var(--radio-borde);
+
     background-color: var(--azul-noche);
     color: var(--crema);
 }
@@ -252,17 +246,21 @@ header h1 {
 
 
 /* =========================================================
-   6. BOTONES PROPIOS DE RUEDA LIBRE
+   6. BOTONES DE ACCIÓN
    ========================================================= */
 
 .boton-accion {
     display: inline-block;
     max-width: 100%;
+
     padding: 0.8rem 1rem;
+
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
+
     background-color: var(--verde-ruta);
     color: var(--crema);
+
     font-weight: 600;
     text-align: center;
     text-decoration: none;
@@ -278,18 +276,19 @@ header h1 {
 
 /* =========================================================
    7. TARJETAS DE SERVICIOS, RUTAS Y BICICLETAS
-   Bootstrap controla sus columnas y alturas.
-   CSS conserva bordes, colores e imágenes.
    ========================================================= */
 
 .tarjeta-servicio,
 .tarjeta-ruta,
 .tarjeta-bicicleta {
     min-width: 0;
+
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
+
     background-color: var(--crema);
     color: var(--azul-noche);
+
     overflow: hidden;
 }
 
@@ -304,10 +303,7 @@ header h1 {
     color: var(--azul-noche);
 }
 
-.card-title {
-    color: var(--azul-noche);
-}
-
+.card-title,
 .card-text {
     color: var(--azul-noche);
 }
@@ -333,6 +329,7 @@ header h1 {
     z-index: 2;
 
     padding: var(--espacio-pequeno) var(--espacio-mediano);
+
     border: 2px solid var(--azul-noche);
     border-radius: 0.25rem;
 
@@ -364,10 +361,13 @@ header h1 {
 .enlace-reservar {
     display: inline-block;
     padding: 0.7rem 1.2rem;
+
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
+
     background-color: var(--verde-ruta);
     color: var(--crema);
+
     font-weight: 600;
     text-decoration: none;
     text-align: center;
@@ -382,8 +382,6 @@ header h1 {
 
 /* =========================================================
    10. BENEFICIOS
-   Bootstrap controla las columnas, el espacio y las alturas.
-   CSS conserva la apariencia de marca.
    ========================================================= */
 
 .beneficio {
@@ -402,7 +400,6 @@ header h1 {
 
 /* =========================================================
    11. LISTAS Y TABLAS
-   ESTILOS COMPARTIDOS: tarifas y otras páginas.
    ========================================================= */
 
 ul,
@@ -418,8 +415,10 @@ table {
     width: 100%;
     max-width: 100%;
     margin: var(--espacio-mediano) 0 var(--espacio-grande);
+
     border-collapse: collapse;
     table-layout: fixed;
+
     background-color: var(--crema);
     font-size: 0.72rem;
 }
@@ -435,9 +434,12 @@ th,
 td {
     min-width: 0;
     padding: 0.4rem 0.3rem;
+
     border: 1px solid var(--gris-asfalto);
+
     text-align: left;
     vertical-align: top;
+
     overflow-wrap: anywhere;
     word-break: normal;
 }
@@ -456,25 +458,24 @@ tbody tr:hover {
 .tabla-contenedor {
     width: 100%;
     max-width: 100%;
-    overflow: visible;
 }
 
 
 /* =========================================================
-   12. FORMULARIO
-   ESTILOS QUE SIGUEN UTILIZANDO LAS PÁGINAS DE RESERVAS.
+   12. FORMULARIOS
+   Se conservan los estilos visuales propios.
+   Bootstrap controla la distribución de los campos.
    ========================================================= */
 
 form {
     width: 100%;
-    max-width: var(--ancho-formulario);
-    margin: 0 auto;
 }
 
 fieldset {
     min-width: 0;
     margin: 0 0 var(--espacio-grande);
     padding: var(--espacio-mediano);
+
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
 }
@@ -485,90 +486,74 @@ legend {
     font-weight: 600;
 }
 
-label {
-    display: block;
-    margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
+/* Etiquetas de campos normales. */
+form label:not(.form-check-label) {
     color: var(--azul-noche);
     font-weight: 600;
 }
 
-input,
-select,
-textarea {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-
-    padding: 0.75rem;
-    border: 1px solid var(--gris-asfalto);
-    border-radius: 0.25rem;
-
+/* Campos de texto y selección. */
+form .form-control,
+form .form-select {
+    border-color: var(--gris-asfalto);
     background-color: var(--crema);
     color: var(--azul-noche);
-    font: inherit;
+    font-family: var(--fuente-textos);
 }
 
-input:hover,
-select:hover,
-textarea:hover {
+form .form-control:hover,
+form .form-select:hover {
     border-color: var(--verde-ruta);
 }
 
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+form .form-control:focus,
+form .form-select:focus {
     border-color: var(--verde-ruta);
+    box-shadow: 0 0 0 0.2rem rgb(30 122 79 / 20%);
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-    margin-right: var(--espacio-pequeno);
+/* Casillas de verificación y botones de opción. */
+form .form-check-input {
     accent-color: var(--verde-ruta);
 }
 
-label:has(input[type="radio"]),
-label:has(input[type="checkbox"]) {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--espacio-pequeno);
+form .form-check-input:checked {
+    border-color: var(--verde-ruta);
+    background-color: var(--verde-ruta);
 }
 
-button,
-input[type="submit"] {
-    display: inline-block;
-    width: auto;
-    max-width: 100%;
-    margin-top: var(--espacio-mediano);
+form .form-check-label {
+    color: var(--azul-noche);
+    font-weight: 400;
+}
 
+/* Botones de envío. */
+form button,
+form input[type="submit"] {
+    max-width: 100%;
     padding: var(--espacio-mediano) var(--espacio-grande);
+
     border: 2px solid var(--verde-ruta);
     border-radius: var(--radio-borde);
 
     background-color: var(--verde-ruta);
     color: var(--crema);
 
-    font: inherit;
+    font-family: var(--fuente-textos);
     font-weight: 600;
     cursor: pointer;
 }
 
-button:hover,
-input[type="submit"]:hover {
+form button:hover,
+form input[type="submit"]:hover {
     border-color: var(--azul-noche);
     background-color: var(--azul-noche);
     color: var(--crema);
 }
 
-small {
-    display: block;
-    margin-top: var(--espacio-pequeno);
-    color: var(--gris-asfalto);
-}
-
+form small,
 .ayuda-campo {
+    display: block;
     margin-top: var(--espacio-pequeno);
     color: var(--gris-asfalto);
     font-size: 0.9rem;
@@ -576,34 +561,16 @@ small {
 
 
 /* =========================================================
-   13. DISTRIBUCIÓN DE RESERVAS
-   IMPORTANTE:
-   Estas reglas se conservan porque reservas.html todavía
-   utiliza su propia estructura de distribución.
-   No eliminarlas durante la migración de Inicio.
+   13. INFORMACIÓN DE RESERVAS
    ========================================================= */
 
-.layout-reservas {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--espacio-grande);
-    align-items: start;
-}
-
-#formulario-reserva,
 .informacion-reservas {
     min-width: 0;
-}
-
-#formulario-reserva form {
-    max-width: none;
-    margin: 0;
-}
-
-.informacion-reservas {
     padding: var(--espacio-mediano);
+
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
+
     background-color: var(--crema);
 }
 
@@ -618,42 +585,23 @@ small {
 .aviso-reserva {
     margin-bottom: 0;
     padding-top: var(--espacio-mediano);
+
     border-top: 1px solid var(--gris-asfalto);
+
     color: var(--gris-asfalto);
     font-size: 0.9rem;
-}
-
-.fila-campos {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.fila-campos .campo {
-    flex: 1 1 auto;
-    min-width: 0;
-    width: 100%;
-}
-
-.fila-campos label {
-    margin-top: var(--espacio-mediano);
-}
-
-.fila-campos small {
-    overflow-wrap: anywhere;
 }
 
 
 /* =========================================================
    14. PIE DE PÁGINA
-   Bootstrap controla las columnas del pie en Inicio.
-   CSS conserva los colores y la presentación.
    ========================================================= */
 
 footer,
 .pie-sitio {
     margin-top: var(--espacio-grande);
     padding: var(--espacio-grande) var(--espacio-mediano);
+
     background-color: var(--azul-noche);
     color: var(--crema);
 }
@@ -692,6 +640,7 @@ footer p {
     max-width: calc(100% - 1rem);
 
     padding: var(--espacio-pequeno) var(--espacio-mediano);
+
     border: 2px solid var(--azul-noche);
     border-radius: var(--radio-borde);
 
@@ -719,10 +668,9 @@ footer p {
 
 
 /* =========================================================
-   16. MEDIA QUERIES QUE SE CONSERVAN PARA TARIFAS Y RESERVAS
-   Estas reglas ya no distribuyen la portada, servicios,
-   rutas, flota ni pie de página de Inicio.
-   Se mantienen por las necesidades de las otras páginas.
+   16. AJUSTES RESPONSIVE
+   Solo se ajustan tamaños y presentación visual.
+   Bootstrap controla las columnas y distribución.
    ========================================================= */
 
 @media (min-width: 768px) {
@@ -744,7 +692,7 @@ footer p {
         font-size: 1rem;
     }
 
-    /* Tarifas: mejorar lectura de tablas en pantallas medianas. */
+    /* Mejorar lectura de tablas. */
     table {
         font-size: 0.85rem;
     }
@@ -754,27 +702,12 @@ footer p {
         padding: 0.6rem;
     }
 
-    /* Reservas: distribución del formulario y sus campos. */
-    .layout-reservas {
-        grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
-        gap: var(--espacio-grande);
-    }
-
-    .informacion-reservas {
+    /* Mejorar espacio interior de formularios. */
+    fieldset {
         padding: var(--espacio-grande);
     }
 
-    .fila-campos {
-        flex-direction: row;
-        gap: var(--espacio-mediano);
-    }
-
-    .fila-campos .campo {
-        flex: 1 1 0;
-        width: auto;
-    }
-
-    fieldset {
+    .informacion-reservas {
         padding: var(--espacio-grande);
     }
 }
@@ -786,7 +719,6 @@ footer p {
         width: 13rem;
     }
 
-    /* Tarifas: tamaño de texto para escritorio. */
     table {
         font-size: 0.95rem;
     }
