@@ -2371,3 +2371,173 @@ PRUEBAS PENDIENTES
 - Confirmar que la imagen decorativa aparezca desde 768 px.
 - Confirmar que el enlace lleve correctamente al formulario de reservas.
 
+============================================================
+SEMANA 2 - DÍA 2 - RETO 7: MIGRACIÓN DE INICIO A BOOTSTRAP
+============================================================
+
+OBJETIVO
+
+Integrar Bootstrap 5.3.3 en la página principal de Rueda Libre,
+reemplazando la distribución realizada con CSS propio por la
+grilla y las utilidades del framework, sin perder la identidad
+visual del negocio ni afectar las páginas de tarifas y reservas.
+
+ARCHIVOS MODIFICADOS
+
+- index.html
+- css/styles.css
+- bitacora.txt
+
+1. INTEGRACIÓN DE BOOTSTRAP
+
+Se agregó Bootstrap 5.3.3 mediante CDN.
+
+Orden de carga:
+- Primero Bootstrap CSS.
+- Después css/styles.css.
+- Al final del documento se agregó Bootstrap JavaScript Bundle.
+
+Se mantuvieron las fuentes Montserrat y Open Sans, además
+de los colores de marca de Rueda Libre.
+
+2. MIGRACIÓN DE LA DISTRIBUCIÓN
+
+Portada:
+- Se reemplazó la distribución Grid propia por row y col.
+- Se utilizaron col-12 y col-md-6.
+- En móvil el texto y la imagen se apilan.
+- Desde 768 px se distribuyen en dos columnas.
+
+Servicios:
+- Se organizaron las tarjetas con row y g-4.
+- Se utilizaron col-12, col-md-6 y col-xl-4.
+- Se utilizaron card y h-100 para las tarjetas.
+- Se aplicaron d-flex y flex-column para organizar el contenido.
+
+Galería de rutas:
+- Se reemplazó la cuadrícula CSS propia por la grilla Bootstrap.
+- Se utilizaron col-12, col-md-6 y col-xl-4.
+- Se mantuvieron las tres fotografías y sus textos alternativos.
+
+Flota:
+- Se migraron los siete modelos a la grilla Bootstrap.
+- Se utilizaron col-12, col-sm-6, col-lg-4 y col-xl-3.
+- Se conservaron los nombres, descripciones, imágenes y precios.
+- Se utilizaron card, h-100, d-flex, flex-column y mt-auto
+  para organizar el contenido y mantener los precios y botones
+  en posiciones uniformes.
+
+Beneficios:
+- Se construyeron cuatro tarjetas de beneficios.
+- Se utilizaron col-12, col-md-6 y col-xl-3.
+- Se aplicaron utilidades de espaciado, alineación y tipografía.
+
+Encabezado y pie de página:
+- Se utilizó la grilla Bootstrap y utilidades Flexbox.
+- Se mantuvieron el logo, la navegación y la información
+  de contacto y horarios.
+
+3. LIMPIEZA DE CSS
+
+Se retiraron las reglas de distribución propias de Inicio
+para portada, servicios, rutas, flota y pie de página.
+
+Se conservaron los estilos de identidad visual:
+- Variables de colores.
+- Tipografías.
+- Logo.
+- Botones.
+- Fondos, bordes y fotografías.
+- Acceso fijo a WhatsApp.
+
+Se conservaron y marcaron las reglas que siguen utilizando
+las páginas de tarifas y reservas, especialmente:
+- Tablas.
+- Formularios.
+- .layout-reservas.
+- .fila-campos.
+- Media queries relacionadas con reservas y tarifas.
+
+4. CONFLICTOS ENTRE BOOTSTRAP Y CSS PROPIO
+
+Registrar aquí los tres conflictos observados en DevTools.
+
+Conflicto 1: enlaces de navegación.
+- Elemento inspeccionado: enlace del menú.
+- Regla de Bootstrap revisada: .nav-link.
+- Regla propia: #menu .nav-link.
+- Solución: selector propio más específico para conservar
+  los colores de marca y los estados del menú.
+
+Conflicto 2: tipografía y márgenes.
+- Elemento inspeccionado: títulos y párrafos.
+- Regla de Bootstrap revisada: estilos base de Reboot.
+- Regla propia: estilos tipográficos de Rueda Libre.
+- Solución: definir las fuentes propias después de Bootstrap
+  sin utilizar !important.
+
+Conflicto 3: apariencia de las tarjetas.
+- Elemento inspeccionado: tarjeta de servicio o bicicleta.
+- Regla de Bootstrap revisada: .card.
+- Regla propia: .tarjeta-servicio, .tarjeta-ruta
+  o .tarjeta-bicicleta.
+- Solución: conservar fondos y bordes propios mediante
+  clases específicas cargadas después de Bootstrap.
+
+NOTA:
+Los tres conflictos deben verificarse en DevTools.
+Si una regla no aparece tachada, registrar el resultado real
+de la inspección y no afirmar que hubo un conflicto efectivo.
+
+5. PRUEBAS RESPONSIVE
+
+Anotar el resultado después de probar cada ancho en DevTools.
+
+- 360 px: pendiente de verificar.
+- 768 px: pendiente de verificar.
+- 1280 px: pendiente de verificar.
+
+Verificar:
+- Encabezado y menú.
+- Portada.
+- Tarjetas de servicios.
+- Galería de rutas.
+- Siete tarjetas de bicicletas.
+- Cuatro beneficios.
+- Pie de página.
+- Acceso fijo a WhatsApp.
+- Ausencia de desplazamiento horizontal.
+- Carga de las imágenes y funcionamiento de los enlaces.
+
+6. APRENDIZAJES
+
+Aprendí que Bootstrap permite construir distribuciones
+adaptables mediante un sistema de 12 columnas y clases
+responsive, reduciendo la cantidad de reglas de distribución
+que se deben escribir manualmente en CSS.
+
+También aprendí que el orden de carga y la especificidad
+de los selectores determinan qué estilos prevalecen cuando
+Bootstrap y una hoja propia afectan al mismo elemento.
+
+La migración no implica eliminar toda la hoja de estilos:
+los estilos de marca y las reglas que todavía necesitan
+otras páginas deben conservarse.
+
+7. CONTROL DE VERSIONES
+
+Commit sugerido:
+
+Reto 7: migrar página de inicio a Bootstrap
+
+Comandos:
+
+git status
+git add index.html css/styles.css bitacora.txt
+git commit -m "Reto 7: migrar pagina de inicio a Bootstrap"
+git push origin semana_2
+
+Estado del commit: pendiente de ejecutar.
+Estado del push: pendiente de confirmar.
+============================================================
+

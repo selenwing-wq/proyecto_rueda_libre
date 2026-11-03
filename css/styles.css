@@ -1,33 +1,49 @@
 /* =========================================================
-   RUEDA LIBRE | SEMANA 2 - RETO 4
-   CSS MOBILE-FIRST: primero celular, luego tablet y escritorio
+   RUEDA LIBRE
+   SEMANA 2 - DÍA 2 - RETO 7
+   Identidad visual propia + Bootstrap 5.3.3
    ========================================================= */
 
-/* 1. VARIABLES */
+
+/* =========================================================
+   1. VARIABLES DE MARCA
+   ========================================================= */
+
 :root {
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
+
     --fuente-titulos: "Montserrat", Arial, sans-serif;
     --fuente-textos: "Open Sans", Arial, sans-serif;
+
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
+
     --ancho-contenido: 70rem;
     --ancho-formulario: 48rem;
     --radio-borde: 0.75rem;
     --altura-acceso-whatsapp: 3.25rem;
 }
 
-/* 2. BASE GENERAL: reglas pensadas para celular */
+
+/* =========================================================
+   2. ESTILOS GENERALES E IDENTIDAD VISUAL
+   ========================================================= */
+
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+    box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -40,56 +56,105 @@ body {
     overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--fuente-titulos);
     font-weight: 700;
     line-height: 1.2;
     color: var(--azul-noche);
 }
-h1, h2 { margin-bottom: var(--espacio-mediano); }
-h3 { margin-bottom: var(--espacio-mediano); }
-p { margin-top: 0; margin-bottom: var(--espacio-mediano); }
 
-/* Ninguna imagen puede superar el ancho disponible. */
-img, picture, video, iframe {
+p {
+    font-family: var(--fuente-textos);
+}
+
+img,
+picture,
+video,
+iframe {
     display: block;
     max-width: 100%;
 }
-img { height: auto; border-radius: var(--radio-borde); }
-a { color: var(--verde-ruta); font-weight: 600; text-underline-offset: 0.2em; }
-a:hover { text-decoration-thickness: 0.15em; }
-a:focus-visible, button:focus-visible, input:focus-visible,
-select:focus-visible, textarea:focus-visible {
+
+img {
+    height: auto;
+    border-radius: var(--radio-borde);
+}
+
+a {
+    color: var(--verde-ruta);
+    font-weight: 600;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 0.15em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
     outline: 0.2rem solid var(--azul-noche);
     outline-offset: 0.2rem;
 }
 
-/* 3. ENCABEZADO: en móvil marca arriba y menú debajo, centrados. */
-header {
+/*
+   Las páginas de tarifas y reservas no utilizan necesariamente
+   la clase container de Bootstrap. Esta regla mantiene su ancho.
+   En Inicio, Bootstrap controla el ancho mediante .container.
+*/
+
+main:not(.container) {
+    width: 92%;
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+    padding: var(--espacio-grande) 0;
+}
+
+
+/* =========================================================
+   3. ENCABEZADO E IDENTIDAD DE MARCA
+   Bootstrap controla la distribución con row, col y flex.
+   Aquí solo conservamos colores, logo y tipografía.
+   ========================================================= */
+
+header,
+.encabezado-sitio {
     padding: var(--espacio-mediano);
     background-color: var(--azul-noche);
     color: var(--crema);
 }
-header h1, header p { color: var(--crema); }
-header h1 { margin-bottom: 0.35rem; }
-.contenedor-encabezado {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espacio-mediano);
-    width: 100%;
+
+header h1,
+header h2,
+header p {
+    color: var(--crema);
 }
-.encabezado-marca {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espacio-pequeno);
-    width: 100%;
+
+header h1 {
+    margin-bottom: 0.35rem;
+}
+
+.texto-marca {
     min-width: 0;
-    margin-bottom: 0;
-    text-align: center;
 }
+
+.texto-marca h1 {
+    margin: 0 0 0.35rem;
+    font-size: 1.45rem;
+}
+
+.texto-marca p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
 .enlace-logo {
     display: inline-flex;
     flex: 0 0 auto;
@@ -103,25 +168,34 @@ header h1 { margin-bottom: 0.35rem; }
     background-color: var(--crema);
     text-decoration: none;
 }
-.logo-sitio { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; }
-.texto-marca { min-width: 0; }
-.texto-marca h1 { margin: 0 0 0.35rem; font-size: 1.45rem; }
-.texto-marca p { margin: 0; font-size: 0.9rem; }
-.enlace-logo:focus-visible { outline: 0.2rem solid var(--naranja-pedal); outline-offset: 0.2rem; }
 
-nav { width: 100%; margin-top: 0; }
+.logo-sitio {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.enlace-logo:focus-visible {
+    outline: 0.2rem solid var(--naranja-pedal);
+    outline-offset: 0.2rem;
+}
+
+
+/* =========================================================
+   4. MENÚ DE NAVEGACIÓN
+   Bootstrap controla la distribución de los enlaces.
+   Este bloque conserva los colores y estados de interacción.
+   ========================================================= */
+
 #menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
-#menu li { display: block; margin: 0; }
-#menu a {
+
+#menu .nav-link {
     display: inline-block;
     padding: 0.45rem 0.8rem;
     border-radius: 0.25rem;
@@ -131,35 +205,56 @@ nav { width: 100%; margin-top: 0; }
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
-#menu a:hover { background-color: var(--verde-ruta); color: var(--crema); }
-#menu a.activo { background-color: var(--azul-noche); color: var(--naranja-pedal); font-weight: 700; }
-#menu a.activo:hover { background-color: var(--azul-noche); color: var(--naranja-pedal); }
 
-/* 4. CONTENIDO GENERAL */
-main {
-    width: 92%;
-    max-width: var(--ancho-contenido);
-    margin: 0 auto;
-    padding: var(--espacio-mediano) 0;
+#menu .nav-link:hover {
+    background-color: var(--verde-ruta);
+    color: var(--crema);
 }
-section, aside { min-width: 0; margin-bottom: var(--espacio-extra-grande); }
 
-/* 5. PORTADA: una columna en móvil. */
+#menu .nav-link.activo {
+    background-color: var(--azul-noche);
+    color: var(--naranja-pedal);
+    font-weight: 700;
+}
+
+#menu .nav-link.activo:hover {
+    background-color: var(--azul-noche);
+    color: var(--naranja-pedal);
+}
+
+
+/* =========================================================
+   5. PORTADA
+   Bootstrap controla las columnas mediante row y col.
+   CSS conserva el fondo, el color y la presentación de imagen.
+   ========================================================= */
+
 .portada {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--espacio-mediano);
-    align-items: center;
-    min-height: 0;
     padding: var(--espacio-mediano);
     border-radius: var(--radio-borde);
     background-color: var(--azul-noche);
     color: var(--crema);
 }
-.portada h2 { color: var(--crema); }
-.portada p { max-width: 42rem; }
-.portada-texto { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
-.portada > img { width: 100%; max-height: 20rem; object-fit: cover; }
+
+.portada h2 {
+    color: var(--crema);
+}
+
+.portada p {
+    max-width: 42rem;
+}
+
+.imagen-portada {
+    width: 100%;
+    max-height: 28rem;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   6. BOTONES PROPIOS DE RUEDA LIBRE
+   ========================================================= */
+
 .boton-accion {
     display: inline-block;
     max-width: 100%;
@@ -172,36 +267,153 @@ section, aside { min-width: 0; margin-bottom: var(--espacio-extra-grande); }
     text-align: center;
     text-decoration: none;
 }
-.boton-accion:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); text-decoration: underline; }
 
-/* 6. SERVICIOS: una columna en móvil. */
-#servicios { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
-#servicios > h2 { grid-column: 1 / -1; margin-bottom: 0; }
-#servicios article {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+.boton-accion:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   7. TARJETAS DE SERVICIOS, RUTAS Y BICICLETAS
+   Bootstrap controla sus columnas y alturas.
+   CSS conserva bordes, colores e imágenes.
+   ========================================================= */
+
+.tarjeta-servicio,
+.tarjeta-ruta,
+.tarjeta-bicicleta {
     min-width: 0;
-    margin: 0;
-    padding: var(--espacio-mediano);
     border: 1px solid var(--gris-asfalto);
     border-radius: var(--radio-borde);
     background-color: var(--crema);
-}
-#servicios article img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
-#servicios article p { flex-grow: 1; }
-.servicio-electrico { position: relative; }
-.etiqueta-nuevo {
-    position: absolute; top: var(--espacio-mediano); right: var(--espacio-mediano); z-index: 2;
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
-    border: 2px solid var(--azul-noche); border-radius: 0.25rem;
-    background-color: var(--naranja-pedal); color: var(--azul-noche);
-    font-size: 0.875rem; font-weight: 700; line-height: 1.2;
+    color: var(--azul-noche);
+    overflow: hidden;
 }
 
-/* 7. LISTAS Y TABLAS: sin desbordamiento horizontal en móvil. */
-ul, ol { padding-left: 1.35rem; }
-li { margin-bottom: var(--espacio-pequeno); }
+.imagen-tarjeta {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-body {
+    color: var(--azul-noche);
+}
+
+.card-title {
+    color: var(--azul-noche);
+}
+
+.card-text {
+    color: var(--azul-noche);
+}
+
+.introduccion-flota,
+.introduccion-rutas {
+    max-width: 45rem;
+}
+
+
+/* =========================================================
+   8. ETIQUETA NUEVO
+   ========================================================= */
+
+.tarjeta-servicio {
+    position: relative;
+}
+
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-mediano);
+    right: var(--espacio-mediano);
+    z-index: 2;
+
+    padding: var(--espacio-pequeno) var(--espacio-mediano);
+    border: 2px solid var(--azul-noche);
+    border-radius: 0.25rem;
+
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   9. PRECIOS Y ENLACES DE RESERVA
+   ========================================================= */
+
+.precio {
+    color: var(--verde-ruta);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.precio span {
+    color: var(--gris-asfalto);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.enlace-reservar {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border: 2px solid var(--verde-ruta);
+    border-radius: var(--radio-borde);
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+.enlace-reservar:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+
+/* =========================================================
+   10. BENEFICIOS
+   Bootstrap controla las columnas, el espacio y las alturas.
+   CSS conserva la apariencia de marca.
+   ========================================================= */
+
+.beneficio {
+    border: 1px solid var(--gris-asfalto);
+    background-color: var(--crema);
+    color: var(--azul-noche);
+}
+
+.numero-beneficio {
+    margin-bottom: var(--espacio-mediano);
+    color: var(--verde-ruta);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   11. LISTAS Y TABLAS
+   ESTILOS COMPARTIDOS: tarifas y otras páginas.
+   ========================================================= */
+
+ul,
+ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: var(--espacio-pequeno);
+}
+
 table {
     width: 100%;
     max-width: 100%;
@@ -211,8 +423,16 @@ table {
     background-color: var(--crema);
     font-size: 0.72rem;
 }
-caption { padding: 0.45rem; color: var(--azul-noche); font-weight: 600; text-align: left; }
-th, td {
+
+caption {
+    padding: 0.45rem;
+    color: var(--azul-noche);
+    font-weight: 600;
+    text-align: left;
+}
+
+th,
+td {
     min-width: 0;
     padding: 0.4rem 0.3rem;
     border: 1px solid var(--gris-asfalto);
@@ -221,134 +441,359 @@ th, td {
     overflow-wrap: anywhere;
     word-break: normal;
 }
-th { background-color: var(--azul-noche); color: var(--crema); font-weight: 600; }
-tbody tr:hover { outline: 0.1rem solid var(--verde-ruta); outline-offset: -0.1rem; }
-.tabla-contenedor { width: 100%; max-width: 100%; overflow: visible; }
 
-/* 8. FORMULARIO: campos apilados en móvil. */
-form { width: 100%; max-width: var(--ancho-formulario); margin: 0 auto; }
-fieldset { min-width: 0; margin: 0 0 var(--espacio-grande); padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); }
-legend { padding: 0 var(--espacio-pequeno); color: var(--azul-noche); font-weight: 600; }
-label { display: block; margin: var(--espacio-mediano) 0 var(--espacio-pequeno); color: var(--azul-noche); font-weight: 600; }
-input, select, textarea {
-    display: block; width: 100%; max-width: 100%; min-width: 0;
+th {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    outline: 0.1rem solid var(--verde-ruta);
+    outline-offset: -0.1rem;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+
+/* =========================================================
+   12. FORMULARIO
+   ESTILOS QUE SIGUEN UTILIZANDO LAS PÁGINAS DE RESERVAS.
+   ========================================================= */
+
+form {
+    width: 100%;
+    max-width: var(--ancho-formulario);
+    margin: 0 auto;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0 0 var(--espacio-grande);
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    border-radius: var(--radio-borde);
+}
+
+legend {
+    padding: 0 var(--espacio-pequeno);
+    color: var(--azul-noche);
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
+    color: var(--azul-noche);
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     padding: 0.75rem;
-    border: 1px solid var(--gris-asfalto); border-radius: 0.25rem;
-    background-color: var(--crema); color: var(--azul-noche); font: inherit;
+    border: 1px solid var(--gris-asfalto);
+    border-radius: 0.25rem;
+
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    font: inherit;
 }
-input:hover, select:hover, textarea:hover { border-color: var(--verde-ruta); }
-input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--verde-ruta); }
-input[type="radio"], input[type="checkbox"] { display: inline-block; width: auto; margin-right: var(--espacio-pequeno); accent-color: var(--verde-ruta); }
-label:has(input[type="radio"]), label:has(input[type="checkbox"]) { display: flex; align-items: flex-start; gap: var(--espacio-pequeno); }
-button, input[type="submit"] {
-    display: inline-block; width: auto; max-width: 100%; margin-top: var(--espacio-mediano);
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--verde-ruta);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    border-color: var(--verde-ruta);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    margin-right: var(--espacio-pequeno);
+    accent-color: var(--verde-ruta);
+}
+
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-pequeno);
+}
+
+button,
+input[type="submit"] {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin-top: var(--espacio-mediano);
+
     padding: var(--espacio-mediano) var(--espacio-grande);
-    border: 2px solid var(--verde-ruta); border-radius: var(--radio-borde);
-    background-color: var(--verde-ruta); color: var(--crema); font: inherit; font-weight: 600; cursor: pointer;
+    border: 2px solid var(--verde-ruta);
+    border-radius: var(--radio-borde);
+
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
 }
-button:hover, input[type="submit"]:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); }
-small { display: block; margin-top: var(--espacio-pequeno); color: var(--gris-asfalto); }
-.ayuda-campo { margin-top: var(--espacio-pequeno); color: var(--gris-asfalto); font-size: 0.9rem; }
-.layout-reservas { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-grande); align-items: start; }
-#formulario-reserva, .informacion-reservas { min-width: 0; }
-#formulario-reserva form { max-width: none; margin: 0; }
-.informacion-reservas { padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); background-color: var(--crema); }
-.informacion-reservas section { margin-bottom: var(--espacio-grande); }
-.informacion-reservas h2 { font-size: 1.25rem; }
-.aviso-reserva { margin-bottom: 0; padding-top: var(--espacio-mediano); border-top: 1px solid var(--gris-asfalto); color: var(--gris-asfalto); font-size: 0.9rem; }
-.fila-campos { display: flex; flex-direction: column; gap: 0; }
-.fila-campos .campo { flex: 1 1 auto; min-width: 0; width: 100%; }
-.fila-campos label { margin-top: var(--espacio-mediano); }
-.fila-campos small { overflow-wrap: anywhere; }
 
-/* 9. FLOTA: una tarjeta por fila en móvil. */
-#flota .flota-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
-.tarjeta-bicicleta {
-    display: flex; flex-direction: column; justify-content: space-between;
-    height: 100%; min-width: 0; margin: 0; padding: var(--espacio-mediano);
-    border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde);
-    background-color: var(--crema); overflow: hidden;
+button:hover,
+input[type="submit"]:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
+    color: var(--crema);
 }
-.tarjeta-bicicleta > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
-.contenido-tarjeta { display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; min-width: 0; }
-.contenido-tarjeta h3 { margin-bottom: var(--espacio-pequeno); }
-.contenido-tarjeta p { margin-bottom: var(--espacio-mediano); }
-.precio { color: var(--verde-ruta); font-size: 1.2rem; font-weight: 700; }
-.precio span { color: var(--gris-asfalto); font-size: 0.85rem; font-weight: 400; }
-.enlace-reservar { display: inline-block; align-self: flex-start; margin-top: auto; padding: 0.7rem 1.2rem; border: 2px solid var(--verde-ruta); border-radius: var(--radio-borde); background-color: var(--verde-ruta); color: var(--crema); font-weight: 600; text-decoration: none; text-align: center; }
-.enlace-reservar:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); }
-.introduccion-flota, .introduccion-rutas { max-width: 45rem; }
 
-/* 10. RUTAS: una tarjeta por fila en móvil. */
-#rutas .rutas-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--espacio-mediano); align-items: stretch; }
-.tarjeta-ruta { display: flex; flex-direction: column; min-width: 0; padding: var(--espacio-mediano); border: 1px solid var(--gris-asfalto); border-radius: var(--radio-borde); background-color: var(--crema); }
-.tarjeta-ruta > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: var(--espacio-mediano); }
-.contenido-ruta { display: flex; flex-direction: column; flex-grow: 1; gap: var(--espacio-pequeno); min-width: 0; }
-.contenido-ruta h3, .contenido-ruta p { margin-bottom: 0; }
+small {
+    display: block;
+    margin-top: var(--espacio-pequeno);
+    color: var(--gris-asfalto);
+}
 
-/* 11. PIE: bloques apilados y centrados en móvil. */
-footer { margin-top: var(--espacio-grande); padding: var(--espacio-grande) var(--espacio-mediano); background-color: var(--azul-noche); color: var(--crema); }
-footer h2, footer h3, footer p { color: var(--crema); }
-footer p { margin-bottom: var(--espacio-pequeno); }
-.pie-contenido { display: flex; flex-direction: column; align-items: center; gap: var(--espacio-grande); text-align: center; }
-.pie-contenido section { width: 100%; min-width: 0; margin-bottom: 0; }
-.pie-copyright { margin: var(--espacio-grande) 0 0; text-align: center; }
+.ayuda-campo {
+    margin-top: var(--espacio-pequeno);
+    color: var(--gris-asfalto);
+    font-size: 0.9rem;
+}
 
-/* 12. ACCESO FIJO A WHATSAPP */
+
+/* =========================================================
+   13. DISTRIBUCIÓN DE RESERVAS
+   IMPORTANTE:
+   Estas reglas se conservan porque reservas.html todavía
+   utiliza su propia estructura de distribución.
+   No eliminarlas durante la migración de Inicio.
+   ========================================================= */
+
+.layout-reservas {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacio-grande);
+    align-items: start;
+}
+
+#formulario-reserva,
+.informacion-reservas {
+    min-width: 0;
+}
+
+#formulario-reserva form {
+    max-width: none;
+    margin: 0;
+}
+
+.informacion-reservas {
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    border-radius: var(--radio-borde);
+    background-color: var(--crema);
+}
+
+.informacion-reservas section {
+    margin-bottom: var(--espacio-grande);
+}
+
+.informacion-reservas h2 {
+    font-size: 1.25rem;
+}
+
+.aviso-reserva {
+    margin-bottom: 0;
+    padding-top: var(--espacio-mediano);
+    border-top: 1px solid var(--gris-asfalto);
+    color: var(--gris-asfalto);
+    font-size: 0.9rem;
+}
+
+.fila-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.fila-campos .campo {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+}
+
+.fila-campos label {
+    margin-top: var(--espacio-mediano);
+}
+
+.fila-campos small {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   14. PIE DE PÁGINA
+   Bootstrap controla las columnas del pie en Inicio.
+   CSS conserva los colores y la presentación.
+   ========================================================= */
+
+footer,
+.pie-sitio {
+    margin-top: var(--espacio-grande);
+    padding: var(--espacio-grande) var(--espacio-mediano);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+footer h2,
+footer h3,
+footer p {
+    color: var(--crema);
+}
+
+footer p {
+    margin-bottom: var(--espacio-pequeno);
+}
+
+.pie-copyright {
+    margin: var(--espacio-grande) 0 0;
+    text-align: center;
+}
+
+
+/* =========================================================
+   15. ACCESO FIJO A WHATSAPP
+   ========================================================= */
+
 .whatsapp-fijo {
-    position: fixed; right: var(--espacio-pequeno); bottom: var(--espacio-pequeno); z-index: 1000;
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: var(--altura-acceso-whatsapp); max-width: calc(100% - 1rem);
+    position: fixed;
+    right: var(--espacio-pequeno);
+    bottom: var(--espacio-pequeno);
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: var(--altura-acceso-whatsapp);
+    max-width: calc(100% - 1rem);
+
     padding: var(--espacio-pequeno) var(--espacio-mediano);
-    border: 2px solid var(--azul-noche); border-radius: var(--radio-borde);
-    background-color: var(--verde-ruta); color: var(--crema);
-    font-weight: 700; text-align: center; text-decoration: none;
+    border: 2px solid var(--azul-noche);
+    border-radius: var(--radio-borde);
+
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+
     box-shadow: 0 0.2rem 0.6rem rgb(20 33 61 / 25%);
 }
-.whatsapp-fijo:hover { border-color: var(--azul-noche); background-color: var(--azul-noche); color: var(--crema); text-decoration: underline; }
-.whatsapp-fijo:focus-visible { outline: 0.2rem solid var(--azul-noche); outline-offset: 0.2rem; }
 
-/* =========================================================
-   TABLET: desde 768 px
-   Se recupera la distribución horizontal del MiniReto 1.
-   ========================================================= */
-@media (min-width: 768px) {
-    header { padding: var(--espacio-grande) 4%; }
-    .contenedor-encabezado { flex-direction: row; justify-content: space-between; align-items: center; gap: var(--espacio-grande); }
-    .encabezado-marca { flex-direction: row; align-items: center; justify-content: flex-start; width: auto; min-width: 0; gap: 1rem; text-align: left; }
-    .enlace-logo { width: 12rem; flex-shrink: 0; }
-    .texto-marca h1 { font-size: 1.7rem; }
-    .texto-marca p { font-size: 1rem; }
-    .contenedor-encabezado nav { width: auto; flex-shrink: 0; }
-    #menu { flex-direction: row; flex-wrap: wrap; gap: var(--espacio-pequeno); }
-    main { padding-top: var(--espacio-grande); padding-bottom: var(--espacio-grande); }
-    .portada { grid-template-columns: 1.1fr 0.9fr; gap: var(--espacio-grande); padding: var(--espacio-grande); min-height: 45vh; }
-    .portada > img { height: 100%; max-height: 25rem; }
-    #servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
-    #rutas .rutas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
-    #flota .flota-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-grande); }
-    .layout-reservas { grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr); gap: var(--espacio-grande); }
-    .informacion-reservas { padding: var(--espacio-grande); }
-    .fila-campos { flex-direction: row; gap: var(--espacio-mediano); }
-    .fila-campos .campo { flex: 1 1 0; width: auto; }
-    fieldset { padding: var(--espacio-grande); }
-    table { font-size: 0.85rem; }
-    th, td { padding: 0.6rem; }
-    .pie-contenido { flex-direction: row; align-items: flex-start; justify-content: space-between; text-align: left; }
-    .pie-contenido section { flex: 1 1 0; }
+.whatsapp-fijo:hover {
+    border-color: var(--azul-noche);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    text-decoration: underline;
 }
 
+.whatsapp-fijo:focus-visible {
+    outline: 0.2rem solid var(--azul-noche);
+    outline-offset: 0.2rem;
+}
+
+
 /* =========================================================
-   ESCRITORIO: desde 1200 px
+   16. MEDIA QUERIES QUE SE CONSERVAN PARA TARIFAS Y RESERVAS
+   Estas reglas ya no distribuyen la portada, servicios,
+   rutas, flota ni pie de página de Inicio.
+   Se mantienen por las necesidades de las otras páginas.
    ========================================================= */
+
+@media (min-width: 768px) {
+
+    header,
+    .encabezado-sitio {
+        padding: var(--espacio-grande) 4%;
+    }
+
+    .enlace-logo {
+        width: 12rem;
+    }
+
+    .texto-marca h1 {
+        font-size: 1.7rem;
+    }
+
+    .texto-marca p {
+        font-size: 1rem;
+    }
+
+    /* Tarifas: mejorar lectura de tablas en pantallas medianas. */
+    table {
+        font-size: 0.85rem;
+    }
+
+    th,
+    td {
+        padding: 0.6rem;
+    }
+
+    /* Reservas: distribución del formulario y sus campos. */
+    .layout-reservas {
+        grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
+        gap: var(--espacio-grande);
+    }
+
+    .informacion-reservas {
+        padding: var(--espacio-grande);
+    }
+
+    .fila-campos {
+        flex-direction: row;
+        gap: var(--espacio-mediano);
+    }
+
+    .fila-campos .campo {
+        flex: 1 1 0;
+        width: auto;
+    }
+
+    fieldset {
+        padding: var(--espacio-grande);
+    }
+}
+
+
 @media (min-width: 1200px) {
-    .enlace-logo { width: 13rem; }
-    .portada { min-height: 60vh; padding: var(--espacio-extra-grande); }
-    .portada > img { max-height: 28rem; }
-    #servicios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    #rutas .rutas-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    #flota .flota-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    table { font-size: 0.95rem; }
-    th, td { padding: var(--espacio-mediano); }
-    .pie-contenido { gap: var(--espacio-extra-grande); }
+
+    .enlace-logo {
+        width: 13rem;
+    }
+
+    /* Tarifas: tamaño de texto para escritorio. */
+    table {
+        font-size: 0.95rem;
+    }
+
+    th,
+    td {
+        padding: var(--espacio-mediano);
+    }
+
 }
