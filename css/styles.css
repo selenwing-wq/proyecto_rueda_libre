@@ -39,6 +39,18 @@
     --ancho-contenido: 70rem;
     --radio-borde: 0.75rem;
     --altura-acceso-whatsapp: 3.25rem;
+
+    
+}
+
+/* =========================================================
+   MODELO DE CAJA GLOBAL
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 
@@ -117,6 +129,16 @@ textarea:focus-visible {
     outline-offset: 0.2rem;
 }
 
+/* =========================================================
+   RETO 11: CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.contenido-principal {
+    width: 100%;
+    max-width: var(--ancho-contenido);
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* =========================================================
    3. ENCABEZADO Y LOGO
@@ -189,6 +211,8 @@ header h1 {
    ========================================================= */
 
 #menu {
+    display: flex;
+    flex-wrap: nowrap;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -243,7 +267,12 @@ header h1 {
    ========================================================= */
 
 .portada {
-    padding: var(--espacio-mediano);
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: var(--espacio-grande);
     border-radius: var(--radio-borde);
 
     background-color: var(--azul-noche);
@@ -330,6 +359,10 @@ header h1 {
 
 .card-body {
     color: var(--azul-noche);
+}
+/* Espaciado interior de las tarjetas de servicios */
+.tarjeta-servicio .card-body {
+    padding: var(--espacio-grande);
 }
 
 .card-title,
@@ -444,12 +477,10 @@ table {
     width: 100%;
     max-width: 100%;
     margin: var(--espacio-mediano) 0 var(--espacio-grande);
-
     border-collapse: collapse;
     table-layout: fixed;
-
     background-color: var(--crema);
-    font-size: 0.72rem;
+    font-size: var(--texto-pequeno);
 }
 
 caption {
@@ -462,13 +493,10 @@ caption {
 th,
 td {
     min-width: 0;
-    padding: 0.4rem 0.3rem;
-
+    padding: var(--espacio-mediano);
     border: 1px solid var(--gris-asfalto);
-
     text-align: left;
     vertical-align: top;
-
     overflow-wrap: anywhere;
     word-break: normal;
 }
@@ -554,6 +582,32 @@ form .form-check-input:checked {
 form .form-check-label {
     color: var(--azul-noche);
     font-weight: 400;
+}
+
+/* =========================================================
+   RETO 11: ORGANIZACIÓN DEL FORMULARIO
+   ========================================================= */
+
+form label:not(.form-check-label) {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--espacio-pequeno);
+}
+
+form .form-control,
+form .form-select {
+    display: block;
+    width: 100%;
+}
+
+form fieldset {
+    margin-bottom: var(--espacio-grande);
+}
+
+form button,
+form input[type="submit"] {
+    display: inline-block;
+    padding: var(--espacio-mediano) var(--espacio-grande);
 }
 
 /* =========================================================
@@ -687,32 +741,35 @@ footer p {
    15. ACCESO FIJO A WHATSAPP
    ========================================================= */
 
+/* =========================================
+   RETO 12 - WHATSAPP FIJO
+========================================= */
+
 .whatsapp-fijo {
     position: fixed;
-    right: var(--espacio-pequeno);
-    bottom: var(--espacio-pequeno);
+    right: 1.25rem;
+    bottom: 1.25rem;
     z-index: 1000;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: var(--altura-acceso-whatsapp);
-    max-width: calc(100% - 1rem);
-
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
-
-    border: 2px solid var(--azul-noche);
-    border-radius: var(--radio-borde);
+    display: inline-block;
+    padding: 0.85rem 1.25rem;
 
     background-color: var(--verde-ruta);
     color: var(--crema);
 
-    font-weight: 700;
-    text-align: center;
+    border-radius: 2rem;
     text-decoration: none;
+    font-weight: 700;
+}
 
-    box-shadow: 0 0.2rem 0.6rem rgb(20 33 61 / 25%);
+.whatsapp-fijo:hover {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+}
+
+.whatsapp-fijo:focus-visible {
+    outline: 3px solid var(--naranja-pedal);
+    outline-offset: 3px;
 }
 
 .whatsapp-fijo:hover {
@@ -789,4 +846,73 @@ footer p {
         padding: var(--espacio-mediano);
     }
 
+}
+/* =========================================
+   RETO 11 - MODELO DE CAJA Y ESPACIADO
+========================================= */
+
+/* Limitar y centrar el contenido principal */
+.contenido-principal {
+    width: 100%;
+    max-width: var(--ancho-contenido);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Etiquetas de formularios */
+form label:not(.form-check-label) {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--espacio-pequeno);
+}
+
+/* Campos del formulario */
+form .form-control,
+form .form-select {
+    display: block;
+    width: 100%;
+}
+
+/* Separación entre grupos */
+form fieldset {
+    margin-bottom: var(--espacio-grande);
+}
+
+/* Botones del formulario */
+form button,
+form input[type="submit"] {
+    display: inline-block;
+    padding: var(--espacio-mediano) var(--espacio-grande);
+}
+
+/* Espaciado interno de las tarjetas de servicios */
+.tarjeta-servicio .card-body {
+    padding: var(--espacio-grande);
+}
+
+/* =========================================
+   RETO 12 - ETIQUETA NUEVO
+========================================= */
+
+.tarjeta-servicio {
+    position: relative;
+}
+
+.etiqueta-nuevo {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+
+    border-radius: 0.5rem;
+
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-pequeno);
+    font-weight: 700;
 }

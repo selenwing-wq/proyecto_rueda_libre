@@ -2691,3 +2691,73 @@ Mejorar la experiencia de navegación del sitio web mediante selectores CSS, cla
 Se mejoró la navegación de Rueda Libre, diferenciando visualmente la página activa y proporcionando respuestas visuales al pasar el mouse o utilizar el teclado.
 También se resolvieron conflictos de especificidad sin utilizar `!important`, manteniendo los estilos organizados y reutilizables.
 
+============================================================
+
+# RETO 11 – Modelo de caja y espaciado con CSS
+
+============================================================
+
+**Objetivo:** Mejorar la distribución visual de Rueda Libre mediante el uso del modelo de caja, unidades relativas y propiedades de espaciado en CSS.
+
+### 1. Modelo de caja
+Se verificó la propiedad `box-sizing: border-box` para que el ancho y alto de los elementos incluyan el contenido, el padding y los bordes. También se revisó la importancia de esta propiedad para controlar mejor las dimensiones de los componentes.
+
+### 2. Ancho y centrado del contenido
+Se creó la clase `.contenido-principal`, utilizando `max-width` con unidades `rem` y márgenes automáticos para limitar el ancho del contenido y mantenerlo centrado en las páginas.
+
+### 3. Sección principal
+Se ajustó la sección de portada mediante `min-height` con unidades `vh`, permitiendo establecer una altura mínima proporcional al tamaño de la ventana del navegador.
+
+### 4. Tarjetas y espaciado
+Se revisaron los estilos de las tarjetas de servicios, rutas y bicicletas. Se utilizaron propiedades como `padding`, `border`, `border-radius` y `gap` para mejorar la separación y presentación de los elementos. Las imágenes se mantienen adaptables al ancho de sus contenedores.
+
+### 5. Tablas
+Se mejoró la presentación de las tablas de tarifas y recorridos mediante el uso de bordes, relleno interno en las celdas y colores de fondo para los encabezados, manteniendo el contraste con los colores corporativos.
+
+### 6. Formularios
+Se ajustaron las etiquetas para que aparezcan encima de los campos, se estableció el ancho completo para los controles y se mejoró la separación entre grupos de información y el espacio interno de los botones.
+
+### 7. Menú de navegación
+Se utilizó Flexbox mediante `display: flex` y `flex-wrap: nowrap` para organizar las opciones del menú en una sola fila.
+
+### 8. Herramientas de desarrollo
+Se utilizó la herramienta DevTools del navegador, en la pestaña Computed, para revisar las dimensiones de los elementos y comparar el comportamiento del modelo de caja antes y después de aplicar `box-sizing: border-box`.
+
+### Resultado
+Se mejoró la distribución del contenido, la legibilidad de las tablas, el espaciado de los formularios y la presentación de las tarjetas. El sitio mantiene su identidad visual y una estructura adaptable a diferentes tamaños de pantalla.
+
+**Estado:** Reto 11 – Implementación realizada. Pendiente registrar las mediciones reales de DevTools y validar las tres páginas.
+
+============================================================
+# RETO 12 – Rueda Libre v1.0: lanzamiento final
+============================================================
+
+**Objetivo:** Aplicar posicionamiento CSS, consolidar los estilos del sitio y preparar la versión final para su publicación.
+
+### 1. Etiqueta Nuevo
+Se agregó la etiqueta «Nuevo» a la tarjeta del servicio de bicicletas eléctricas. Se utilizó `position: relative` en la tarjeta y `position: absolute` en la etiqueta para ubicarla en la esquina superior derecha sin desplazar el contenido.
+
+### 2. Acceso fijo a WhatsApp
+Se configuró un enlace fijo a WhatsApp en las tres páginas del sitio mediante `position: fixed`. Se establecieron las propiedades `right`, `bottom` y `z-index` para mantenerlo visible en la esquina inferior derecha. Se conservaron los atributos para abrir el enlace en otra pestaña y permitir su identificación mediante tecnologías de asistencia.
+
+### 3. Consolidación de estilos
+Se revisó la hoja de estilos `css/styles.css` para mantener una identidad visual compartida entre Inicio, Tarifas y rutas, y Reservas. Se organizaron los estilos mediante secciones y comentarios, reutilizando variables, selectores y componentes comunes.
+
+### 4. Revisión de calidad
+Se realizó una revisión visual y funcional de las tres páginas. Se verificaron la navegación, los enlaces, las imágenes, los estados de interacción, el acceso a WhatsApp y la validación nativa del formulario.
+
+### 5. Publicación
+Se preparó el proyecto para el lanzamiento de Rueda Libre v1.0 mediante Git y GitHub. Se debe verificar la publicación final en GitHub Pages y comprobar que los cambios estén disponibles en el sitio.
+
+---
+
+# CIERRE DE SEMANA – CONSTRUCCIÓN DE RUEDA LIBRE
+
+Durante los doce MiniRetos se desarrolló progresivamente un sitio web informativo para un negocio de alquiler de bicicletas en Medellín.
+
+### Resumen de los MiniRetos
+
+**MiniRetos 1 al 4 – Estructura y contenido**
+- Creación del repositorio y estructura de carpetas.
+- Construcción de la página de inicio.
+- Incorporación de imágenes, listas
