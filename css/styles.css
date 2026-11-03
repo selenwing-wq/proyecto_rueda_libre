@@ -13,20 +13,29 @@
    ========================================================= */
 
 :root {
+    /* Colores de marca */
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
 
+    /* Tipografías */
     --fuente-titulos: "Montserrat", Arial, sans-serif;
     --fuente-textos: "Open Sans", Arial, sans-serif;
 
+    /* Tamaños de texto */
+    --texto-pequeno: 0.875rem;
+    --texto-normal: 1rem;
+    --texto-grande: 1.25rem;
+
+    /* Espaciados */
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
 
+    /* Otras medidas */
     --ancho-contenido: 70rem;
     --radio-borde: 0.75rem;
     --altura-acceso-whatsapp: 3.25rem;
@@ -75,9 +84,6 @@ h6 {
     color: var(--azul-noche);
 }
 
-p {
-    font-family: var(--fuente-textos);
-}
 
 img,
 picture,
@@ -139,12 +145,12 @@ header h1 {
 
 .texto-marca h1 {
     margin: 0 0 0.35rem;
-    font-size: 1.45rem;
+    font-size: var(--texto-grande);
 }
 
 .texto-marca p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: var(--texto-pequeno);
 }
 
 .enlace-logo {

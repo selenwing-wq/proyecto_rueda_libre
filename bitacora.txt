@@ -2632,3 +2632,21 @@ Se mantiene la identidad visual de Rueda Libre y se reduce la duplicación de c�
 
 **Estado del reto:** migración de HTML y actualización de CSS realizadas. Pendiente completar las pruebas finales, la comparativa de versiones y la publicación o actualización de GitHub Pages.
 
+============================================================
+# Reto 9 – Semana 2, Día 3
+## Variables CSS, Google Fonts y herencia
+============================================================
+
+**Objetivo:**
+Crear y conectar una hoja de estilos externa utilizando variables CSS, Google Fonts y propiedades heredadas para mantener la identidad visual de Rueda Libre en sus tres páginas.
+
+### Actividades realizadas
+
+1. Revisé y organicé las conexiones de estilos en los archivos `index.html`, `paginas/tarifas.html` y `paginas/reservas.html`.
+2. Eliminé las conexiones duplicadas de Google Fonts y de la hoja de estilos `styles.css`.
+3. Verifiqué que cada página tuviera correctamente configuradas las rutas relativas hacia la hoja de estilos externa.
+4. Configuré las fuentes de Google Fonts:
+   - Montserrat 700 para títulos.
+   - Open Sans 400 y 600 para textos.
+5. Organicé las variables CSS dentro de `:root`, incluyendo los cinco colores de marca, las familias tipográficas, los tamaños de texto en `rem` y las variables de espaciado.
+6. Configuré el elemento `body` para aplicar la tipografía, el color
