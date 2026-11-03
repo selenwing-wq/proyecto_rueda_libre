@@ -1991,11 +1991,10 @@ gestionar reservas reales y ampliar las funcionalidades.
 FIN DE LA BITÁCORA DE LA SEMANA
 ============================================================
 
+============================================================
 Semana 2 — Día 1 — Reto 1:
-
 BITÁCORA — MiniReto: Flexbox en encabezado, menú y pie de página
-Proyecto: Rueda Libre
-Fecha: 29/10/2026
+============================================================
 
 Objetivo
 Aplicar Flexbox para organizar el encabezado, los enlaces de navegación y el pie de página, manteniendo una presentación adaptable a diferentes tamaños de pantalla.
@@ -2034,12 +2033,11 @@ Flexbox permite distribuir elementos en una fila o columna y alinearlos con prop
 Nota
 El formulario sigue siendo una solicitud de reserva de demostración: action="#" no envía los datos a un servidor ni confirma una reserva real.
 
+============================================================
 Semana 2 — Día 1 — Reto 2:
-
 BITÁCORA — Reto: Nuestra flota con CSS Grid y Flexbox
-Proyecto: Rueda Libre
-Fecha: 30/10/2026
-Rama de trabajo: semana_2
+============================================================
+
 
 OBJETIVO
 Crear en la página de inicio una sección llamada “Nuestra flota” con siete tarjetas de bicicletas. La cuadrícula debe adaptarse automáticamente al ancho disponible y los enlaces “Reservar” deben quedar alineados al final de las tarjetas.
@@ -2111,8 +2109,10 @@ Se conservaron las fotografías que ya pertenecían al sitio y sus usos fuera de
 
 Las siete imágenes nuevas (urbana_clasica.jpg, urbana_plegable.jpg, montana_trail.jpg, gravel_aventura.jpg, electrica_urbana.jpg, infantil.jpg y tandem.jpg) se utilizan exclusivamente en las nuevas tarjetas de la sección “Nuestra flota”. Ninguna reemplaza las fotografías anteriores.
 
+============================================================
 BITÁCORA — RUEDA LIBRE
 Semana 2 — Día 1 — Reto 3: Layout general con Grid y Flexbox
+============================================================
 
 OBJETIVO
 Construir el layout de escritorio de inicio y reservas combinando Grid y
@@ -2331,4 +2331,43 @@ PRUEBAS EN DEVTOOLS
 - 1280 px: bien.
 - Network: correcta.
 
+============================================================
+SEMANA 2 - DÍA 2 - RETO 6: UTILIDADES DE BOOTSTRAP
+============================================================
+
+OBJETIVO
+Construir la sección de beneficios y una franja de llamada
+a la acción utilizando únicamente clases utilitarias Bootstrap 5.3.
+
+ARCHIVO MODIFICADO
+- pruebas/catalogo-bootstrap.html
+
+CAMBIOS REALIZADOS
+1. Se agregó la sección "¿Por qué Rueda Libre?" con cuatro beneficios.
+2. Se utilizó la grilla Bootstrap para distribuir los beneficios.
+3. Se aplicaron utilidades de espaciado, tipografía, color y alineación.
+4. Se agregó la franja "¿Listo para rodar?" con enlace a reservas.
+5. La franja cambia de columna a fila desde el breakpoint md.
+6. La imagen decorativa se oculta en móvil y aparece desde md.
+7. No se agregó CSS propio, etiquetas style ni atributos style.
+
+CINCO CLASES CONSULTADAS
+
+1. p-4: agrega espacio interno alrededor del contenido.
+2. text-center: centra el texto.
+3. fw-bold: aplica negrita.
+4. d-none d-md-block: oculta un elemento en móvil y lo muestra
+   como bloque desde md.
+5. flex-column flex-md-row: organiza elementos en columna
+   y cambia a fila desde md.
+
+CONCLUSIÓN
+Bootstrap permite construir secciones visualmente organizadas
+y adaptables a diferentes pantallas mediante clases utilitarias,
+sin necesidad de escribir reglas CSS propias para estos elementos.
+
+PRUEBAS PENDIENTES
+- Revisar la sección en móvil y escritorio con DevTools.
+- Confirmar que la imagen decorativa aparezca desde 768 px.
+- Confirmar que el enlace lleve correctamente al formulario de reservas.
 
